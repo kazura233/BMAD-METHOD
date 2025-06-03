@@ -1,93 +1,93 @@
-# Instructions
+# 说明
 
-- [Setting up Web Agent Orchestrator](#setting-up-web-agent-orchestrator)
-- [IDE Agent Setup and Usage](#ide-agent-setup-and-usage)
-- [Tasks Setup and Usage](#tasks)
+- [设置 Web Agent Orchestrator](#setting-up-web-agent-orchestrator)
+- [IDE Agent 设置和使用](#ide-agent-setup-and-usage)
+- [任务设置和使用](#tasks)
 
-## Setting up Web Agent Orchestrator
+## 设置 Web Agent Orchestrator
 
-The Agent Orchestrator in V3 utilizes a build script to package various agent assets (personas, tasks, templates, etc.) into a structured format, primarily for use with web-based orchestrator agents that can leverage large context windows. This process involves consolidating files from specified source directories into bundled text files and preparing a main agent prompt.
+V3 中的 Agent Orchestrator 利用构建脚本将各种 Agent 资产（角色、任务、模板等）打包成结构化格式，主要用于基于 Web 的 orchestrator agent，这些 agent 可以利用大型上下文窗口。这个过程涉及将指定源目录中的文件整合到捆绑的文本文件中，并准备主 agent 提示。
 
-### Overview
+### 概述
 
-The build process is managed by the `build-bmad-orchestrator.js` Node.js script. This script reads its configuration from `build-web-agent.cfg.js`, processes files from an asset directory, and outputs the bundled assets into a designated build directory.
+构建过程由 `build-bmad-orchestrator.js` Node.js 脚本管理。该脚本从 `build-web-agent.cfg.js` 读取其配置，处理资产目录中的文件，并将捆绑的资产输出到指定的构建目录。
 
-Quickstart: see [this below](#running-the-build-script)
+快速入门：参见[下文](#running-the-build-script)
 
-### Prerequisites
+### 先决条件
 
-- **Node.js**: Ensure you have Node.js installed to run the build script. Python version coming soon...
+- **Node.js**：确保安装了 Node.js 以运行构建脚本。Python 版本即将推出...
 
-### Configuration (`build-web-agent.cfg.js`)
+### 配置（`build-web-agent.cfg.js`）
 
-The build process is configured via `build-web-agent.cfg.js`. Key parameters include:
+构建过程通过 `build-web-agent.cfg.js` 进行配置。关键参数包括：
 
-- `orchestrator_agent_prompt`: Specifies the path to the main prompt file for the orchestrator agent, such as `bmad-agent/web-bmad-orchestrator-agent.md`. This file will be copied to `agent-prompt.txt` in the build directory.
-  - Example: `./bmad-agent/web-bmad-orchestrator-agent.md`
-- `asset_root`: Defines the root directory where your agent assets are stored. The script will look for subdirectories within this path.
-  - Example: `./bmad-agent/` meaning it will look for folders like `personas`, `tasks` inside `bmad-agent/`)
-- `build_dir`: Specifies the directory where the bundled output files and the `agent-prompt.txt` will be created.
-  - Example: `./bmad-agent/build/`
-- `agent_cfg`: Specifies the path to the md cfg file that defines the agents the Orchestrator can embody.
-  - Example: `./bmad-agent/web-bmad-orchestrator-agent.cfg.md`
+- `orchestrator_agent_prompt`：指定 orchestrator agent 的主提示文件路径，例如 `bmad-agent/web-bmad-orchestrator-agent.md`。该文件将被复制到构建目录中的 `agent-prompt.txt`。
+  - 示例：`./bmad-agent/web-bmad-orchestrator-agent.md`
+- `asset_root`：定义存储 agent 资产的根目录。脚本将在此路径内查找子目录。
+  - 示例：`./bmad-agent/` 意味着它将在 `bmad-agent/` 内查找 `personas`、`tasks` 等文件夹）
+- `build_dir`：指定创建捆绑输出文件和 `agent-prompt.txt` 的目录。
+  - 示例：`./bmad-agent/build/`
+- `agent_cfg`：指定定义 Orchestrator 可以体现的 agent 的 md cfg 文件路径。
+  - 示例：`./bmad-agent/web-bmad-orchestrator-agent.cfg.md`
 
-Paths in the configuration file (`build-web-agent.cfg.js`) are relative to the `bmad-agent` directory (where `build-web-agent.cfg.js` and the build script `build-bmad-orchestrator.js` are located).
+配置文件（`build-web-agent.cfg.js`）中的路径相对于 `bmad-agent` 目录（`build-web-agent.cfg.js` 和构建脚本 `build-bmad-orchestrator.js` 所在的位置）。
 
-### Asset Directory Structure
+### 资产目录结构
 
-The script expects a specific structure within the `asset_root` directory:
+脚本期望在 `asset_root` 目录中有特定的结构：
 
-1. **Subdirectories**: Create subdirectories directly under `asset_root` for each category of assets. Based on the `bmad-agent/` folder, these would be:
-    - `checklists/`
-    - `data/`
-    - `personas/`
-    - `tasks/`
-    - `templates/`
-2. **Asset Files**: Place your individual asset files (e.g., `.md`, `.txt`) within these subdirectories.
-    - For example, persona definition files would go into `asset_root/personas/`, task files into `asset_root/tasks/`, etc.
-3. **Filename Uniqueness**: Within each subdirectory, ensure that all files have unique base names (i.e., the filename without its final extension). For example, having `my-persona.md` and `my-persona.txt` in the _same_ subdirectory (e.g., `personas/`) will cause the script to halt with an error. However, `my-persona.md` and `another-persona.md` is fine.
+1. **子目录**：在 `asset_root` 下直接创建每个资产类别的子目录。基于 `bmad-agent/` 文件夹，这些将是：
+   - `checklists/`
+   - `data/`
+   - `personas/`
+   - `tasks/`
+   - `templates/`
+2. **资产文件**：将您的单个资产文件（例如 `.md`、`.txt`）放在这些子目录中。
+   - 例如，角色定义文件将放在 `asset_root/personas/` 中，任务文件放在 `asset_root/tasks/` 中等。
+3. **文件名唯一性**：在每个子目录中，确保所有文件都有唯一的基本名称（即没有最终扩展名的文件名）。例如，在同一个子目录（例如 `personas/`）中同时有 `my-persona.md` 和 `my-persona.txt` 将导致脚本停止并报错。但是，`my-persona.md` 和 `another-persona.md` 是可以的。
 
-### Running the Build Script
+### 运行构建脚本
 
-NOTE the build will skip any files with the `.ide.<extension>` - so you can have ide specific agents or files also that do not make sense for the web, such as `dev.ide.md` - or a specific ide `sm.ide.md`.
+注意：构建将跳过任何带有 `.ide.<extension>` 的文件 - 所以您可以有特定于 IDE 的 agent 或文件，这些对 Web 没有意义，比如 `dev.ide.md` - 或特定的 IDE `sm.ide.md`。
 
 1. ```cmd
-    node build-web-agent.js
-    ```
+   node build-web-agent.js
+   ```
 
-The script will log its progress, including discovered source directories, any issues found (like duplicate base filenames), and the output files being generated.
+脚本将记录其进度，包括发现的源目录、发现的任何问题（如重复的基本文件名）以及正在生成的输出文件。
 
-### Output
+### 输出
 
-After running the script, the `build_dir` (e.g., `bmad-agent/build/`) will contain:
+运行脚本后，`build_dir`（例如 `bmad-agent/build/`）将包含：
 
-1. **Bundled Asset Files**: For each subdirectory processed in `asset_root`, a corresponding `.txt` file will be created in `build_dir`. Each file concatenates the content of all files from its source subdirectory.
-    - Example: Files from `asset_root/personas/` will be bundled into `build_dir/personas.txt`.
-    - Each original file's content within the bundle is demarcated by `==================== START: [base_filename] ====================` and `==================== END: [base_filename] ====================`.
-2. **`agent-prompt.txt`**: This file is a copy of the bmad orchestrator prompt specified by `orchestrator_agent_prompt` in the configuration.
-3. **`agent-config.txt**: This is the key file so the orchestrator knows what agents and tasks are configured, and how to find the specific instructions and tasks for the agent in the compiled build assets
+1. **捆绑的资产文件**：对于在 `asset_root` 中处理的每个子目录，将在 `build_dir` 中创建相应的 `.txt` 文件。每个文件连接其源子目录中所有文件的内容。
+   - 示例：来自 `asset_root/personas/` 的文件将被捆绑到 `build_dir/personas.txt`。
+   - 捆绑中每个原始文件的内容由 `==================== START: [base_filename] ====================` 和 `==================== END: [base_filename] ====================` 分隔。
+2. **`agent-prompt.txt`**：此文件是指定在配置中的 bmad orchestrator 提示的副本。
+3. **`agent-config.txt`**：这是关键文件，因此 orchestrator 知道配置了哪些 agent 和任务，以及如何在编译的构建资产中找到 agent 的特定指令和任务
 
-These bundled files and the agent prompt are then ready to be used by the Agent Orchestrator.
+这些捆绑文件和 agent 提示然后就可以被 Agent Orchestrator 使用了。
 
-### Gemini Gem or GPT Setup
+### Gemini Gem 或 GPT 设置
 
-The text in agent-prompt.txt gets entered into the window of the main custom web agent instruction set. The other files in the build folder all need to be attached as files for the Gem or GPT.
+agent-prompt.txt 中的文本被输入到主自定义 Web agent 指令集的窗口中。构建文件夹中的其他文件都需要作为 Gem 或 GPT 的文件附加。
 
-### Orchestrator Agent Configuration (e.g., `bmad-agent/web-bmad-orchestrator-agent.cfg.md`)
+### Orchestrator Agent 配置（例如 `bmad-agent/web-bmad-orchestrator-agent.cfg.md`）
 
-While `build-bmad-orchestrator.js` packages assets, the Orchestrator's core behavior, agent definitions, and personality are defined in a Markdown configuration file. An example is `bmad-agent/web-bmad-orchestrator-agent.cfg.md` (path relative to `bmad-agent/`, specified in `build-web-agent.cfg.js` via `agent_cfg`). This file is key to the Orchestrator's adaptability.
+虽然 `build-bmad-orchestrator.js` 打包资产，但 Orchestrator 的核心行为、agent 定义和个性在 Markdown 配置文件中定义。例如 `bmad-agent/web-bmad-orchestrator-agent.cfg.md`（相对于 `bmad-agent/` 的路径，在 `build-web-agent.cfg.js` 中通过 `agent_cfg` 指定）。这个文件对 Orchestrator 的适应性至关重要。
 
-**Key Features and Configurability:**
+**关键特性和可配置性：**
 
-- **Agent Definitions**: The Markdown configuration file lists specialized agents. Each agent's definition typically starts with a level 2 Markdown heading for its `Title` (e.g., `## Title: Product Manager`). Attributes are then listed:
+- **Agent 定义**：Markdown 配置文件列出了专门的 agent。每个 agent 的定义通常以 `Title` 的二级 Markdown 标题开始（例如 `## Title: Product Manager`）。然后列出属性：
 
-  - `Name`: (e.g., `- Name: John`) - The agent's specific name.
-  - `Description`: (e.g., `- Description: "Details..."`) - A brief of the agent's purpose.
-  - `Persona`: (e.g., `- Persona: "personas#pm"`) - A reference (e.g., to `pm` section in `personas.txt`) defining core personality and instructions.
-  - `Customize`: (e.g., `- Customize: "Behavior details..."`) - For specific personality traits or overrides. This field's content takes precedence over the base `Persona` if conflicts arise, as detailed in `bmad-agent/web-bmad-orchestrator-agent.md`.
+  - `Name`：（例如 `- Name: John`）- agent 的特定名称。
+  - `Description`：（例如 `- Description: "Details..."`）- agent 目的的简要说明。
+  - `Persona`：（例如 `- Persona: "personas#pm"`）- 对定义核心个性和指令的引用（例如，指向 `personas.txt` 中的 `pm` 部分）。
+  - `Customize`：（例如 `- Customize: "Behavior details..."`）- 用于特定个性特征或覆盖。如果出现冲突，此字段的内容优先于基本 `Persona`，如 `bmad-agent/web-bmad-orchestrator-agent.md` 中详细说明。
 
-  `checklists`, `templates`, `data`, `tasks`: These keys introduce lists of resources the agent will have access to. Each item is a Markdown link under the respective key, for example:
-  For `checklists`:
+  `checklists`、`templates`、`data`、`tasks`：这些键引入了 agent 将有权访问的资源列表。每个项目都是相应键下的 Markdown 链接，例如：
+  对于 `checklists`：
 
   ```markdown
   - checklists:
@@ -95,137 +95,137 @@ While `build-bmad-orchestrator.js` packages assets, the Orchestrator's core beha
     - [Another Checklist](checklists#another-one)
   ```
 
-  For `tasks`:
+  对于 `tasks`：
 
   ```markdown
   - tasks:
     - [Create Prd](tasks#create-prd)
   ```
 
-  These references (e.g., `checklists#pm-checklist` or `tasks#create-prd`) point to sections in bundled asset files, providing the agent with its knowledge and tools. Note: `data` is used (not `data_sources`), and `tasks` is used (not `available_tasks` from older documentation styles).
+  这些引用（例如 `checklists#pm-checklist` 或 `tasks#create-prd`）指向捆绑资产文件中的部分，为 agent 提供其知识和工具。注意：使用 `data`（不是 `data_sources`），使用 `tasks`（不是旧文档样式中的 `available_tasks`）。
 
-  - `Operating Modes`: (e.g., `- Operating Modes:
+  - `Operating Modes`：（例如 `- Operating Modes:
   - "Mode1"
-  - "Mode2"`) - Defines operational modes/phases.
-  - `Interaction Modes`: (e.g., `- Interaction Modes:
+  - "Mode2"`）- 定义操作模式/阶段。
+  - `Interaction Modes`：（例如 `- Interaction Modes:
   - "Interactive"
-  - "YOLO"`) - Specifies interaction styles.
+  - "YOLO"`）- 指定交互样式。
 
-**How it Works (Conceptual Flow from `orchestrator-agent.md`):**
+**工作原理（来自 `orchestrator-agent.md` 的概念流程）：**
 
-1. The Orchestrator (initially BMad) loads and parses the Markdown agent configuration file (e.g., `web-bmad-orchestrator-agent.cfg.md`).
-2. When a user request matches an agent's `title`, `name`, `description`, or `classification_label`, the Orchestrator identifies the target agent.
-3. It then loads the agent's `persona` and any associated `templates`, `checklists`, `data_sources`, and `tasks` by:
-    - Identifying the correct bundled `.txt` file (e.g., `personas.txt` for `personas#pm`).
-    - Extracting the specific content block (e.g., the `pm` section from `personas.txt`).
-4. The `Customize` instructions from the Markdown configuration are applied, potentially modifying the agent's behavior.
-5. The Orchestrator then _becomes_ that agent, adopting its complete persona, knowledge, and operational parameters defined in the Markdown configuration and the loaded asset sections.
+1. Orchestrator（最初是 BMad）加载并解析 Markdown agent 配置文件（例如 `web-bmad-orchestrator-agent.cfg.md`）。
+2. 当用户请求匹配 agent 的 `title`、`name`、`description` 或 `classification_label` 时，Orchestrator 识别目标 agent。
+3. 然后它通过以下方式加载 agent 的 `persona` 和任何相关的 `templates`、`checklists`、`data_sources` 和 `tasks`：
+   - 识别正确的捆绑 `.txt` 文件（例如，对于 `personas#pm` 是 `personas.txt`）。
+   - 提取特定内容块（例如，从 `personas.txt` 中的 `pm` 部分）。
+4. 应用来自 Markdown 配置的 `Customize` 指令，可能会修改 agent 的行为。
+5. Orchestrator 然后成为该 agent，采用其在 Markdown 配置和加载的资产部分中定义的完整角色、知识和操作参数。
 
-This system makes the Agent Orchestrator highly adaptable. You can easily define new agents, modify existing ones, tweak personalities with the `Customize` field (in the Markdown agent configuration file like `web-bmad-orchestrator-agent.cfg.md`), or change their knowledge base, main prompt, and asset paths (in `build-web-agent.cfg.js` and the corresponding asset files), then re-running the build script if asset content was changed.
+这个系统使 Agent Orchestrator 具有高度适应性。您可以轻松定义新的 agent，修改现有的 agent，使用 `Customize` 字段调整个性（在 Markdown agent 配置文件如 `web-bmad-orchestrator-agent.cfg.md` 中），或更改其知识库、主提示和资产路径（在 `build-web-agent.cfg.js` 和相应的资产文件中），然后如果资产内容发生变化，重新运行构建脚本。
 
-## IDE Agent Setup and Usage
+## IDE Agent 设置和使用
 
-The IDE Agents in V3 are designed for optimal performance within IDE environments like Windsurf and Cursor, with a focus on smaller agent sizes and efficient context management.
+V3 中的 IDE Agent 专为 Windsurf 和 Cursor 等 IDE 环境中的最佳性能而设计，重点关注较小的 agent 大小和高效的上下文管理。
 
-### Standalone IDE Agents
+### 独立 IDE Agent
 
-You can use specialized standalone IDE agents, such as the `sm.ide.md` (Scrum Master) and `dev.ide.md` (Developer), for specific roles like story generation or development tasks. These, or any general IDE agent, can also directly reference and execute tasks by providing the agent with the task definition from your `docs/tasks/` folder.
+您可以使用专门的独立 IDE agent，如 `sm.ide.md`（Scrum Master）和 `dev.ide.md`（Developer），用于特定角色，如故事生成或开发任务。这些或任何通用 IDE agent 也可以通过从您的 `docs/tasks/` 文件夹提供任务定义来直接引用和执行任务。
 
-### IDE Agent Orchestrator (`ide-bmad-orchestrator.md`)
+### IDE Agent Orchestrator（`ide-bmad-orchestrator.md`）
 
-A powerful alternative is the `ide-bmad-orchestrator.md`. This agent provides the flexibility of the web orchestrator—allowing a single IDE agent to embody multiple personas—but **without requiring any build step.** It dynamically loads its configuration and all associated resources.
+一个强大的替代方案是 `ide-bmad-orchestrator.md`。这个 agent 提供了 Web orchestrator 的灵活性 - 允许单个 IDE agent 体现多个角色 - 但**不需要任何构建步骤。**它动态加载其配置和所有相关资源。
 
-#### How the IDE Orchestrator Works
+#### IDE Orchestrator 如何工作
 
-1. **Configuration (`ide-bmad-orchestrator.cfg.md`):**
-    The orchestrator's behavior is primarily driven by a Markdown configuration file (e.g., `bmad-agent/ide-bmad-orchestrator.cfg.md`, the path to which is specified within the `ide-bmad-orchestrator.md` itself). This config file has two main parts:
+1. **配置（`ide-bmad-orchestrator.cfg.md`）：**
+   orchestrator 的行为主要由 Markdown 配置文件驱动（例如 `bmad-agent/ide-bmad-orchestrator.cfg.md`，其路径在 `ide-bmad-orchestrator.md` 本身中指定）。这个配置文件有两个主要部分：
 
-    - **Data Resolution:**
-      Located at the top of the config file, this section defines key-value pairs for base paths. These paths tell the orchestrator where to find different types of asset files (personas, tasks, checklists, templates, data).
+   - **数据解析：**
+     位于配置文件顶部，此部分定义了基本路径的键值对。这些路径告诉 orchestrator 在哪里找到不同类型的资产文件（角色、任务、清单、模板、数据）。
 
-      ```markdown
-      # Configuration for IDE Agents
+     ```markdown
+     # IDE Agent 配置
 
-      ## Data Resolution
+     ## 数据解析
 
-      agent-root: (project-root)/bmad-agent
-      checklists: (agent-root)/checklists
-      data: (agent-root)/data
-      personas: (agent-root)/personas
-      tasks: (agent-root)/tasks
-      templates: (agent-root)/templates
+     agent-root: (project-root)/bmad-agent
+     checklists: (agent-root)/checklists
+     data: (agent-root)/data
+     personas: (agent-root)/personas
+     tasks: (agent-root)/tasks
+     templates: (agent-root)/templates
 
-      NOTE: All Persona references and task markdown style links assume these data resolution paths unless a specific path is given.
-      Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks`, then below [Create PRD](create-prd.md) would resolve to `root/foo/tasks/create-prd.md`
-      ```
+     注意：所有角色引用和任务 markdown 样式链接都假设这些数据解析路径，除非给出特定路径。
+     示例：如果上面的配置有 `agent-root: root/foo/` 和 `tasks: (agent-root)/tasks`，那么下面的 [Create PRD](create-prd.md) 将解析为 `root/foo/tasks/create-prd.md`
+     ```
 
-      The `(project-root)` placeholder is typically interpreted as the root of your current workspace.
+     `(project-root)` 占位符通常被解释为当前工作区的根目录。
 
-    - **Agent Definitions:**
-      Following the `Data Resolution` section, the file lists definitions for each specialized agent the orchestrator can become. Each agent is typically introduced with a `## Title:` Markdown heading.
-      Key attributes for each agent include:
+   - **Agent 定义：**
+     在 `数据解析` 部分之后，文件列出了 orchestrator 可以成为的每个专门 agent 的定义。每个 agent 通常以 `## Title:` Markdown 标题引入。
+     每个 agent 的关键属性包括：
 
-      - `Name`: The specific name of the agent (e.g., `- Name: Larry`).
-      - `Customize`: A string providing specific personality traits or behavioral overrides for the agent (e.g., `- Customize: "You are a bit of a know-it-all..."`).
-      - `Description`: A brief summary of the agent's role and capabilities.
-      - `Persona`: The filename of the Markdown file containing the agent's core persona definition (e.g., `- Persona: "analyst.md"`). This file is located using the `personas:` path from the `Data Resolution` section.
-      - `Tasks`: A list of tasks the agent can perform. Each task is a Markdown link:
+     - `Name`：agent 的特定名称（例如 `- Name: Larry`）。
+     - `Customize`：为 agent 提供特定个性特征或行为覆盖的字符串（例如 `- Customize: "You are a bit of a know-it-all..."`）。
+     - `Description`：agent 角色和能力的简要总结。
+     - `Persona`：包含 agent 核心角色定义的 Markdown 文件的文件名（例如 `- Persona: "analyst.md"`）。使用 `数据解析` 部分中的 `personas:` 路径定位此文件。
+     - `Tasks`：agent 可以执行的任务列表。每个任务都是一个 Markdown 链接：
 
-        - The link text is the user-friendly task name (e.g., `[Create PRD]`).
-        - The link target is either a Markdown filename for an external task definition (e.g., `(create-prd.md)`), resolved using the `tasks:` path, or a special string like `(In Analyst Memory Already)` indicating the task logic is part of the persona's main definition.
-          Example:
+       - 链接文本是用户友好的任务名称（例如 `[Create PRD]`）。
+       - 链接目标是外部任务定义的 Markdown 文件名（例如 `(create-prd.md)`），使用 `tasks:` 路径解析，或特殊字符串如 `(In Analyst Memory Already)` 表示任务逻辑是角色主定义的一部分。
+         示例：
 
-        ```markdown
-        ## Title: Product Owner AKA PO
+       ```markdown
+       ## Title: Product Owner AKA PO
 
-        - Name: Curly
-        - Persona: "po.md"
-        - Tasks:
-          - [Create PRD](create-prd.md)
-          - [Create Next Story](create-next-story-task.md)
-        ```
+       - Name: Curly
+       - Persona: "po.md"
+       - Tasks:
+         - [Create PRD](create-prd.md)
+         - [Create Next Story](create-next-story-task.md)
+       ```
 
-2. **Operational Workflow (inside `ide-bmad-orchestrator.md`):**
-    - **Initialization:** Upon activation in your IDE, the `ide-bmad-orchestrator.md` first loads and parses its specified configuration file (`ide-bmad-orchestrator.cfg.md`). If this fails, it will inform you and halt.
-    - **Greeting & Persona Listing:** It will greet you. If your initial instruction isn't clear or if you ask, it will list the available specialist personas (by `Title`, `Name`, and `Description`) and the `Tasks` each can perform, all derived from the loaded configuration.
-    - **Persona Activation:** When you request a specific persona (e.g., "Become the Analyst" or "I need Larry to help with research"), the orchestrator:
-      - Finds the persona in its configuration.
-      - Loads the corresponding persona file (e.g., `analyst.md`).
-      - Applies any `Customize:` instructions.
-      - Announces the activation (e.g., "Activating Analyst (Larry)...").
-      - **The orchestrator then fully embodies the chosen agent.** Its original orchestrator persona becomes dormant.
-    - **Task Execution:** Once a persona is active, it will try to match your request to one of its configured `Tasks`.
-      - If the task references an external file (e.g., `create-prd.md`), that file is loaded and its instructions are followed. The active persona will use the `Data Resolution` paths from the main config to find any dependent files like templates or checklists mentioned in the task file.
-      - If a task is marked as "In Memory" (or similar), the active persona executes it based on its internal definition.
-    - **Context and Persona Switching:** The orchestrator embodies only one persona at a time. If you ask to switch to a different persona while one is active, it will typically advise starting a new chat session to maintain clear context. However, it allows an explicit "override safety protocol" command if you insist on switching personas within the same chat. This terminates the current persona and re-initializes with the new one.
+2. **操作工作流（在 `ide-bmad-orchestrator.md` 内）：**
+   - **初始化：** 在您的 IDE 中激活时，`ide-bmad-orchestrator.md` 首先加载并解析其指定的配置文件（`ide-bmad-orchestrator.cfg.md`）。如果失败，它将通知您并停止。
+   - **问候和角色列表：** 它将问候您。如果您的初始指令不明确或如果您询问，它将列出可用的专业角色（按 `Title`、`Name` 和 `Description`）和每个可以执行的 `Tasks`，所有这些都来自加载的配置。
+   - **角色激活：** 当您请求特定角色时（例如"成为分析师"或"我需要 Larry 帮助研究"），orchestrator：
+     - 在其配置中找到角色。
+     - 加载相应的角色文件（例如 `analyst.md`）。
+     - 应用任何 `Customize:` 指令。
+     - 宣布激活（例如"激活分析师（Larry）..."）。
+     - **orchestrator 然后完全体现所选的 agent。** 其原始 orchestrator 角色变为休眠状态。
+   - **任务执行：** 一旦角色激活，它将尝试将您的请求与其配置的 `Tasks` 之一匹配。
+     - 如果任务引用外部文件（例如 `create-prd.md`），则加载该文件并遵循其指令。活动角色将使用主配置中的 `数据解析` 路径来查找任务文件中提到的任何依赖文件，如模板或清单。
+     - 如果任务标记为"在内存中"（或类似），活动角色基于其内部定义执行它。
+   - **上下文和角色切换：** orchestrator 一次只体现一个角色。如果您在角色激活时要求切换到不同的角色，它通常会建议开始新的聊天会话以保持清晰的上下文。但是，如果您坚持在同一聊天中切换角色，它允许显式的"覆盖安全协议"命令。这会终止当前角色并使用新角色重新初始化。
 
-#### Usage Instructions for IDE Orchestrator
+#### IDE Orchestrator 使用说明
 
-1. **Set up your configuration (`ide-bmad-orchestrator.cfg.md`):**
-    - Ensure you have an `ide-bmad-orchestrator.cfg.md` file. You can use the one located in `bmad-agent/` as a template or starting point.
-    - Verify that the `Data Resolution` paths at the top correctly point to your asset folders (personas, tasks, templates, checklists, data) relative to your project structure.
-    - Define your desired agents with their `Title`, `Name`, `Customize` instructions, `Persona` file, and `Tasks`. Ensure the referenced persona and task files exist in the locations specified by your `Data Resolution` paths.
-2. **Set up your persona and task files:**
-    - Create the Markdown files for each persona (e.g., `analyst.md`, `po.md`) in your `personas` directory.
-    - Create the Markdown files for each task (e.g., `create-prd.md`) in your `tasks` directory.
-3. **Activate the Orchestrator:**
-    - In your IDE (e.g., Cursor), select the `ide-bmad-orchestrator.md` file/agent as your active AI assistant.
-4. **Interact with the Orchestrator:**
-    - **Initial Interaction:**
-      - The orchestrator will greet you and confirm it has loaded its configuration.
-      - You can ask: "What agents are available?" or "List personas and tasks."
-    - **Activating a Persona:**
-      - Tell the orchestrator which persona you want: "I want to work with the Product Owner," or "Activate Curly," or "Become the PO."
-    - **Performing a Task:**
-      - Once a persona is active, state the task: "Create a PRD," or if the persona is "Curly" (the PO), you might say "Curly, create the next story."
-      - You can also combine persona activation and task request: "Curly, I need you to create a PRD."
-    - **Switching Personas:**
-      - If you need to switch: "I need to talk to the Architect now."
-      - The orchestrator will advise a new chat. If you want to switch in the current chat, you'll need to give an explicit override command when prompted (e.g., "Override safety protocol and switch to Architect").
-    - **Follow Persona Instructions:** Once a persona is active, it will guide you based on its definition and the task it's performing. Remember that resource files like templates or checklists referenced by a task will be resolved using the global `Data Resolution` paths in the `ide-bmad-orchestrator.cfg.md`.
+1. **设置您的配置（`ide-bmad-orchestrator.cfg.md`）：**
+   - 确保您有 `ide-bmad-orchestrator.cfg.md` 文件。您可以使用位于 `bmad-agent/` 中的文件作为模板或起点。
+   - 验证顶部的 `数据解析` 路径正确指向您的资产文件夹（角色、任务、模板、清单、数据）相对于您的项目结构。
+   - 定义您想要的 agent，包括其 `Title`、`Name`、`Customize` 指令、`Persona` 文件和 `Tasks`。确保引用的角色和任务文件存在于您的 `数据解析` 路径指定的位置。
+2. **设置您的角色和任务文件：**
+   - 在您的 `personas` 目录中为每个角色创建 Markdown 文件（例如 `analyst.md`、`po.md`）。
+   - 在您的 `tasks` 目录中为每个任务创建 Markdown 文件（例如 `create-prd.md`）。
+3. **激活 Orchestrator：**
+   - 在您的 IDE（例如 Cursor）中，选择 `ide-bmad-orchestrator.md` 文件/agent 作为您的活动 AI 助手。
+4. **与 Orchestrator 交互：**
+   - **初始交互：**
+     - orchestrator 将问候您并确认它已加载其配置。
+     - 您可以询问："有哪些可用的 agent？"或"列出角色和任务。"
+   - **激活角色：**
+     - 告诉 orchestrator 您想要哪个角色："我想与产品负责人合作，"或"激活 Curly，"或"成为 PO。"
+   - **执行任务：**
+     - 一旦角色激活，说明任务："创建 PRD，"或者如果角色是"Curly"（PO），您可能会说"Curly，创建下一个故事。"
+     - 您也可以组合角色激活和任务请求："Curly，我需要您创建 PRD。"
+   - **切换角色：**
+     - 如果您需要切换："我现在需要与架构师交谈。"
+     - orchestrator 将建议新的聊天。如果您想在当前聊天中切换，当提示时，您需要给出显式的覆盖命令（例如"覆盖安全协议并切换到架构师"）。
+   - **遵循角色指令：** 一旦角色激活，它将基于其定义和正在执行的任务指导您。记住，任务引用的资源文件（如模板或清单）将使用 `ide-bmad-orchestrator.cfg.md` 中的全局 `数据解析` 路径解析。
 
-This setup allows for a highly flexible and dynamically configured multi-persona agent directly within your IDE, streamlining various development and project management workflows.
+这种设置允许在您的 IDE 中直接使用高度灵活和动态配置的多角色 agent，简化各种开发和项目管理工作流。
 
-## Tasks
+## 任务
 
-The Tasks can be copied into your project docs/tasks folder, along with the checklists and templates. The tasks are meant to reduce the amount of 1 off IDE agents - you can just drop a task into chat with any agent and it will perform the 1 off task. There will be full workflow + task coming post V3 that will expand on this - but tasks and workflows are a powerful concept that will allow us to build in a lot of capabilities for our agents, without having to bloat their overall programming and context in the IDE - especially useful for tasks that are not used frequently - similar to seldom used ide rules files.
+任务可以复制到您的项目 docs/tasks 文件夹中，以及清单和模板。任务的目的是减少一次性 IDE agent 的数量 - 您只需将任务放入任何 agent 的聊天中，它就会执行一次性任务。V3 之后将推出完整的工作流 + 任务，这将扩展这一点 - 但任务和工作流是一个强大的概念，它将允许我们为我们的 agent 构建大量功能，而不必膨胀它们在 IDE 中的整体编程和上下文 - 特别是对于不经常使用的任务 - 类似于很少使用的 ide 规则文件。

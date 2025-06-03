@@ -1,64 +1,64 @@
 ```mermaid
 flowchart TD
-    %% Phase 0: BA
-    subgraph BA["Phase 0: Business Analyst"]
-        BA_B["Mode 1: Brainstorming"]
-        BA_R["Mode 2: Deep Research"]
-        BA_P["Mode 3: Project Briefing"]
+    %% 阶段 0: 业务分析师
+    subgraph BA["阶段 0: 业务分析师"]
+        BA_B["模式 1: 头脑风暴"]
+        BA_R["模式 2: 深入研究"]
+        BA_P["模式 3: 项目简报"]
 
         BA_B --> BA_P
         BA_R --> BA_P
     end
 
-    %% Phase 1: PM
-    subgraph PM["Phase 1: Product Manager"]
-        PM_D["Mode 2: Deep Research"]
-        PM_M["Mode 1: Initial Product Def."]
-        PM_C["PM Checklist Verification"]
-        PM_PRD["PRD Complete"]
+    %% 阶段 1: 产品经理
+    subgraph PM["阶段 1: 产品经理"]
+        PM_D["模式 2: 深入研究"]
+        PM_M["模式 1: 初始产品定义"]
+        PM_C["PM 清单验证"]
+        PM_PRD["PRD 完成"]
 
         PM_D --> PM_M
         PM_M --> PM_C
         PM_C --> PM_PRD
     end
 
-    %% Phase 2: Architect
-    subgraph ARCH["Phase 2: Architect"]
-        ARCH_P["Architecture Package Creation"]
-        ARCH_C["Architect Checklist Verification"]
-        ARCH_D["PRD+Architecture and Artifacts"]
+    %% 阶段 2: 架构师
+    subgraph ARCH["阶段 2: 架构师"]
+        ARCH_P["架构包创建"]
+        ARCH_C["架构师清单验证"]
+        ARCH_D["PRD+架构和制品"]
 
         ARCH_P --> ARCH_C
         ARCH_C --> ARCH_D
     end
 
-    %% Phase 3: PO
-    subgraph PO["Phase 3: Product Owner"]
-        PO_C["PO Checklist Verification"]
-        PO_A["Approval"]
+    %% 阶段 3: 产品负责人
+    subgraph PO["阶段 3: 产品负责人"]
+        PO_C["PO 清单验证"]
+        PO_A["审批"]
     end
 
-    %% Phase 4: SM
-    subgraph SM["Phase 4: Scrum Master"]
-        SM_S["Draft Next Story"]
-        SM_A["User Story Approval"]
+    %% 阶段 4: Scrum Master
+    subgraph SM["阶段 4: Scrum Master"]
+        SM_S["起草下一个故事"]
+        SM_A["用户故事审批"]
     end
 
-    %% Phase 5: Developer
-    subgraph DEV["Phase 5: Developer"]
-        DEV_I["Implement Story"]
-        DEV_T["Test"]
-        DEV_D["Deploy"]
-        DEV_A["User Approval"]
+    %% 阶段 5: 开发者
+    subgraph DEV["阶段 5: 开发者"]
+        DEV_I["实现故事"]
+        DEV_T["测试"]
+        DEV_D["部署"]
+        DEV_A["用户审批"]
 
         DEV_I --> DEV_T
         DEV_T --> DEV_D
         DEV_D --> DEV_A
     end
 
-    %% Connections between phases
+    %% 阶段之间的连接
     BA_P --> PM_M
-    User_Input[/"User Direct Input"/] --> PM_M
+    User_Input[/"用户直接输入"/] --> PM_M
     PM_PRD --> ARCH_P
     ARCH_D --> PO_C
     PO_C --> PO_A
@@ -67,10 +67,10 @@ flowchart TD
     SM_A --> DEV_I
     DEV_A --> SM_S
 
-    %% Completion condition
-    DEV_A -- "All stories complete" --> DONE["Project Complete"]
+    %% 完成条件
+    DEV_A -- "所有故事完成" --> DONE["项目完成"]
 
-    %% Styling
+    %% 样式
     classDef phase fill:#1a73e8,stroke:#0d47a1,stroke-width:2px,color:white,font-size:14px
     classDef artifact fill:#43a047,stroke:#1b5e20,stroke-width:1px,color:white,font-size:14px
     classDef process fill:#ff9800,stroke:#e65100,stroke-width:1px,color:white,font-size:14px

@@ -1,123 +1,123 @@
-# IDE Instructions for Agent Configuration
+# IDE Agent 配置说明
 
-The Uber Orchestrating BMad Agent is mainly recommended for use in Gemini Web, especially for working on the brief, PRD, high level Epics, Stories, Web Deign and Prompt Output. BUT - Everything can also be done in the IDE if desired, see the BMad Agent setup section below.
+Uber Orchestrating BMad Agent 主要推荐在 Gemini Web 中使用，特别是用于处理简报、PRD、高级史诗、故事、Web 设计和提示输出。但是 - 如果需要，所有内容也可以在 IDE 中完成，请参见下面的 BMad Agent 设置部分。
 
-## Single Agent
+## 单个 Agent
 
-Create a custom mode following the docs, and paste in any of the agents that end with .ide.md from the personas folder.
+按照文档创建自定义模式，并从 personas 文件夹中粘贴任何以 .ide.md 结尾的 agent。
 
-## Tasks
+## 任务
 
-As cursor currently limits the total number of allowed custom modes - you can utilize tasks to handle 1 off actions you might want an agent to perform. Just drag the task into any agent chat window and ask the agent to complete the task.
+由于 cursor 目前限制了允许的自定义模式总数 - 您可以使用任务来处理您可能希望 agent 执行的一次性操作。只需将任务拖到任何 agent 聊天窗口中，并要求 agent 完成任务。
 
 ## BMad Agent
 
-The BMad Agent requires the full bmad agent folder to be at the root of your project. Set up of the orchestrator simply requires copy of the markdown content of ide-bmad-orchestrator.md the same way you would do the Single Agent.
+BMad Agent 需要完整的 bmad agent 文件夹位于项目根目录。设置 orchestrator 只需要以与单个 Agent 相同的方式复制 ide-bmad-orchestrator.md 的 markdown 内容。
 
-## Setting Up Custom Modes in Cursor
+## 在 Cursor 中设置自定义模式
 
-To use custom agent modes - review the docs here: https://docs.cursor.com/chat/custom-modes.
+要使用自定义 agent 模式 - 请查看此处的文档：https://docs.cursor.com/chat/custom-modes。
 
-- Specifically you will need to enable Custom Modes in: Settings → Features → Chat → Custom modes
-- Custom Agents can be created and configured with specific tools, models, and custom prompts
-- Cursor allows creating custom agents through a GUI interface
+- 具体来说，您需要在以下位置启用自定义模式：设置 → 功能 → 聊天 → 自定义模式
+- 可以通过 GUI 界面创建和配置具有特定工具、模型和自定义提示的自定义 Agent
+- Cursor 允许通过 GUI 界面创建自定义 Agent
 
-NOTE from Cursor: "We’re considering adding a .cursor/modes.json file to your project to make it easier to create and share custom modes."
+来自 Cursor 的注意："我们正在考虑添加 .cursor/modes.json 文件到您的项目中，以使创建和共享自定义模式更容易。"
 
 ## Windsurf
 
-### Setting Up Custom Modes in Windsurf
+### 在 Windsurf 中设置自定义模式
 
-1. **Access Agent Configuration**:
+1. **访问 Agent 配置**：
 
-   - Click on "Windsurf - Settings" button on the bottom right
-   - Access Advanced Settings via the button in the settings panel or from the top right profile dropdown
+   - 点击右下角的"Windsurf - 设置"按钮
+   - 通过设置面板中的按钮或右上角个人资料下拉菜单访问高级设置
 
-2. **Configuring Custom Rules**:
+2. **配置自定义规则**：
 
-   - Define custom AI rules for Cascade (Windsurf's agentic chatbot)
-   - Specify that agents should respond in certain ways, use particular frameworks, or follow specific APIs
+   - 为 Cascade（Windsurf 的 agentic 聊天机器人）定义自定义 AI 规则
+   - 指定 agent 应该以某些方式响应，使用特定框架，或遵循特定 API
 
-3. **Using Flows**:
+3. **使用流程**：
 
-   - Flows combine Agents and Copilots for a comprehensive workflow
-   - The Windsurf Editor is designed for AI agents that can tackle complex tasks independently
-   - Use Model Context Protocol (MCP) to extend agent capabilities
+   - 流程将 Agent 和 Copilot 组合在一起，形成全面的工作流
+   - Windsurf 编辑器专为可以独立处理复杂任务的 AI agent 设计
+   - 使用模型上下文协议（MCP）扩展 agent 功能
 
-4. **BMAD Method Implementation**:
-   - Create custom agents for each role in the BMAD workflow
-   - Configure each agent with appropriate permissions and capabilities
-   - Utilize Windsurf's agentic features to maintain workflow continuity
+4. **BMAD 方法实现**：
+   - 为 BMAD 工作流中的每个角色创建自定义 agent
+   - 为每个 agent 配置适当的权限和能力
+   - 利用 Windsurf 的 agentic 功能保持工作流连续性
 
 ## RooCode
 
-### Setting Up Custom Agents in RooCode
+### 在 RooCode 中设置自定义 Agent
 
-1. **Custom Modes Configuration**:
+1. **自定义模式配置**：
 
-   - Create tailored AI behaviors through configuration files
-   - Each custom mode can have specific prompts, file restrictions, and auto-approval settings
+   - 通过配置文件创建定制的 AI 行为
+   - 每个自定义模式可以有特定的提示、文件限制和自动批准设置
 
-2. **Creating BMAD Method Agents**:
+2. **创建 BMAD 方法 Agent**：
 
-   - Create distinct modes for each BMAD role (Analyst, PM, Architect, Design Architect, PO, SM, Dev, etc...)
-   - Customize each mode with tailored prompts specific to their role
-   - Configure file restrictions appropriate to each role (e.g., Architect and PM modes may edit markdown files)
-   - Set up direct mode switching so agents can request to switch to other modes when needed
+   - 为每个 BMAD 角色（分析师、PM、架构师、设计架构师、PO、SM、Dev 等）创建不同的模式
+   - 为每个模式定制特定于其角色的提示
+   - 为每个角色配置适当的文件限制（例如，架构师和 PM 模式可能编辑 markdown 文件）
+   - 设置直接模式切换，以便 agent 在需要时可以请求切换到其他模式
 
-3. **Model Configuration**:
+3. **模型配置**：
 
-   - Configure different models per mode (e.g., advanced model for architecture vs. cheaper model for daily coding tasks)
-   - RooCode supports multiple API providers including OpenRouter, Anthropic, OpenAI, Google Gemini, AWS Bedrock, Azure, and local models
+   - 为每个模式配置不同的模型（例如，架构使用高级模型，日常编码任务使用更便宜的模型）
+   - RooCode 支持多个 API 提供商，包括 OpenRouter、Anthropic、OpenAI、Google Gemini、AWS Bedrock、Azure 和本地模型
 
-4. **Usage Tracking**:
-   - Monitor token and cost usage for each session
-   - Optimize model selection based on the complexity of tasks
+4. **使用跟踪**：
+   - 监控每个会话的令牌和成本使用情况
+   - 根据任务复杂性优化模型选择
 
 ## Cline
 
-### Setting Up Custom Agents in Cline
+### 在 Cline 中设置自定义 Agent
 
-1. **Custom Instructions**:
+1. **自定义指令**：
 
-   - Access via Cline > Settings > Custom Instructions
-   - Provide behavioral guidelines for your agents
+   - 通过 Cline > 设置 > 自定义指令访问
+   - 为您的 agent 提供行为指南
 
-2. **Custom Tools Integration**:
+2. **自定义工具集成**：
 
-   - Cline can extend capabilities through the Model Context Protocol (MCP)
-   - Ask Cline to "add a tool" and it will create a new MCP server tailored to your specific workflow
-   - Custom tools are saved locally at ~/Documents/Cline/MCP, making them easy to share with your team
+   - Cline 可以通过模型上下文协议（MCP）扩展功能
+   - 要求 Cline"添加工具"，它将创建一个针对您特定工作流的新 MCP 服务器
+   - 自定义工具保存在 ~/Documents/Cline/MCP 本地，便于与团队共享
 
-3. **BMAD Method Implementation**:
+3. **BMAD 方法实现**：
 
-   - Create custom tools for each role in the BMAD workflow
-   - Configure behavioral guidelines specific to each role
-   - Utilize Cline's autonomous abilities to handle the entire workflow
+   - 为 BMAD 工作流中的每个角色创建自定义工具
+   - 配置特定于每个角色的行为指南
+   - 利用 Cline 的自主能力处理整个工作流
 
-4. **Model Selection**:
-   - Configure Cline to use different models based on the role and task complexity
+4. **模型选择**：
+   - 根据角色和任务复杂性配置 Cline 使用不同的模型
 
 ## GitHub Copilot
 
-### Custom Agent Configuration (Coming Soon)
+### 自定义 Agent 配置（即将推出）
 
 https://github.com/microsoft/vscode-copilot-release/issues/9452
 
-GitHub Copilot is currently developing its Copilot Extensions system, which will allow for custom agent/mode creation:
+GitHub Copilot 目前正在开发其 Copilot Extensions 系统，这将允许创建自定义 agent/模式：
 
-1. **Copilot Extensions**:
+1. **Copilot Extensions**：
 
-   - Combines a GitHub App with a Copilot agent to create custom functionality
-   - Allows developers to build and integrate custom features directly into Copilot Chat
+   - 将 GitHub App 与 Copilot agent 结合，创建自定义功能
+   - 允许开发人员构建自定义功能并直接集成到 Copilot Chat 中
 
-2. **Building Custom Agents**:
+2. **构建自定义 Agent**：
 
-   - Requires creating a GitHub App and integrating it with a Copilot agent
-   - Custom agents can be deployed to a server reachable by HTTP request
+   - 需要创建 GitHub App 并将其与 Copilot agent 集成
+   - 自定义 agent 可以部署到可通过 HTTP 请求访问的服务器
 
-3. **Custom Instructions**:
-   - Currently supports basic custom instructions for guiding general behavior
-   - Full agent customization support is under development
+3. **自定义指令**：
+   - 目前支持用于指导一般行为的基本自定义指令
+   - 完整的 agent 自定义支持正在开发中
 
-_Note: Full custom mode configuration in GitHub Copilot is still in development. Check GitHub's documentation for the latest updates._
+_注意：GitHub Copilot 中的完整自定义模式配置仍在开发中。查看 GitHub 的文档以获取最新更新。_

@@ -1,24 +1,24 @@
-# The BMAD-Method 3.1 (Breakthrough Method of Agile (ai-driven) Development)
+# BMAD-Method 3.1 (突破性敏捷（AI 驱动）开发方法)
 
-## Do This First, and all will make sense!
+## 首先这样做，一切都会变得清晰！
 
-There are lots of docs here, but I HIGHLY suggest you just try the Web Agent - it takes just a few minutes to set up in Gemini - and you can use the BMad Agent to explain how this method works, how to set up in the IDE, how to set up in the Web, what should be done in the web or ide (although you can choose your own path also!) - all just by talking to the bmad agent!
+这里有很多文档，但我强烈建议您先尝试使用 Web Agent - 在 Gemini 中设置只需要几分钟 - 您可以使用 BMad Agent 来解释这个方法是如何工作的，如何在 IDE 中设置，如何在 Web 中设置，以及应该在 Web 或 IDE 中做什么（当然您也可以选择自己的路径！）- 所有这些都可以通过与 bmad agent 对话来完成！
 
-### Web Quickstart Project Setup (Recommended)
+### Web 快速启动项目设置（推荐）
 
-Orchestrator Uber BMad Agent that does it all - already pre-compiled in the `web-build-sample` folder.
+Orchestrator Uber BMad Agent 可以完成所有工作 - 已在 `web-build-sample` 文件夹中预编译。
 
-- The contents of [Agent Prompt Sample](web-build-sample/agent-prompt.txt) text get pasted into the Gemini Gem, or ChatPGT customGPT 'Instructions' field.
-- The remaining files in that same folder folder just need to be attached as shown in the screenshot below. Give it a name (such as BMad Agent) and save it, and you now have the BMad Agent available to help you brainstorm, research, plan, execute on your vision, or understand how this all even works!
-- Once its running, start with typing `/help`, and then type option `2` when it presents 3 options to learn about the method!
+- [Agent Prompt Sample](web-build-sample/agent-prompt.txt) 文本的内容需要粘贴到 Gemini Gem 或 ChatPGT customGPT 的 'Instructions' 字段中。
+- 同一文件夹中的其余文件只需按照下图所示进行附加。给它起个名字（比如 BMad Agent）并保存，现在您就可以使用 BMad Agent 来帮助您进行头脑风暴、研究、规划、执行您的愿景，或者了解这一切是如何运作的！
+- 一旦运行起来，先输入 `/help`，然后在它提供 3 个选项时选择选项 `2` 来了解这个方法！
 
 ![image info](docs/images/gem-setup.png)
 
-[More Documentation, Explanations, and IDE Specifics](docs/readme.md) available here!
+[更多文档、说明和 IDE 具体细节](docs/readme.md) 可以在这里找到！
 
-## End Matter
+## 结束语
 
-Interested in improving the BMAD Method? See the [contributing guidelines](docs/CONTRIBUTING.md).
+有兴趣改进 BMAD 方法吗？请查看[贡献指南](docs/CONTRIBUTING.md)。
 
-Thank you and enjoy - BMad!
-[License](docs/LICENSE)
+感谢您的使用，祝您使用愉快 - BMad！
+[许可证](docs/LICENSE)

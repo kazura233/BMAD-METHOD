@@ -1,45 +1,45 @@
-# Contributing to this project
+# 为项目做出贡献
 
-Thank you for considering contributing to this project! This document outlines the process for contributing and some guidelines to follow.
+感谢您考虑为这个项目做出贡献！本文档概述了贡献过程和需要遵循的一些准则。
 
-Also note, we use the discussions feature in GitHub to have a community to discuss potential ideas, uses, additions and enhancements.
+另外请注意，我们使用 GitHub 的讨论功能来建立一个社区，讨论潜在的想法、用途、添加和改进。
 
-## Code of Conduct
+## 行为准则
 
-By participating in this project, you agree to abide by our Code of Conduct. Please read it before participating.
+参与本项目即表示您同意遵守我们的行为准则。请在参与之前阅读它。
 
-## How to Contribute
+## 如何贡献
 
-### Reporting Bugs
+### 报告错误
 
-- Check if the bug has already been reported in the Issues section
-- Include detailed steps to reproduce the bug
-- Include any relevant logs or screenshots
+- 检查错误是否已在 Issues 部分报告
+- 包含详细的复现步骤
+- 包含任何相关的日志或截图
 
-### Suggesting Features
+### 建议功能
 
-- Check if the feature has already been suggested in the Issues section, and consider using the discussions tab in GitHub also. Explain the feature in detail and why it would be valuable.
+- 检查功能是否已在 Issues 部分建议，并考虑使用 GitHub 的讨论标签。详细解释该功能及其价值。
 
-### Pull Request Process
+### 拉取请求流程
 
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/your-feature-name`)
-3. Make your changes
-4. Run any tests or linting to ensure quality
-5. Commit your changes with clear, descriptive messages following our commit message convention
-6. Push to your branch (`git push origin feature/your-feature-name`)
-7. Open a Pull Request against the main branch
+1. Fork 仓库
+2. 创建新分支（`git checkout -b feature/your-feature-name`）
+3. 进行更改
+4. 运行任何测试或代码检查以确保质量
+5. 使用清晰、描述性的消息提交更改，遵循我们的提交消息约定
+6. 推送到您的分支（`git push origin feature/your-feature-name`）
+7. 针对主分支打开拉取请求
 
-## Commit Message Convention
+## 提交消息约定
 
-[Commit Convention](./docs/commit.md)
+[提交约定](./docs/commit.md)
 
-## Code Style
+## 代码风格
 
-- Follow the existing code style and conventions
-- Write clear comments for complex logic
-- Ensure all tests pass before submitting
+- 遵循现有的代码风格和约定
+- 为复杂逻辑编写清晰的注释
+- 在提交之前确保所有测试通过
 
-## License
+## 许可证
 
-By contributing to this project, you agree that your contributions will be licensed under the same license as the project.
+通过为项目做出贡献，您同意您的贡献将根据与项目相同的许可证进行许可。
