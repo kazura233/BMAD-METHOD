@@ -1,374 +1,374 @@
-# {Project Name} Architecture Document
+# {项目名称} 架构文档
 
-## Introduction / Preamble
+## 介绍 / 前言
 
-{This document outlines the overall project architecture, including backend systems, shared services, and non-UI specific concerns. Its primary goal is to serve as the guiding architectural blueprint for AI-driven development, ensuring consistency and adherence to chosen patterns and technologies.
+{本文档概述了整体项目架构，包括后端系统、共享服务和非 UI 特定关注点。其主要目标是作为 AI 驱动开发的指导性架构蓝图，确保一致性和对所选模式和技术的遵守。
 
-**Relationship to Frontend Architecture:**
-If the project includes a significant user interface, a separate Frontend Architecture Document (typically named `front-end-architecture-tmpl.txt` or similar, and linked in the "Key Reference Documents" section) details the frontend-specific design and MUST be used in conjunction with this document. Core technology stack choices documented herein (see "Definitive Tech Stack Selections") are definitive for the entire project, including any frontend components.}
+**与前端架构的关系：**
+如果项目包含重要的用户界面，单独的前端架构文档（通常命名为 `front-end-architecture-tmpl.txt` 或类似名称，并在"关键参考文档"部分中链接）详细说明了前端特定的设计，并且必须与本文档一起使用。本文档中记录的核心技术栈选择（参见"确定的技术栈选择"）对整个项目都是确定的，包括任何前端组件。}
 
-## Table of Contents
+## 目录
 
-{ Update this if sections and subsections are added or removed }
+{ 如果添加或删除了章节和小节，请更新此内容 }
 
-## Technical Summary
+## 技术摘要
 
-{ Provide a brief paragraph overview of the system's architecture, key components, technology choices, and architectural patterns used. Reference the goals from the PRD. }
+{ 提供系统架构、关键组件、技术选择和使用的架构模式的简要概述。参考 PRD 中的目标。 }
 
-## High-Level Overview
+## 高级概述
 
-{ Describe the main architectural style (e.g., Monolith, Microservices, Serverless, Event-Driven), reflecting the decision made in the PRD. Explain the repository structure (Monorepo/Polyrepo). Explain the primary user interaction or data flow at a conceptual level. }
+{ 描述主要架构风格（例如，单体、微服务、无服务器、事件驱动），反映在 PRD 中做出的决定。解释仓库结构（Monorepo/Polyrepo）。在概念层面解释主要用户交互或数据流。 }
 
-{ Insert high-level mermaid system context or interaction diagram here - e.g., Mermaid Class C4 Models Layer 1 and 2 }
+{ 在此处插入高级 mermaid 系统上下文或交互图 - 例如，Mermaid Class C4 Models Layer 1 和 2 }
 
-## Architectural / Design Patterns Adopted
+## 采用的架构/设计模式
 
-{ List the key high-level patterns chosen for the architecture. These foundational patterns should be established early as they guide component design, interactions, and technology choices. }
+{ 列出为架构选择的关键高级模式。这些基础模式应该尽早建立，因为它们指导组件设计、交互和技术选择。 }
 
-- **Pattern 1:** {e.g., Serverless, Event-Driven, Microservices, CQRS} - _Rationale/Reference:_ {Briefly why, or link to a more detailed explanation if needed}
-- **Pattern 2:** {e.g., Dependency Injection, Repository Pattern, Module Pattern} - _Rationale/Reference:_ {...}
-- **Pattern N:** {...}
+- **模式 1：** {例如，无服务器、事件驱动、微服务、CQRS} - _理由/参考：_ {简要说明原因，或链接到更详细的解释（如果需要）}
+- **模式 2：** {例如，依赖注入、仓库模式、模块模式} - _理由/参考：_ {...}
+- **模式 N：** {...}
 
-## Component View
+## 组件视图
 
-{ Describe the major logical components or services of the system and their responsibilities, reflecting the decided overall architecture (e.g., distinct microservices, modules within a monolith, packages within a monorepo) and the architectural patterns adopted. Explain how they collaborate. }
+{ 描述系统的主要逻辑组件或服务及其职责，反映已决定的整体架构（例如，独立的微服务、单体中的模块、monorepo 中的包）和采用的架构模式。解释它们如何协作。 }
 
-- Component A: {Description of responsibility}
+- 组件 A：{职责描述}
 
-{Insert component diagram here if it helps - e.g., using Mermaid graph TD or C4 Model Container/Component Diagram}
+{如果有助于理解，在此处插入组件图 - 例如，使用 Mermaid graph TD 或 C4 Model Container/Component Diagram}
 
-- Component N...: {Description of responsibility}
+- 组件 N...：{职责描述}
 
-{ Insert component diagram here if it helps - e.g., using Mermaid graph TD or C4 Model Container/Component Diagram }
+{ 如果有助于理解，在此处插入组件图 - 例如，使用 Mermaid graph TD 或 C4 Model Container/Component Diagram }
 
-## Project Structure
+## 项目结构
 
-{Provide an ASCII or Mermaid diagram representing the project's folder structure. The following is a general example. If a `front-end-architecture-tmpl.txt` (or equivalent) is in use, it will contain the detailed structure for the frontend portion (e.g., within `src/frontend/` or a dedicated `frontend/` root directory). Shared code structure (e.g., in a `packages/` directory for a monorepo) should also be detailed here.}
+{提供一个 ASCII 或 Mermaid 图表，表示项目的文件夹结构。以下是一个通用示例。如果使用 `front-end-architecture-tmpl.txt`（或等效），它将包含前端部分的详细结构（例如，在 `src/frontend/` 或单独的 `frontend/` 根目录中）。共享代码结构（例如，在 monorepo 的 `packages/` 目录中）也应在此处详细说明。}
 
 ```plaintext
 {project-root}/
-├── .github/                    # CI/CD workflows (e.g., GitHub Actions)
+├── .github/                    # CI/CD 工作流（例如，GitHub Actions）
 │   └── workflows/
 │       └── main.yml
-├── .vscode/                    # VSCode settings (optional)
+├── .vscode/                    # VSCode 设置（可选）
 │   └── settings.json
-├── build/                      # Compiled output (if applicable, often git-ignored)
-├── config/                     # Static configuration files (if any)
-├── docs/                       # Project documentation (PRD, Arch, etc.)
+├── build/                      # 编译输出（如果适用，通常 git-ignored）
+├── config/                     # 静态配置文件（如果有）
+├── docs/                       # 项目文档（PRD、架构等）
 │   ├── index.md
-│   └── ... (other .md files)
-├── infra/                      # Infrastructure as Code (e.g., CDK, Terraform)
+│   └── ... （其他 .md 文件）
+├── infra/                      # 基础设施即代码（例如，CDK、Terraform）
 │   └── lib/
 │   └── bin/
-├── node_modules/ / venv / target/ # Project dependencies (git-ignored)
-├── scripts/                    # Utility scripts (build, deploy helpers, etc.)
-├── src/                        # Application source code
-│   ├── backend/                # Backend-specific application code (if distinct frontend exists)
-│   │   ├── core/               # Core business logic, domain models
-│   │   ├── services/           # Business services, orchestrators
-│   │   ├── adapters/           # Adapters to external systems (DB, APIs)
-│   │   ├── controllers/ / routes/ # API endpoint handlers
-│   │   └── main.ts / app.py    # Backend application entry point
-│   ├── frontend/               # Placeholder: See Frontend Architecture Doc for details if used
-│   ├── shared/ / common/       # Code shared (e.g., types, utils, domain models if applicable)
+├── node_modules/ / venv / target/ # 项目依赖（git-ignored）
+├── scripts/                    # 实用脚本（构建、部署助手等）
+├── src/                        # 应用程序源代码
+│   ├── backend/                # 后端特定应用程序代码（如果存在独立前端）
+│   │   ├── core/               # 核心业务逻辑、领域模型
+│   │   ├── services/           # 业务服务、编排器
+│   │   ├── adapters/           # 外部系统适配器（数据库、API）
+│   │   ├── controllers/ / routes/ # API 端点处理器
+│   │   └── main.ts / app.py    # 后端应用程序入口点
+│   ├── frontend/               # 占位符：如果使用，请参阅前端架构文档了解详情
+│   ├── shared/ / common/       # 共享代码（例如，类型、工具、领域模型（如果适用））
 │   │   └── types/
-│   └── main.ts / index.ts / app.ts # Main application entry point (if not using backend/frontend split above)
-├── stories/                    # Generated story files for development (optional)
+│   └── main.ts / index.ts / app.ts # 主应用程序入口点（如果不使用上述后端/前端分离）
+├── stories/                    # 开发用生成的故事文件（可选）
 │   └── epic1/
-├── test/                       # Automated tests
-│   ├── unit/                   # Unit tests (mirroring src structure)
-│   ├── integration/            # Integration tests
-│   └── e2e/                    # End-to-end tests
-├── .env.example                # Example environment variables
-├── .gitignore                  # Git ignore rules
-├── package.json / requirements.txt / pom.xml # Project manifest and dependencies
-├── tsconfig.json / pyproject.toml # Language-specific configuration (if applicable)
-├── Dockerfile                  # Docker build instructions (if applicable)
-└── README.md                   # Project overview and setup instructions
+├── test/                       # 自动化测试
+│   ├── unit/                   # 单元测试（镜像 src 结构）
+│   ├── integration/            # 集成测试
+│   └── e2e/                    # 端到端测试
+├── .env.example                # 示例环境变量
+├── .gitignore                  # Git 忽略规则
+├── package.json / requirements.txt / pom.xml # 项目清单和依赖
+├── tsconfig.json / pyproject.toml # 语言特定配置（如果适用）
+├── Dockerfile                  # Docker 构建说明（如果适用）
+└── README.md                   # 项目概述和设置说明
 ```
 
-(Adjust the example tree based on the actual project type - e.g., Python would have requirements.txt, etc. The structure above illustrates a potential separation for projects with distinct frontends; for simpler projects or APIs, the `src/` structure might be flatter.)
+（根据实际项目类型调整示例树 - 例如，Python 项目会有 requirements.txt 等。上述结构说明了具有独立前端的项目的潜在分离；对于更简单的项目或 API，`src/` 结构可能更扁平。）
 
-### Key Directory Descriptions
+### 关键目录描述
 
-- docs/: Contains all project planning and reference documentation.
-- infra/: Holds the Infrastructure as Code definitions (e.g., AWS CDK, Terraform).
-- src/: Contains the main application source code. May be subdivided (e.g., `backend/`, `frontend/`, `shared/`) depending on project complexity and whether a separate frontend architecture document is in use.
-- src/backend/core/ / src/core/ / src/domain/: Core business logic, entities, use cases, independent of frameworks/external services.
-- src/backend/adapters/ / src/adapters/ / src/infrastructure/: Implementation details, interactions with databases, cloud SDKs, frameworks.
-- src/backend/controllers/ / src/routes/ / src/pages/: Entry points for API requests or UI views (if UI is simple and not in a separate frontend structure).
-- test/: Contains all automated tests, mirroring the src/ structure where applicable.
+- docs/: 包含所有项目规划和参考文档。
+- infra/: 包含基础设施即代码定义（例如，AWS CDK、Terraform）。
+- src/: 包含主应用程序源代码。根据项目复杂性和是否使用单独的前端架构文档，可能细分为（例如，`backend/`、`frontend/`、`shared/`）。
+- src/backend/core/ / src/core/ / src/domain/: 核心业务逻辑、实体、用例，独立于框架/外部服务。
+- src/backend/adapters/ / src/adapters/ / src/infrastructure/: 实现细节、与数据库、云 SDK、框架的交互。
+- src/backend/controllers/ / src/routes/ / src/pages/: API 请求或 UI 视图的入口点（如果 UI 简单且不在单独的前端结构中）。
+- test/: 包含所有自动化测试，在适用的情况下镜像 src/ 结构。
 
-### Notes
+### 注意事项
 
-{Mention any specific build output paths, compiler configuration pointers, or other relevant structural notes.}
+{提及任何特定的构建输出路径、编译器配置指针或其他相关的结构注释。}
 
-## API Reference
+## API 参考
 
-### External APIs Consumed
+### 外部 API 消费
 
-{Repeat this section for each external API the system interacts with.}
+{重复此部分以列出系统与之交互的每个外部 API。}
 
-#### {External Service Name} API
+#### {外部服务名称} API
 
-- **Purpose:** {Why does the system use this API?}
-- **Base URL(s):**
-  - Production: `{URL}`
-  - Staging/Dev: `{URL}`
-- **Authentication:** {Describe method - e.g., API Key in Header (Header Name: `X-API-Key`), OAuth 2.0 Client Credentials, Basic Auth. Reference `docs/environment-vars.md` for key names.}
-- **Key Endpoints Used:**
+- **目的：** {为什么系统使用此 API？}
+- **基础 URL(s)：**
+  - 生产：`{URL}`
+  - 暂存/开发：`{URL}`
+- **认证：** {描述方法 - 例如，API Key 在 Header（Header Name: `X-API-Key`）、OAuth 2.0 Client Credentials、Basic Auth。参考 `docs/environment-vars.md` 以获取密钥名称。}
+- **关键端点使用：**
   - **`{HTTP Method} {/path/to/endpoint}`:**
-    - Description: {What does this endpoint do?}
-    - Request Parameters: {Query params, path params}
-    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if the schema is exceptionally large or complex.}
-    - Example Request: `{Code block}`
-    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Example Response: `{Code block}`
+    - 描述：{此端点的作用是什么？}
+    - 请求参数：{查询参数、路径参数}
+    - 请求体模式：{提供 JSON 模式内联，或链接详细定义在 `docs/data-models.md` 中，仅当模式非常庞大或复杂时。}
+    - 示例请求：`{代码块}`
+    - 成功响应模式（代码：`200 OK`）：{提供 JSON 模式内联，或链接详细定义在 `docs/data-models.md` 中，如果非常复杂。}
+    - 错误响应模式(s)（代码：`4xx`、`5xx`）：{提供 JSON 模式内联，或链接详细定义在 `docs/data-models.md` 中，仅当非常复杂时。}
+    - 示例响应：`{代码块}`
   - **`{HTTP Method} {/another/endpoint}`:** {...}
-- **Rate Limits:** {If known}
-- **Link to Official Docs:** {URL}
+- **速率限制：** {如果已知}
+- **官方文档链接：** {URL}
 
-### Internal APIs Provided (If Applicable)
+### 内部 API 提供（如果适用）
 
-{If the system exposes its own APIs (e.g., in a microservices architecture or for a UI frontend). Repeat for each API.}
+{如果系统暴露其自己的 API（例如，在微服务架构中或为 UI 前端）。重复每个 API。}
 
-#### {Internal API / Service Name} API
+#### {内部 API / 服务名称} API
 
-- **Purpose:** {What service does this API provide?}
-- **Base URL(s):** {e.g., `/api/v1/...`}
-- **Authentication/Authorization:** {Describe how access is controlled.}
-- **Endpoints:**
+- **目的：** {此 API 提供什么服务？}
+- **基础 URL(s)：** {例如，`/api/v1/...`}
+- **认证/授权：** {描述如何控制访问。}
+- **端点：**
   - **`{HTTP Method} {/path/to/endpoint}`:**
-    - Description: {What does this endpoint do?}
-    - Request Parameters: {...}
-    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
+    - 描述：{此端点的作用是什么？}
+    - 请求参数：{...}
+    - 请求体模式：{提供 JSON 模式内联，或链接详细定义在 `docs/data-models.md` 中，如果非常复杂。}
+    - 成功响应模式（代码：`200 OK`）：{提供 JSON 模式内联，或链接详细定义在 `docs/data-models.md` 中，如果非常复杂。}
+    - 错误响应模式(s)（代码：`4xx`、`5xx`）：{提供 JSON 模式内联，或链接详细定义在 `docs/data-models.md` 中，如果非常复杂。}
   - **`{HTTP Method} {/another/endpoint}`:** {...}
 
-## Data Models
+## 数据模型
 
-### Core Application Entities / Domain Objects
+### 核心应用程序实体 / 领域对象
 
-{Define the main objects/concepts the application works with. Repeat subsection for each key entity.}
+{定义应用程序处理的主要对象/概念。为每个关键实体重复此部分。}
 
-#### {Entity Name, e.g., User, Order, Product}
+#### {实体名称，例如，用户、订单、产品}
 
-- **Description:** {What does this entity represent?}
-- **Schema / Interface Definition:**
+- **描述：** {此实体代表什么？}
+- **模式 / 接口定义：**
   ```typescript
-  // Example using TypeScript Interface
+  // 示例使用 TypeScript 接口
   export interface {EntityName} {
-    id: string; // {Description, e.g., Unique identifier}
-    propertyName: string; // {Description}
-    optionalProperty?: number; // {Description}
-    // ... other properties
+    id: string; // {描述，例如，唯一标识符}
+    propertyName: string; // {描述}
+    optionalProperty?: number; // {描述}
+    // ... 其他属性
   }
   ```
-- **Validation Rules:** {List any specific validation rules beyond basic types - e.g., max length, format, range.}
+- **验证规则：** {列出任何特定的验证规则，例如，最大长度、格式、范围。}
 
-### API Payload Schemas (If distinct)
+### API 负载模式（如果不同）
 
-{Define schemas here only if they are distinct from core entities AND not fully detailed under the API endpoint definitions in the API Reference section. Prefer detailing request/response schemas directly with their APIs where possible. This section is for complex, reusable payload structures that might be used across multiple internal APIs or differ significantly from core persisted entities.}
+{在此处定义模式，仅当它们与核心实体不同且不在 API 参考部分中的 API 端点定义中完全详细说明时。优先在直接与它们的 API 一起使用时详细说明请求/响应模式。此部分用于复杂、可重用的负载模式，这些模式可能用于多个内部 API 或显著不同于核心持久实体的模式。}
 
-#### {API Endpoint / Purpose, e.g., Create Order Request, repeat the section as needed}
+#### {API 端点 / 目的，例如，创建订单请求，重复部分以满足需要}
 
-- **Schema / Interface Definition:**
+- **模式 / 接口定义：**
   ```typescript
-  // Example
+  // 示例
   export interface CreateOrderRequest {
-    customerId: string;
-    items: { productId: string; quantity: number }[];
+    customerId: string
+    items: { productId: string; quantity: number }[]
     // ...
   }
   ```
 
-### Database Schemas (If applicable)
+### 数据库模式（如果适用）
 
-{If using a database, define table structures or document database schemas. repeat as needed}
+{如果使用数据库，请定义表结构或记录数据库模式。重复以满足需要}
 
-#### {Table / Collection Name}
+#### {表 / 集合名称}
 
-- **Purpose:** {What data does this table store?}
-- **Schema Definition:**
+- **目的：** {此表存储什么数据？}
+- **模式定义：**
   ```sql
-  -- Example SQL
+  -- 示例 SQL
   CREATE TABLE {TableName} (
     id VARCHAR(36) PRIMARY KEY,
     column_name VARCHAR(255) NOT NULL,
     numeric_column DECIMAL(10, 2),
-    -- ... other columns, indexes, constraints
+    -- ... 其他列、索引、约束
   );
   ```
-  _(Alternatively, use ORM model definitions, NoSQL document structure, etc.)_
+  _（或者，使用 ORM 模型定义，NoSQL 文档结构等。）_
 
-## Core Workflow / Sequence Diagrams
+## 核心工作流 / 序列图
 
-{ Illustrate key or complex workflows using mermaid sequence diagrams. Can have high level tying the full project together, and also smaller epic level sequence diagrams. }
+{ 使用 mermaid 序列图示例关键或复杂工作流。可以有高级别将整个项目联系在一起，也可以有较小的 epic 级别序列图。 }
 
-## Definitive Tech Stack Selections
+## 确定的技术栈选择
 
-{ This section outlines the definitive technology choices for the project. These selections should be made after a thorough understanding of the project's requirements, components, data models, and core workflows. The Architect Agent should guide the user through these decisions, ensuring each choice is justified and recorded accurately in the table below.
+{ 此部分概述了项目的确定技术选择。这些选择应在充分了解项目的要求、组件、数据模型和核心工作流之后做出。架构代理应引导用户完成这些决策，确保每个选择都经过充分论证并准确记录在下面的详细堆栈表中。
 
-This table is the **single source of truth** for all technology selections. Other architecture documents (e.g., Frontend Architecture) must refer to these choices and elaborate on their specific application rather than re-defining them.
+此表是 **唯一真实来源** 所有技术选择。其他架构文档（例如，前端架构）必须参考这些选择并详细说明其特定应用，而不是重新定义它们。
 
-Key decisions to discuss and finalize here, which will then be expanded upon and formally documented in the detailed stack table below, include considerations such as:
+在此处讨论并最终确定的关键决策，这些决策将随后在下面的详细堆栈表中扩展并正式记录，包括考虑以下因素：
 
-- Preferred Starter Template Frontend: { Url to template or starter, if used }
-- Preferred Starter Template Backend: { Url to template or starter, if used }
-- Primary Language(s) & Version(s): {e.g., TypeScript 5.x, Python 3.11 - Specify exact versions, e.g., `5.2.3`}
-- Primary Runtime(s) & Version(s): {e.g., Node.js 22.x - Specify exact versions, e.g., `22.0.1`}
+- 首选入门模板前端：{ 如果使用，请提供模板或入门网址 }
+- 首选入门模板后端：{ 如果使用，请提供模板或入门网址 }
+- 主要语言(s) & 版本(s)：{例如，TypeScript 5.x, Python 3.11 - 指定确切版本，例如，`5.2.3`}
+- 主要运行时(s) & 版本(s)：{例如，Node.js 22.x - 指定确切版本，例如，`22.0.1`}
 
-Must be definitive selections; do not list open-ended choices (e.g., for web scraping, pick one tool, not two). Specify exact versions (e.g., `18.2.0`). If 'Latest' is used, it implies the latest stable version _at the time of this document's last update_, and the specific version (e.g., `xyz-library@2.3.4`) should be recorded. Pinning versions is strongly preferred to avoid unexpected breaking changes for the AI agent. }
+必须确定选择；不要列出开放式选择（例如，对于 Web 抓取，请选择一个工具，而不是两个）。指定确切版本（例如，`18.2.0`）。如果使用"最新"，则意味着最新稳定版本 _在本文档上次更新时_，并且应记录确切版本（例如，`xyz-library@2.3.4`）。固定版本是首选，以避免 AI 代理意外的破坏性更改。 }
 
-| Category             | Technology              | Version / Details | Description / Purpose                   | Justification (Optional) |
-| :------------------- | :---------------------- | :---------------- | :-------------------------------------- | :----------------------- |
-| **Languages**        | {e.g., TypeScript}      | {e.g., 5.x}       | {Primary language for backend/frontend} | {Why this language?}     |
-|                      | {e.g., Python}          | {e.g., 3.11}      | {Used for data processing, ML}          | {...}                    |
-| **Runtime**          | {e.g., Node.js}         | {e.g., 22.x}      | {Server-side execution environment}     | {...}                    |
-| **Frameworks**       | {e.g., NestJS}          | {e.g., 10.x}      | {Backend API framework}                 | {Why this framework?}    |
-|                      | {e.g., React}           | {e.g., 18.x}      | {Frontend UI library}                   | {...}                    |
-| **Databases**        | {e.g., PostgreSQL}      | {e.g., 15}        | {Primary relational data store}         | {...}                    |
-|                      | {e.g., Redis}           | {e.g., 7.x}       | {Caching, session storage}              | {...}                    |
-| **Cloud Platform**   | {e.g., AWS}             | {N/A}             | {Primary cloud provider}                | {...}                    |
-| **Cloud Services**   | {e.g., AWS Lambda}      | {N/A}             | {Serverless compute}                    | {...}                    |
-|                      | {e.g., AWS S3}          | {N/A}             | {Object storage for assets/state}       | {...}                    |
-|                      | {e.g., AWS EventBridge} | {N/A}             | {Event bus / scheduled tasks}           | {...}                    |
-| **Infrastructure**   | {e.g., AWS CDK}         | {e.g., Latest}    | {Infrastructure as Code tool}           | {...}                    |
-|                      | {e.g., Docker}          | {e.g., Latest}    | {Containerization}                      | {...}                    |
-| **UI Libraries**     | {e.g., Material UI}     | {e.g., 5.x}       | {React component library}               | {...}                    |
-| **State Management** | {e.g., Redux Toolkit}   | {e.g., Latest}    | {Frontend state management}             | {...}                    |
-| **Testing**          | {e.g., Jest}            | {e.g., Latest}    | {Unit/Integration testing framework}    | {...}                    |
-|                      | {e.g., Playwright}      | {e.g., Latest}    | {End-to-end testing framework}          | {...}                    |
-| **CI/CD**            | {e.g., GitHub Actions}  | {N/A}             | {Continuous Integration/Deployment}     | {...}                    |
-| **Other Tools**      | {e.g., LangChain.js}    | {e.g., Latest}    | {LLM interaction library}               | {...}                    |
-|                      | {e.g., Cheerio}         | {e.g., Latest}    | {HTML parsing/scraping}                 | {...}                    |
+| 类别         | 技术                    | 版本 / 详细信息 | 描述 / 目的           | 理由（可选）           |
+| :----------- | :---------------------- | :-------------- | :-------------------- | :--------------------- |
+| **语言**     | {例如，TypeScript}      | {例如，5.x}     | {后端/前端的主要语言} | {为什么选择这种语言？} |
+|              | {例如，Python}          | {例如，3.11}    | {用于数据处理、ML}    | {...}                  |
+| **运行时**   | {例如，Node.js}         | {例如，22.x}    | {服务器端执行环境}    | {...}                  |
+| **框架**     | {例如，NestJS}          | {例如，10.x}    | {后端 API 框架}       | {为什么选择这个框架？} |
+|              | {例如，React}           | {例如，18.x}    | {前端 UI 库}          | {...}                  |
+| **数据库**   | {例如，PostgreSQL}      | {例如，15}      | {主要关系数据存储}    | {...}                  |
+|              | {例如，Redis}           | {例如，7.x}     | {缓存、会话存储}      | {...}                  |
+| **云平台**   | {例如，AWS}             | {N/A}           | {主要云提供商}        | {...}                  |
+| **云服务**   | {例如，AWS Lambda}      | {N/A}           | {服务器端计算}        | {...}                  |
+|              | {例如，AWS S3}          | {N/A}           | {资产/状态的对象存储} | {...}                  |
+|              | {例如，AWS EventBridge} | {N/A}           | {事件总线 / 计划任务} | {...}                  |
+| **基础设施** | {例如，AWS CDK}         | {例如，最新}    | {基础设施即代码工具}  | {...}                  |
+|              | {例如，Docker}          | {例如，最新}    | {容器化}              | {...}                  |
+| **UI 库**    | {例如，Material UI}     | {例如，5.x}     | {React 组件库}        | {...}                  |
+| **状态管理** | {例如，Redux Toolkit}   | {例如，最新}    | {前端状态管理}        | {...}                  |
+| **测试**     | {例如，Jest}            | {例如，最新}    | {单元/集成测试框架}   | {...}                  |
+|              | {例如，Playwright}      | {例如，最新}    | {端到端测试框架}      | {...}                  |
+| **CI/CD**    | {例如，GitHub Actions}  | {N/A}           | {持续集成/部署}       | {...}                  |
+| **其他工具** | {例如，LangChain.js}    | {例如，最新}    | {LLM 交互库}          | {...}                  |
+|              | {例如，Cheerio}         | {例如，最新}    | {HTML 解析/抓取}      | {...}                  |
 
-## Infrastructure and Deployment Overview
+## 基础设施和部署概述
 
-- Cloud Provider(s): {e.g., AWS, Azure, GCP, On-premise}
-- Core Services Used: {List key managed services - e.g., Lambda, S3, Kubernetes Engine, RDS, Kafka}
-- Infrastructure as Code (IaC): {Tool used - e.g., AWS CDK, Terraform...} - Location: {Link to IaC code repo/directory}
-- Deployment Strategy: {e.g., CI/CD pipeline with automated promotions, Blue/Green, Canary} - Tools: {e.g., Jenkins, GitHub Actions, GitLab CI}
-- Environments: {List environments - e.g., Development, Staging, Production}
-- Environment Promotion: {Describe steps, e.g., `dev` -\> `staging` (manual approval / automated tests pass) -\> `production` (automated after tests pass and optional manual approval)}
-- Rollback Strategy: {e.g., Automated rollback on health check failure post-deployment, Manual trigger via CI/CD job, IaC state rollback. Specify primary mechanism.}
+- 云提供商(s)：{例如，AWS、Azure、GCP、本地环境}
+- 核心服务使用：{列出关键管理的业务服务 - 例如，Lambda、S3、Kubernetes Engine、RDS、Kafka}
+- 基础设施即代码 (IaC)：{使用的工具 - 例如，AWS CDK、Terraform...} - 位置：{链接 IaC 代码存储库/目录}
+- 部署策略：{例如，CI/CD 管道与自动促销、蓝/绿、金丝雀} - 工具：{例如，Jenkins、GitHub Actions、GitLab CI}
+- 环境：{列出环境 - 例如，开发、暂存、生产}
+- 环境促销：{描述步骤，例如，`dev` -\> `staging`（手动批准 / 自动化测试通过） -\> `production`（自动化测试通过后可选手动批准）}
+- 回滚策略：{例如，自动回滚部署后健康检查失败后、通过 CI/CD 作业手动触发、IaC 状态回滚。指定主要机制。}
 
-## Error Handling Strategy
+## 错误处理策略
 
-- **General Approach:** {e.g., Use exceptions as primary mechanism, return error codes/tuples for specific modules, clearly defined custom error types hierarchy.}
-- **Logging:**
-  - Library/Method: {e.g., `console.log/error` (Node.js), Python `logging` module with `structlog`, dedicated logging library like `Pino` or `Serilog`. Specify the chosen library.}
-  - Format: {e.g., JSON, plain text with timestamp and severity. JSON is preferred for structured logging.}
-  - Levels: {e.g., DEBUG, INFO, WARN, ERROR, CRITICAL. Specify standard usage for each.}
-  - Context: {What contextual information must be included? e.g., Correlation ID, User ID (if applicable and safe), Service Name, Operation Name, Key Parameters (sanitized).}
-- **Specific Handling Patterns:**
-  - External API Calls: {Define retry mechanisms (e.g., exponential backoff, max retries - specify library if one is mandated like `Polly` or `tenacity`), circuit breaker pattern usage (e.g., using `resilience4j` or equivalent - specify if and how), timeout configurations (connect and read timeouts). How are API errors (4xx, 5xx) translated or propagated?}
-  - Internal Errors / Business Logic Exceptions: {How to convert internal errors to user-facing errors if applicable (e.g., generic error messages with a unique ID for support, specific error codes). Are there defined business exception classes?}
-  - Transaction Management: {Approach to ensure data consistency in case of errors during multi-step operations, e.g., database transactions (specify isolation levels if non-default), Saga pattern for distributed transactions (specify orchestrator/choreography and compensation logic).}
+- **一般方法：** {例如，使用异常作为主要机制，为特定模块返回错误代码/元组，明确定义自定义错误类型层次结构。}
+- **日志记录：**
+  - 库/方法：{例如，`console.log/error`（Node.js）、Python `logging` 模块与 `structlog`、专用日志库（如 `Pino` 或 `Serilog`）。指定所选库。}
+  - 格式：{例如，JSON、带时间戳和严重性的纯文本。JSON 是首选结构化日志记录。}
+  - 级别：{例如，DEBUG、INFO、WARN、ERROR、CRITICAL。指定每个的标准用法。}
+  - 上下文：{必须包含什么上下文信息？例如，相关 ID、用户 ID（如果适用且安全）、服务名称、操作名称、关键参数（已消毒）。}
+- **特定处理模式：**
+  - 外部 API 调用：{定义重试机制（例如，指数退避、最大重试次数 - 指定库（如果一个库是强制性的，例如 `Polly` 或 `tenacity`）、超时配置（连接和读取超时）。API 错误（4xx、5xx）如何翻译或传播？}
+  - 内部错误 / 业务逻辑异常：{如果适用，如何将内部错误转换为用户可见错误（例如，带有唯一 ID 的通用错误消息，特定错误代码）。是否有定义的业务异常类？}
+  - 事务管理：{多步骤操作中确保数据一致性的方法，例如，数据库事务（如果非默认，指定隔离级别）、Saga 模式用于分布式事务（指定编排器/编舞和补偿逻辑）。}
 
-## Coding Standards
+## 编码标准
 
-{These standards are mandatory for all code generation by AI agents and human developers. Deviations are not permitted unless explicitly approved and documented as an exception in this section or a linked addendum.}
+{这些标准是所有 AI 代理和人类开发者代码生成的强制性标准。除非在此部分或链接的附录中明确批准并记录为异常，否则不得偏离。}
 
-- **Primary Runtime(s):** {e.g., Node.js 22.x, Python Runtime for Lambda - refer to Definitive Tech Stack}
-- **Style Guide & Linter:** {e.g., ESLint with Airbnb config + Prettier; Black, Flake8, MyPy; Go fmt, golint. Specify chosen tools and link to configuration files (e.g., `.eslintrc.js`, `pyproject.toml`). Linter rules are mandatory and must not be disabled without cause.}
-- **Naming Conventions:**
-  - Variables: `{e.g., camelCase (JavaScript/TypeScript/Java), snake_case (Python/Ruby)}`
-  - Functions/Methods: `{e.g., camelCase (JavaScript/TypeScript/Java), snake_case (Python/Ruby)}`
-  - Classes/Types/Interfaces: `{e.g., PascalCase}`
-  - Constants: `{e.g., UPPER_SNAKE_CASE}`
-  - Files: `{e.g., kebab-case.ts (TypeScript), snake_case.py (Python), PascalCase.java (Java). Be specific per language.}`
-  - Modules/Packages: `{e.g., camelCase or snake_case. Be specific per language.}`
-- **File Structure:** Adhere to the layout defined in the "Project Structure" section and the Frontend Architecture Document if applicable.
-- **Unit Test File Organization:** {e.g., `*.test.ts`/`*.spec.ts` co-located with source files; `test_*.py` in a parallel `tests/` directory. Specify chosen convention.}
-- **Asynchronous Operations:** {e.g., Always use `async`/`await` in TypeScript/JavaScript/Python for promise-based operations; Goroutines/Channels in Go with clear patterns for error propagation and completion; Java `CompletableFuture` or Project Reactor/RxJava if used.}
-- **Type Safety:** {e.g., Leverage TypeScript strict mode (all flags enabled); Python type hints (enforced by MyPy); Go static typing; Java generics and avoidance of raw types. All new code must be strictly typed.}
-  - _Type Definitions:_ {Location, e.g., `src/common/types.ts`, shared packages, or co-located. Policy on using `any` or equivalent (strongly discouraged, requires justification).}
-- **Comments & Documentation:**
-  - Code Comments: {Expectations for code comments: Explain _why_, not _what_, for complex logic. Avoid redundant comments. Use standard formats like JSDoc, TSDoc, Python docstrings (Google/NumPy style), GoDoc, JavaDoc.}
-  - READMEs: {Each module/package/service should have a README explaining its purpose, setup, and usage if not trivial.}
-- **Dependency Management:** {Tool used - e.g., npm/yarn, pip/poetry, Go modules, Maven/Gradle. Policy on adding new dependencies (e.g., approval process, check for existing alternatives, security vulnerability scans). Specify versioning strategy (e.g., prefer pinned versions, use tilde `~` for patches, caret `^` for minor updates - be specific).}
+- **主要运行时(s)：** {例如，Node.js 22.x, Python Runtime for Lambda - 参考确定的技术栈}
+- **样式指南和 linter：** {例如，ESLint with Airbnb config + Prettier；Black、Flake8、MyPy；Go fmt、golint。指定所选工具并链接配置文件（例如，`.eslintrc.js`、`pyproject.toml`）。linter 规则是强制性的，不得在没有原因的情况下禁用。}
+- **命名约定：**
+  - 变量：`{例如，camelCase (JavaScript/TypeScript/Java), snake_case (Python/Ruby)}`
+  - 函数/方法：`{例如，camelCase (JavaScript/TypeScript/Java), snake_case (Python/Ruby)}`
+  - 类/类型/接口：`{例如，PascalCase}`
+  - 常量：`{例如，UPPER_SNAKE_CASE}`
+  - 文件：`{例如，kebab-case.ts (TypeScript), snake_case.py (Python), PascalCase.java (Java). 请具体到每种语言。}`
+  - 模块/包：`{例如，camelCase 或 snake_case. 请具体到每种语言。}`
+- **文件结构：** 遵循"项目结构"部分中定义的布局和前端架构文档（如果适用）。
+- **单元测试文件组织：** {例如，`*.test.ts`/`*.spec.ts` 与源文件共置；`test_*.py` 在并行 `tests/` 目录中。指定所选约定。}
+- **异步操作：** {例如，在 TypeScript/JavaScript/Python 中始终使用 `async`/`await` 进行基于 Promise 的操作；在 Go 中使用 Goroutines/Channels 进行错误传播和完成的清晰模式；如果使用 Java `CompletableFuture` 或 Project Reactor/RxJava。}
+- **类型安全：** {例如，利用 TypeScript 严格模式（启用所有标志）；Python 类型提示（由 MyPy 强制执行）；Go 静态类型；Java 泛型和避免原始类型。所有新代码必须严格类型化。}
+  - _类型定义：_ {位置，例如，`src/common/types.ts`、共享包或共置。使用 `any` 或等效项的策略（强烈不鼓励，需要理由）。}
+- **注释和文档：**
+  - 代码注释：{代码注释的期望：解释 _为什么_，而不是 _什么_，对于复杂逻辑。避免冗余注释。使用标准格式，如 JSDoc、TSDoc、Python docstrings（Google/NumPy 风格）、GoDoc、JavaDoc。}
+  - READMEs：{每个模块/包/服务都应该有一个 README，解释其目的、设置和使用（如果不是微不足道的）。}
+- **依赖管理：** {使用的工具 - 例如，npm/yarn、pip/poetry、Go modules、Maven/Gradle。添加新依赖的策略（例如，批准流程、检查现有替代方案、安全漏洞扫描）。指定版本策略（例如，首选固定版本，使用波浪号 `~` 进行补丁，使用脱字符 `^` 进行次要更新 - 具体说明）。}
 
-### Detailed Language & Framework Conventions
+### 详细语言和框架约定
 
-{For each primary language and framework selected in the "Definitive Tech Stack Selections", the following specific conventions **must** be adhered to. If a chosen technology is not listed below, it implies adherence to its standard, widely accepted best practices and the general guidelines in this document.}
+{对于在"确定的技术栈选择"中选择的每种主要语言和框架，**必须**遵守以下特定约定。如果所选技术未在下面列出，则意味着遵守其标准、广泛接受的最佳实践和本文档中的一般准则。}
 
-#### `{Language/Framework 1 Name, e.g., TypeScript/Node.js}` Specifics:
+#### `{语言/框架 1 名称，例如，TypeScript/Node.js}` 具体内容：
 
-- **Immutability:** `{e.g., "Always prefer immutable data structures. Use `Readonly\<T\>`, `ReadonlyArray\<T\>`, `as const` for object/array literals. Avoid direct mutation of objects/arrays passed as props or state. Consider libraries like Immer for complex state updates."}`
-- **Functional vs. OOP:** `{e.g., "Favor functional programming constructs (map, filter, reduce, pure functions) for data transformation and business logic where practical. Use classes for entities, services with clear state/responsibilities, or when framework conventions (e.g., NestJS) demand."}`
-- **Error Handling Specifics:** `{e.g., "Always use `Error`objects or extensions thereof for`throw`. Ensure `Promise`rejections are always`Error`objects. Use custom error classes inheriting from a base`AppError` for domain-specific errors."}`
-- **Null/Undefined Handling:** `{e.g., "Strict null checks (`strictNullChecks`) must be enabled. Avoid `\!` non-null assertion operator; prefer explicit checks, optional chaining (`?.`), or nullish coalescing (`??`). Define clear strategies for optional function parameters and return types."}`
-- **Module System:** `{e.g., "Use ESModules (`import`/`export`) exclusively. Avoid CommonJS (`require`/`module.exports`) in new code."}`
-- **Logging Specifics:** `{e.g., "Use the chosen structured logging library. Log messages must include a correlation ID. Do not log sensitive PII. Use appropriate log levels."}`
-- **Framework Idioms (e.g., for NestJS/Express):** `{e.g., "NestJS: Always use decorators for defining modules, controllers, services, DTOs. Adhere strictly to the defined module structure and dependency injection patterns. Express: Define middleware patterns, routing structure."}`
-- **Key Library Usage Conventions:** `{e.g., "When using Axios, create a single configured instance. For date/time, use {date-fns/Luxon/Day.js} and avoid native `Date` object for manipulations."}`
-- **Code Generation Anti-Patterns to Avoid:** `{e.g., "Avoid overly nested conditional logic (max 2-3 levels). Avoid single-letter variable names (except for trivial loop counters like `i`, `j`, `k`). Do not write code that bypasses framework security features (e.g., ORM query builders)."}`
+- **不可变性：** `{例如，"始终优先使用不可变数据结构。使用 `Readonly\<T\>`、`ReadonlyArray\<T\>`、`as const` 用于对象/数组字面量。避免直接修改作为 props 或 state 传递的对象/数组。考虑使用 Immer 等库进行复杂状态更新。"}`
+- **函数式与面向对象：** `{例如，"在数据转换和业务逻辑中优先使用函数式编程构造（map、filter、reduce、纯函数）。使用类表示实体、具有明确状态/职责的服务，或当框架约定（例如，NestJS）要求时。"}`
+- **错误处理具体内容：** `{例如，"始终使用 `Error`对象或其扩展进行`throw`。确保 `Promise`拒绝始终是`Error`对象。使用继承自基础`AppError` 的自定义错误类表示领域特定错误。"}`
+- **空/未定义处理：** `{例如，"必须启用严格空检查（`strictNullChecks`）。避免使用 `!` 非空断言运算符；优先使用显式检查、可选链（`?.`）或空值合并（`??`）。为可选函数参数和返回类型定义明确的策略。"}`
+- **模块系统：** `{例如，"专门使用 ESModules（`import`/`export`）。在新代码中避免使用 CommonJS（`require`/`module.exports`）。"}`
+- **日志记录具体内容：** `{例如，"使用所选结构化日志库。日志消息必须包含相关 ID。不要记录敏感 PII。使用适当的日志级别。"}`
+- **框架惯用法（例如，对于 NestJS/Express）：** `{例如，"NestJS：始终使用装饰器定义模块、控制器、服务、DTO。严格遵守定义的模块结构和依赖注入模式。Express：定义中间件模式、路由结构。"}`
+- **关键库使用约定：** `{例如，"使用 Axios 时，创建单个配置实例。对于日期/时间，使用 {date-fns/Luxon/Day.js} 并避免使用原生 `Date` 对象进行操作。"}`
+- **代码生成反模式避免：** `{例如，"避免过度嵌套的条件逻辑（最多 2-3 层）。避免单字母变量名（除了简单的循环计数器，如 `i`、`j`、`k`）。不要编写绕过框架安全特性的代码（例如，ORM 查询构建器）。"}`
 
-#### `{Language/Framework 2 Name, e.g., Python}` Specifics:
+#### `{语言/框架 2 名称，例如，Python}` 具体内容：
 
-- **Immutability:** `{e.g., "Use tuples for immutable sequences. For classes, consider `@dataclass(frozen=True)`. Be mindful of mutable default arguments."}`
-- **Functional vs. OOP:** `{e.g., "Employ classes for representing entities and services. Use functions for stateless operations. List comprehensions/generator expressions are preferred over `map/filter` for readability."}`
-- **Error Handling Specifics:** `{e.g., "Always raise specific, custom exceptions inheriting from a base `AppException`. Use `try-except-else-finally`blocks appropriately. Avoid broad`except Exception:` clauses without re-raising or specific handling."}`
-- **Resource Management:** `{e.g., "Always use `with` statements for resources like files or DB connections to ensure they are properly closed."}`
-- **Type Hinting:** `{e.g., "All new functions and methods must have full type hints. Run MyPy in CI. Strive for `disallow_untyped_defs = True`."}`
-- **Logging Specifics:** `{e.g., "Use the `logging`module configured for structured output (e.g., with`python-json-logger`). Include correlation IDs."}`
-- **Framework Idioms (e.g., for Django/Flask/FastAPI):** `{e.g., "Django: Follow fat models, thin views pattern. Use ORM conventions. FastAPI: Utilize Pydantic for request/response models and dependency injection for services."}`
-- **Key Library Usage Conventions:** `{e.g., "For HTTP requests, use `httpx`or`requests`with explicit timeout settings. For data manipulation, prefer`pandas` where appropriate but be mindful of performance."}`
+- **不可变性：** `{例如，"使用元组表示不可变序列。对于类，考虑 `@dataclass(frozen=True)`。注意可变默认参数。"}`
+- **函数式与面向对象：** `{例如，"使用类表示实体和服务。使用函数进行无状态操作。列表推导式/生成器表达式优先于 `map/filter` 以提高可读性。"}`
+- **错误处理具体内容：** `{例如，"始终引发继承自基础 `AppException`的特定、自定义异常。适当使用`try-except-else-finally`块。避免在没有重新引发或特定处理的情况下使用广泛的`except Exception:` 子句。"}`
+- **资源管理：** `{例如，"始终使用 `with` 语句处理文件或数据库连接等资源，以确保它们正确关闭。"}`
+- **类型提示：** `{例如，"所有新函数和方法必须具有完整的类型提示。在 CI 中运行 MyPy。努力实现 `disallow_untyped_defs = True`。"}`
+- **日志记录具体内容：** `{例如，"使用配置为结构化输出的 `logging`模块（例如，使用`python-json-logger`）。包含相关 ID。"}`
+- **框架惯用法（例如，对于 Django/Flask/FastAPI）：** `{例如，"Django：遵循胖模型、瘦视图模式。使用 ORM 约定。FastAPI：利用 Pydantic 进行请求/响应模型和依赖注入服务。"}`
+- **关键库使用约定：** `{例如，"对于 HTTP 请求，使用 `httpx`或`requests`并设置显式超时。对于数据操作，在适当的情况下优先使用`pandas`，但要注意性能。"}`
 
-#### `{Add more Language/Framework sections as needed...}`
+#### `{根据需要添加更多语言/框架部分...}`
 
-- **{Consider other things that the trained LLM Dev Agent could potentially be random about specific to the chosen language technologies and platforms that it should be reminded of here}**
+- **{考虑其他事情，训练有素的 LLM Dev Agent 可能会对所选语言技术和平台的具体内容产生随机性，应该在此处提醒它}**
 
-## Overall Testing Strategy
+## 整体测试策略
 
-{This section outlines the project's comprehensive testing strategy, which all AI-generated and human-written code must adhere to. It complements the testing tools listed in the "Definitive Tech Stack Selections".}
+{此部分概述了项目的全面测试策略，所有 AI 生成和人工编写的代码都必须遵守。它补充了"确定的技术栈选择"中列出的测试工具。}
 
-- **Tools:** {Reiterate primary testing frameworks and libraries from Tech Stack, e.g., Jest, Playwright, PyTest, JUnit, Testcontainers.}
-- **Unit Tests:**
-  - **Scope:** {Test individual functions, methods, classes, or small modules in isolation. Focus on business logic, algorithms, and transformation rules.}
-  - **Location:** {e.g., `*.test.ts`/`*.spec.ts` co-located with source files; `test_*.py` in a parallel `tests/` directory, following language conventions.}
-  - **Mocking/Stubbing:** {Specify chosen mocking library (e.g., Jest mocks, `unittest.mock` in Python, Mockito for Java). Mock all external dependencies (network calls, file system, databases, time).}
-  - **AI Agent Responsibility:** {AI Agent must generate unit tests covering all public methods, significant logic paths, edge cases, and error conditions for any new or modified code.}
-- **Integration Tests:**
-  - **Scope:** {Test the interaction between several components or services within the application boundary. E.g., API endpoint to service layer to database (using a test database or in-memory version).}
-  - **Location:** {e.g., `/tests/integration` or `/src/integration-test` (Java).}
-  - **Environment:** {Specify how dependencies are handled (e.g., Testcontainers for databases/external services, in-memory databases, dedicated test environment).}
-  - **AI Agent Responsibility:** {AI Agent may be tasked with generating integration tests for key service interactions or API endpoints based on specifications.}
-- **End-to-End (E2E) Tests:**
-  - **Scope:** {Validate complete user flows or critical paths through the system from the user's perspective (e.g., UI interaction, API call sequence).}
-  - **Tools:** {Reiterate E2E testing tools from Tech Stack (e.g., Playwright, Cypress, Selenium).}
-  - **AI Agent Responsibility:** {AI Agent may be tasked with generating E2E test stubs or scripts based on user stories or BDD scenarios. Focus on critical happy paths and key error scenarios.}
-- **Test Coverage:**
-  - **Target:** {Specify target code coverage if any (e.g., 80% line/branch coverage for unit tests). This is a guideline; quality of tests is paramount over raw coverage numbers.}
-  - **Measurement:** {Tool used for coverage reports (e.g., Istanbul/nyc, Coverage.py, JaCoCo).}
-- **Mocking/Stubbing Strategy (General):** {Beyond specific test types, outline general principles. e.g., "Prefer fakes or test doubles over extensive mocking where it improves test clarity and maintainability. Strive for tests that are fast, reliable, and isolated."}
-- **Test Data Management:** {How is test data created, managed, and isolated? E.g., factories, fixtures, setup/teardown scripts, dedicated test data generation tools.}
+- **工具：** {重申来自技术栈的主要测试框架和库，例如，Jest、Playwright、PyTest、JUnit、Testcontainers。}
+- **单元测试：**
+  - **范围：** {测试单个函数、方法、类或小模块。关注业务逻辑、算法和转换规则。}
+  - **位置：** {例如，`*.test.ts`/`*.spec.ts` 与源文件共置；`test_*.py` 在并行 `tests/` 目录中，遵循语言约定。}
+  - **模拟/存根：** {指定所选模拟库（例如，Jest mocks、Python 中的 `unittest.mock`、Java 的 Mockito）。模拟所有外部依赖（网络调用、文件系统、数据库、时间）。}
+  - **AI 代理责任：** {AI 代理必须生成单元测试，覆盖所有公共方法、重要逻辑路径、边缘情况和错误条件，用于任何新代码或修改的代码。}
+- **集成测试：**
+  - **范围：** {测试应用程序边界内几个组件或服务之间的交互。例如，API 端点到服务层到数据库（使用测试数据库或内存版本）。}
+  - **位置：** {例如，`/tests/integration` 或 `/src/integration-test`（Java）。}
+  - **环境：** {指定如何处理依赖（例如，Testcontainers 用于数据库/外部服务、内存数据库、专用测试环境）。}
+  - **AI 代理责任：** {AI 代理可能被要求根据规范为关键服务交互或 API 端点生成集成测试。}
+- **端到端（E2E）测试：**
+  - **范围：** {从用户角度验证通过系统的完整用户流程或关键路径（例如，UI 交互、API 调用序列）。}
+  - **工具：** {重申来自技术栈的 E2E 测试工具（例如，Playwright、Cypress、Selenium）。}
+  - **AI 代理责任：** {AI 代理可能被要求根据用户故事或 BDD 场景生成 E2E 测试存根或脚本。关注关键快乐路径和关键错误场景。}
+- **测试覆盖率：**
+  - **目标：** {如果适用，指定目标代码覆盖率（例如，单元测试的 80% 行/分支覆盖率）。这是一个指导方针；测试质量比原始覆盖率数字更重要。}
+  - **测量：** {用于覆盖率报告的工具（例如，Istanbul/nyc、Coverage.py、JaCoCo）。}
+- **模拟/存根策略（一般）：** {除了特定测试类型外，概述一般原则。例如，"在提高测试清晰度和可维护性的情况下，优先使用假对象或测试替身而不是广泛的模拟。努力使测试快速、可靠和隔离。"}
+- **测试数据管理：** {如何创建、管理和隔离测试数据？例如，工厂、固定装置、设置/拆卸脚本、专用测试数据生成工具。}
 
-## Security Best Practices
+## 安全最佳实践
 
-{Outline key security considerations relevant to the codebase. These are mandatory and must be actively addressed by the AI agent during development.}
+{概述与代码库相关的关键安全考虑因素。这些是强制性的，AI 代理必须在开发过程中积极解决。}
 
-- **Input Sanitization/Validation:** {Specify library/method for ALL external inputs (API requests, user-provided data, file uploads). E.g., 'Use class-validator with NestJS DTOs for all API inputs; all validation rules must be defined in DTOs.' For other languages, 'Use {validation_library} for all external inputs; define schemas and constraints.' Validation must occur at the boundary before processing.}
-- **Output Encoding:** {Specify where and how output encoding should be performed to prevent XSS and other injection attacks. E.g., 'All dynamic data rendered in HTML templates must be contextually auto-escaped by the template engine (specify engine and confirm default behavior). If generating HTML/XML/JSON manually, use approved encoding libraries like {encoder_library_name}.'}
-- **Secrets Management:** {Reference `docs/environment-vars.md` regarding storage for different environments. In code, access secrets _only_ through a designated configuration module/service. Never hardcode secrets, include them in source control, or log them. Use specific tools for local development if applicable (e.g., Doppler, .env files NOT committed).}
-- **Dependency Security:** {Policy on checking for vulnerable dependencies. E.g., 'Run automated vulnerability scans (e.g., `npm audit`, `pip-audit`, Snyk, Dependabot alerts) as part of CI. Update vulnerable dependencies promptly based on severity.' Policy on adding new dependencies (vetting process).}
-- **Authentication/Authorization Checks:** {Where and how should these be enforced? E.g., 'All API endpoints (except explicitly public ones) must enforce authentication using the central auth module/middleware. Authorization (permission/role checks) must be performed at the service layer or entry point for protected resources.' Define patterns for implementing these checks.}
-- **Principle of Least Privilege (Implementation):** {e.g., 'Database connection users must have only the necessary permissions (SELECT, INSERT, UPDATE, DELETE) for the specific tables/schemas they access. IAM roles for cloud services must be narrowly scoped to the required actions and resources.'}
-- **API Security (General):** {e.g., 'Enforce HTTPS. Implement rate limiting and throttling (specify tool/method). Use standard HTTP security headers (CSP, HSTS, X-Frame-Options, etc. - specify which ones and their configuration). Follow REST/GraphQL security best practices.'}
-- **Error Handling & Information Disclosure:** {Ensure error messages do not leak sensitive information (stack traces, internal paths, detailed SQL errors) to the end-user. Log detailed errors server-side, provide generic messages or error IDs to the client.}
-- **Regular Security Audits/Testing:** {Mention if planned, e.g., penetration testing, static/dynamic analysis tool usage in CI (SAST/DAST).}
-- **{Other relevant practices, e.g., File upload security, Session management security, Data encryption at rest and in transit beyond HTTPS if specific requirements exist.}**
+- **输入消毒/验证：** {指定用于所有外部输入（API 请求、用户提供的数据、文件上传）的库/方法。例如，'使用 class-validator 与 NestJS DTO 进行所有 API 输入；所有验证规则必须在 DTO 中定义。' 对于其他语言，'使用 {validation_library} 进行所有外部输入；定义模式和约束。' 验证必须在处理之前在边界进行。}
+- **输出编码：** {指定在何处以及如何执行输出编码以防止 XSS 和其他注入攻击。例如，'所有在 HTML 模板中渲染的动态数据必须由模板引擎进行上下文自动转义（指定引擎并确认默认行为）。如果手动生成 HTML/XML/JSON，使用批准的编码库，如 {encoder_library_name}。'}
+- **密钥管理：** {参考 `docs/environment-vars.md` 关于不同环境的存储。在代码中，仅通过指定的配置模块/服务访问密钥。永远不要硬编码密钥、将它们包含在源代码控制中或记录它们。如果适用，使用特定工具进行本地开发（例如，Doppler、.env 文件不提交）。}
+- **依赖安全：** {检查易受攻击依赖的策略。例如，'作为 CI 的一部分运行自动漏洞扫描（例如，`npm audit`、`pip-audit`、Snyk、Dependabot 警报）。根据严重性及时更新易受攻击的依赖。' 添加新依赖的策略（审查流程）。}
+- **认证/授权检查：** {这些应该在何处以及如何强制执行？例如，'所有 API 端点（除了明确公开的端点）必须使用中央认证模块/中间件强制执行认证。授权（权限/角色检查）必须在服务层或受保护资源的入口点执行。' 定义实现这些检查的模式。}
+- **最小权限原则（实现）：** {例如，'数据库连接用户必须仅具有访问特定表/模式所需的权限（SELECT、INSERT、UPDATE、DELETE）。云服务的 IAM 角色必须严格限定为所需的操作和资源。'}
+- **API 安全（一般）：** {例如，'强制执行 HTTPS。实现速率限制和节流（指定工具/方法）。使用标准 HTTP 安全头（CSP、HSTS、X-Frame-Options 等 - 指定哪些及其配置）。遵循 REST/GraphQL 安全最佳实践。'}
+- **错误处理和信息泄露：** {确保错误消息不会向最终用户泄露敏感信息（堆栈跟踪、内部路径、详细 SQL 错误）。在服务器端记录详细错误，向客户端提供通用消息或错误 ID。}
+- **定期安全审计/测试：** {如果计划，提及渗透测试、CI 中静态/动态分析工具使用（SAST/DAST）。}
+- **{其他相关实践，例如，文件上传安全、会话管理安全、如果存在特定要求，则除了 HTTPS 之外的数据加密（静态和传输中）。}**
 
-## Key Reference Documents
+## 关键参考文档
 
-{ if any }
+{ 如果有 }
 
-## Change Log
+## 变更日志
 
-| Change | Date | Version | Description | Author |
-| ------ | ---- | ------- | ----------- | ------ |
+| 变更 | 日期 | 版本 | 描述 | 作者 |
+| ---- | ---- | ---- | ---- | ---- |
 
---- Below, Prompt for Design Architect (If Project has UI) To Produce Front End Architecture ----
+--- 下面，提示设计架构师（如果项目有 UI）生成前端架构 ----

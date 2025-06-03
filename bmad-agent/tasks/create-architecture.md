@@ -1,124 +1,124 @@
-# Architecture Creation Task
+# 架构创建任务
 
-## Purpose
+## 目的
 
-- To design a complete, robust, and well-documented technical architecture based on the project requirements (PRD, epics, brief), research findings, and user input.
-- To make definitive technology choices and articulate the rationale behind them, leveraging the architecture template as a structural guide.
-- To produce all necessary technical artifacts, ensuring the architecture is optimized for efficient implementation, particularly by AI developer agents, and validated against the `architect-checklist`.
+- 基于项目需求（PRD、史诗、简报）、研究结果和用户输入，设计一个完整、健壮且文档完善的技术架构。
+- 做出明确的技术选择并阐明其背后的理由，利用架构模板作为结构指南。
+- 生成所有必要的技术工件，确保架构针对高效实施进行优化，特别是针对 AI 开发代理，并根据 `architect-checklist` 进行验证。
 
-## Instructions
+## 说明
 
-1.  **Input Analysis & Dialogue Establishment:**
+1. **输入分析和对话建立：**
 
-    - Ensure you have all necessary inputs: PRD document (specifically checking for the 'Technical Assumptions' and 'Initial Architect Prompt' sections for the decided repository and service architecture), project brief, any deep research reports, and optionally a `technical-preferences.md`. Request any missing critical documents.
-    - Thoroughly review all inputs.
-    - Summarize key technical requirements, constraints, NFRs (Non-Functional Requirements), and the decided repository/service architecture derived from the inputs. Present this summary to the user for confirmation and to ensure mutual understanding.
-    - Share initial architectural observations, potential challenges, or areas needing clarification based on the inputs.
-      **Establish Interaction Mode for Architecture Creation:**
-      - Ask the user: "How would you like to proceed with creating the architecture for this project? We can work:
-        A. **Incrementally (Default & Recommended):** We'll go through each architectural decision, document section, or design point step-by-step. I'll present drafts, and we'll seek your feedback and confirmation before moving to the next part. This is best for complex decisions and detailed refinement.
-        B. **"YOLO" Mode:** I can produce a more comprehensive initial draft of the architecture (or significant portions) for you to review more broadly first. We can then iterate on specific sections based on your feedback. This can be quicker for generating initial ideas but is generally not recommended if detailed collaboration at each step is preferred."
-      - Request the user to select their preferred mode (e.g., "Please let me know if you'd prefer A or B.").
-      - Once the user chooses, confirm the selected mode (e.g., "Okay, we will proceed in Incremental mode."). This chosen mode will govern how subsequent steps in this task are executed.
+   - 确保拥有所有必要的输入：PRD 文档（特别检查"技术假设"和"初始架构师提示"部分，了解已决定的仓库和服务架构）、项目简报、任何深入研究报告，以及可选的 `technical-preferences.md`。请求任何缺失的关键文档。
+   - 彻底审查所有输入。
+   - 总结关键技术要求、约束、NFR（非功能性需求）以及从输入中得出的已决定的仓库/服务架构。向用户展示此摘要以供确认并确保相互理解。
+   - 基于输入分享初步架构观察、潜在挑战或需要澄清的领域。
+     **建立架构创建的交互模式：**
+   - 询问用户："您希望如何继续创建此项目的架构？我们可以：
+     A. **增量式（默认和推荐）：** 我们将逐步处理每个架构决策、文档部分或设计点。我将展示草稿，在进入下一部分之前寻求您的反馈和确认。这最适合复杂决策和详细改进。
+     B. **"YOLO"模式：** 我可以为您生成更全面的架构初始草稿（或重要部分）供您首先进行更广泛的审查。然后我们可以根据您的反馈对特定部分进行迭代。这对于生成初始想法可能更快，但如果希望在每一步都进行详细协作，通常不推荐。"
+   - 请求用户选择其偏好的模式（例如，"请告诉我您是否偏好 A 或 B。"）。
+   - 一旦用户选择，确认所选模式（例如，"好的，我们将以增量模式进行。"）。这个选择的模式将决定此任务中后续步骤的执行方式。
 
-2.  **Resolve Ambiguities & Gather Missing Information:**
+2. **解决歧义和收集缺失信息：**
 
-    - If key information is missing or requirements are unclear after initial review, formulate specific, targeted questions.
-    - **External API Details:** If the project involves integration with external APIs, especially those that are less common or where you lack high confidence in your training data regarding their specific request/response schemas, and if a "Deep Research" phase was not conducted for these APIs:
-      - Proactively ask the user to provide precise details. This includes:
-        - Links to the official API documentation.
-        - Example request structures (e.g., cURL commands, JSON payloads).
-        - Example response structures (e.g., JSON responses for typical scenarios, including error responses).
-      - Explain that this information is crucial for accurately defining API interaction contracts within the architecture, for creating robust facades/adapters, and for enabling accurate technical planning (e.g., for technical stories or epic refinements).
-    - Present questions to the user (batched logically if multiple) and await their input.
-    - Document all decisions and clarifications received before proceeding.
+   - 如果在初步审查后关键信息缺失或需求不明确，制定具体的、有针对性的问题。
+   - **外部 API 详情：** 如果项目涉及与外部 API 的集成，特别是那些不太常见或您对其特定请求/响应模式缺乏高度信心的 API，并且如果未对这些 API 进行"深入研究"阶段：
+     - 主动要求用户提供精确详情。这包括：
+       - 官方 API 文档的链接。
+       - 示例请求结构（例如，cURL 命令、JSON 负载）。
+       - 示例响应结构（例如，典型场景的 JSON 响应，包括错误响应）。
+     - 解释这些信息对于在架构中准确定义 API 交互合同、创建健壮的外观/适配器以及实现准确的技术规划（例如，技术故事或史诗改进）至关重要。
+   - 向用户展示问题（如果有多个，则按逻辑分组）并等待其输入。
+   - 在继续之前记录所有收到的决定和澄清。
 
-3.  **Iterative Technology Selection & Design (Interactive, if not YOLO mode):**
+3. **迭代技术选择和设计（如果不是 YOLO 模式，则为交互式）：**
 
-    - For each major architectural component or decision point (e.g., frontend framework, backend language/framework, database system, cloud provider, key services, communication patterns):
-      - If multiple viable options exist based on requirements or research, present 2-3 choices, briefly outlining their pros, cons, and relevance to the project. Consider any preferences stated in `technical-preferences.md` when formulating these options and your recommendation.
-      - State your recommended choice, providing a clear rationale based on requirements, research findings, user preferences (if known), and best practices (e.g., scalability, cost, team familiarity, ecosystem).
-      - Ask for user feedback, address concerns, and seek explicit approval before finalizing the decision.
-      - Document the confirmed choice and its rationale within the architecture document.
-    - **Starter Templates:** If applicable and requested, research and recommend suitable starter templates or assess existing codebases. Explain alignment with project goals and seek user confirmation.
+   - 对于每个主要架构组件或决策点（例如，前端框架、后端语言/框架、数据库系统、云提供商、关键服务、通信模式）：
+     - 如果基于需求或研究存在多个可行选项，展示 2-3 个选择，简要概述其优缺点以及与项目的相关性。在制定这些选项和您的建议时，考虑 `technical-preferences.md` 中陈述的任何偏好。
+     - 说明您推荐的选择，基于需求、研究结果、用户偏好（如果已知）和最佳实践（例如，可扩展性、成本、团队熟悉度、生态系统）提供明确的理由。
+     - 征求用户反馈，解决问题，并在最终确定决定之前寻求明确批准。
+     - 在架构文档中记录确认的选择及其理由。
+   - **启动模板：** 如果适用且被请求，研究并推荐合适的启动模板或评估现有代码库。解释与项目目标的一致性并寻求用户确认。
 
-4.  **Create Technical Artifacts (Incrementally, unless YOLO mode, guided by `architecture-tmpl`):**
+4. **创建技术工件（除非是 YOLO 模式，否则增量式，由 `architecture-tmpl` 指导）：**
 
-    - For each artifact or section of the main Architecture Document:
+   - 对于主架构文档的每个工件或部分：
 
-      - **Explain Purpose:** Briefly describe the artifact/section's importance and what it will cover.
-      - **Draft Section-by-Section:** Present a draft of one logical section at a time.
-        - Ensure the 'High-Level Overview' and 'Component View' sections accurately reflect and detail the repository/service architecture decided in the PRD.
-        - Ensure that documented Coding Standards (either as a dedicated section or referenced) and the 'Testing Strategy' section clearly define:
-          - The convention for unit test file location (e.g., co-located with source files, or in a separate folder like `tests/` or `__tests__/`).
-          - The naming convention for unit test files (e.g., `*.test.js`, `*.spec.ts`, `test_*.py`).
-        - When discussing Coding Standards, inform the user that these will serve as firm rules for the AI developer agent. Emphasize that these standards should be kept to the minimum necessary to prevent undesirable or messy code from the agent. Guide the user to understand that overly prescriptive or obvious standards (e.g., "use SOLID principles," which well-trained LLMs should already know) should be avoided, as the user, knowing the specific agents and tools they will employ, can best judge the appropriate level of detail.
-        - **Incorporate Feedback:** Discuss the draft with the user, incorporate their feedback, and iterate as needed.
-        - [Offer Advanced Self-Refinement & Elicitation Options](#offer-advanced-self-refinement--elicitation-options)
-        - **Seek Approval:** Obtain explicit user approval for the section before moving to the next, or for the entire artifact if drafted holistically (in YOLO mode).
+     - **解释目的：** 简要描述工件/部分的重要性及其将涵盖的内容。
+     - **逐节起草：** 一次展示一个逻辑部分的草稿。
+       - 确保"高级概述"和"组件视图"部分准确反映并详细说明 PRD 中决定的仓库/服务架构。
+       - 确保记录的编码标准（无论是作为专用部分还是引用）和"测试策略"部分明确定义：
+         - 单元测试文件位置的约定（例如，与源文件共置，或在单独的文件夹如 `tests/` 或 `__tests__/` 中）。
+         - 单元测试文件的命名约定（例如，`*.test.js`、`*.spec.ts`、`test_*.py`）。
+       - 在讨论编码标准时，告知用户这些将作为 AI 开发代理的严格规则。强调这些标准应保持在防止代理产生不良或混乱代码所需的最低限度。引导用户理解应避免过于规定性或明显的标准（例如，"使用 SOLID 原则"，训练有素的 LLM 应该已经知道），因为用户最了解他们将使用的特定代理和工具，可以最好地判断适当的详细程度。
+       - **纳入反馈：** 与用户讨论草稿，纳入其反馈，并根据需要进行迭代。
+       - [提供高级自我改进和启发选项](#提供高级自我改进和启发选项)
+       - **寻求批准：** 在进入下一部分之前，获取用户对该部分的明确批准，或者如果整体起草（在 YOLO 模式中），则获取对整个工件的批准。
 
-5.  **Identify Missing Technical Stories / Refine Epics (Interactive):**
+5. **识别缺失的技术故事/改进史诗（交互式）：**
 
-    - Based on the designed architecture, identify any necessary technical stories/tasks that are not yet captured in the PRD or epics (e.g., "Set up CI/CD pipeline for frontend deployment," "Implement authentication module using JWT," "Create base Docker images for backend services," "Configure initial database schema based on data models").
-    - Explain the importance of these technical stories for enabling the functional requirements and successful project execution.
-    - Collaborate with the user to refine these stories (clear description, acceptance criteria) and suggest adding them to the project backlog or relevant epics.
-    - Review existing epics/stories from the PRD and suggest technical considerations or acceptance criteria refinements to ensure they are implementable based on the chosen architecture. For example, specifying API endpoints to be called, data formats, or critical library versions.
-    - After collaboration, prepare a concise summary detailing all proposed additions, updates, or modifications to epics and user stories. If no changes are identified, explicitly state this.
+   - 基于设计的架构，识别 PRD 或史诗中尚未捕获的任何必要的技术故事/任务（例如，"设置前端部署的 CI/CD 管道"、"使用 JWT 实现认证模块"、"为后端服务创建基础 Docker 镜像"、"基于数据模型配置初始数据库模式"）。
+   - 解释这些技术故事对于实现功能需求和成功项目执行的重要性。
+   - 与用户合作改进这些故事（清晰的描述、验收标准）并建议将其添加到项目待办事项或相关史诗中。
+   - 审查 PRD 中的现有史诗/故事，并建议技术考虑或验收标准改进，以确保它们基于所选架构是可实施的。例如，指定要调用的 API 端点、数据格式或关键库版本。
+   - 在协作后，准备一个简明摘要，详细说明所有建议的添加、更新或修改史诗和用户故事。如果未识别出更改，明确说明这一点。
 
-6.  **Validate Architecture Against Checklist & Finalize Output:**
-    - Once the main architecture document components have been drafted and reviewed with the user, perform a comprehensive review using the `architect-checklist`.
-    - Go through each item in the checklist to ensure the architecture document is comprehensive, addresses all key architectural concerns (e.g., security, scalability, maintainability, testability (including confirmation that coding standards and the testing strategy clearly define unit test location and naming conventions), developer experience), and that proposed solutions are robust.
-    - For each checklist item, confirm its status (e.g., \[x] Completed, \[ ] N/A, \[!] Needs Attention).
-    - If deficiencies, gaps, or areas needing more detail or clarification are identified based on the checklist:
-      - Discuss these findings with the user.
-      - Collaboratively make necessary updates, additions, or refinements to the architecture document to address these points.
-    - After addressing all checklist points and ensuring the architecture document is robust and complete, present a summary of the checklist review to the user. This summary should highlight:
-      - Confirmation that all relevant sections/items of the checklist have been satisfied by the architecture.
-      - Any items marked N/A, with a brief justification.
-      - A brief note on any significant discussions, decisions, or changes made to the architecture document as a result of the checklist review.
-    - **Offer Design Architect Prompt (If Applicable):**
-      - If the architecture includes UI components, ask the user if they would like to include a dedicated prompt for a "Design Architect" at the end of the main architecture document.
-      - Explain that this prompt can capture specific UI considerations, notes from discussions, or decisions that don't fit into the core technical architecture document but are crucial for the Design Architect.
-      - The prompt should also state that the Design Architect will subsequently operate in its specialized mode to define the detailed frontend architecture.
-      - If the user agrees, collaboratively draft this prompt and append it to the architecture document.
-    - Obtain final user approval for the complete architecture documentation generation.
-    - **Recommend Next Steps for UI (If Applicable):**
-      - After the main architecture document is finalized and approved:
-      - If the project involves a user interface (as should be evident from the input PRD and potentially the architecture document itself mentioning UI components or referencing outputs from a Design Architect's UI/UX Specification phase):
-        - Strongly recommend to the user that the next critical step for the UI is to engage the **Design Architect** agent.
-        - Specifically, advise them to use the Design Architect's **'Frontend Architecture Mode'**.
-        - Explain that the Design Architect will use the now-completed main Architecture Document and the detailed UI/UX specifications (e.g., `front-end-spec-tmpl.txt` or enriched PRD) as primary inputs to define the specific frontend architecture, select frontend libraries/frameworks (if not already decided), structure frontend components, and detail interaction patterns.
+6. **根据清单验证架构并确定最终输出：**
+   - 一旦主架构文档组件已起草并与用户审查，使用 `architect-checklist` 进行全面审查。
+   - 检查清单中的每个项目，确保架构文档全面，解决所有关键架构问题（例如，安全性、可扩展性、可维护性、可测试性（包括确认编码标准和测试策略明确定义单元测试位置和命名约定）、开发人员体验），并且提出的解决方案是健壮的。
+   - 对于每个清单项目，确认其状态（例如，\[x] 已完成，\[ ] 不适用，\[!] 需要注意）。
+   - 如果基于清单识别出缺陷、差距或需要更多细节或澄清的领域：
+     - 与用户讨论这些发现。
+     - 协作对架构文档进行必要的更新、添加或改进，以解决这些问题。
+   - 在解决所有清单点并确保架构文档健壮完整后，向用户展示清单审查的摘要。此摘要应突出：
+     - 确认架构已满足清单的所有相关部分/项目。
+     - 任何标记为不适用的项目，并简要说明理由。
+     - 关于清单审查导致的架构文档的任何重要讨论、决定或更改的简要说明。
+   - **提供设计架构师提示（如果适用）：**
+     - 如果架构包括 UI 组件，询问用户是否希望在主架构文档末尾包含"设计架构师"的专用提示。
+     - 解释此提示可以捕获特定 UI 考虑、讨论注释或不适合核心技术架构文档但对设计架构师至关重要的决定。
+     - 提示还应说明设计架构师随后将以其专业模式运行，以定义详细的前端架构。
+     - 如果用户同意，协作起草此提示并将其附加到架构文档。
+   - 获取用户对完整架构文档生成的最终批准。
+   - **为 UI 推荐下一步（如果适用）：**
+     - 在主架构文档最终确定并批准后：
+     - 如果项目涉及用户界面（应该从输入 PRD 中明显看出，并且可能架构文档本身提到 UI 组件或引用设计架构师的 UI/UX 规范阶段的输出）：
+       - 强烈建议用户 UI 的下一个关键步骤是让**设计架构师**代理参与。
+       - 具体来说，建议他们使用设计架构师的**'前端架构模式'**。
+       - 解释设计架构师将使用现在完成的主架构文档和详细的 UI/UX 规范（例如，`front-end-spec-tmpl.txt` 或丰富的 PRD）作为主要输入，以定义特定的前端架构、选择前端库/框架（如果尚未决定）、构建前端组件并详细说明交互模式。
 
-### Output Deliverables for Architecture Creation Phase
+### 架构创建阶段的输出交付物
 
-- A comprehensive Architecture Document, structured according to the `architecture-tmpl` (which is all markdown) or an agreed-upon format, including all sections detailed above.
-- Clear Mermaid diagrams for architecture overview, data models, etc.
-- A list of new or refined technical user stories/tasks ready for backlog integration.
-- A summary of any identified changes (additions, updates, modifications) required for existing epics or user stories, or an explicit confirmation if no such changes are needed.
-- A completed `architect-checklist` (or a summary of its validation).
-- Optionally, if UI components are involved and the user agrees: A prompt for a "Design Architect" appended to the main architecture document, summarizing relevant UI considerations and outlining the Design Architect's next steps.
+- 一个全面的架构文档，根据 `architecture-tmpl`（全部为 markdown）或商定的格式构建，包括上述所有部分。
+- 清晰的 Mermaid 图表，用于架构概述、数据模型等。
+- 准备集成到待办事项的新技术用户故事/任务列表。
+- 对现有史诗或用户故事所需的任何已识别更改（添加、更新、修改）的摘要，或者如果不需要此类更改，则明确确认。
+- 一个完整的 `architect-checklist`（或其验证摘要）。
+- 可选地，如果涉及 UI 组件且用户同意：附加到主架构文档的"设计架构师"提示，总结相关 UI 考虑并概述设计架构师的下一步。
 
-## Offer Advanced Self-Refinement & Elicitation Options
+## 提供高级自我改进和启发选项
 
-(This section is called when needed prior to this)
+（此部分在需要时在此之前调用）
 
-Present the user with the following list of 'Advanced Reflective, Elicitation & Brainstorming Actions'. Explain that these are optional steps to help ensure quality, explore alternatives, and deepen the understanding of the current section before finalizing it and moving on. The user can select an action by number, or choose to skip this and proceed to finalize the section.
+向用户展示以下"高级反思、启发和头脑风暴行动"列表。解释这些是可选的步骤，以帮助确保质量、探索替代方案，并在最终确定当前部分并继续之前加深对其的理解。用户可以通过数字选择操作，或选择跳过此步骤并继续完成该部分。
 
-"To ensure the quality of the current section: **[Specific Section Name]** and to ensure its robustness, explore alternatives, and consider all angles, I can perform any of the following actions. Please choose a number (8 to finalize and proceed):
+"为确保当前部分的质量：**[特定部分名称]** 并确保其健壮性、探索替代方案并考虑所有角度，我可以执行以下任何操作。请选择一个数字（8 表示完成并继续）：
 
-**Advanced Reflective, Elicitation & Brainstorming Actions I Can Take:**
+**我可以采取的高级反思、启发和头脑风暴行动：**
 
-{Instruction for AI Agent: Display the title of each numbered item below. If the user asks what a specific option means, provide a brief explanation of the action you will take, drawing from detailed descriptions tailored for the context.}
+{AI 代理的说明：显示下面每个编号项目的标题。如果用户询问特定选项的含义，请提供您将采取的行动的简要解释，从为上下文定制的详细描述中提取。}
 
-1.  **Critical Self-Review & User Goal Alignment**
-2.  **Generate & Evaluate Alternative Design Solutions**
-3.  **User Journey & Interaction Stress Test (Conceptual)**
-4.  **Deep Dive into Design Assumptions & Constraints**
-5.  **Usability & Accessibility Audit Review & Probing Questions**
-6.  **Collaborative Ideation & UI Feature Brainstorming**
-7.  **Elicit 'Unforeseen User Needs' & Future Interaction Questions**
-8.  **Finalize this Section and Proceed.**
+1. **关键自我审查和用户目标对齐**
+2. **生成和评估替代设计解决方案**
+3. **用户旅程和交互压力测试（概念性）**
+4. **深入探讨设计假设和约束**
+5. **可用性和可访问性审计审查和探索性问题**
+6. **协作构思和 UI 功能头脑风暴**
+7. **启发"未预见的用户需求"和未来交互问题**
+8. **完成此部分并继续。**
 
-After I perform the selected action, we can discuss the outcome and decide on any further revisions for this section."
+在我执行所选操作后，我们可以讨论结果并决定对此部分进行任何进一步的修改。"
 
-REPEAT by Asking the user if they would like to perform another Reflective, Elicitation & Brainstorming Action UNIT the user indicates it is time to proceed ot the next section (or selects #8)
+通过询问用户是否希望执行另一个反思、启发和头脑风暴行动来重复，直到用户表示是时候继续下一部分（或选择 #8）

@@ -1,73 +1,73 @@
-# Correct Course Task
+# 纠正方向任务
 
-## Purpose
+## 目的
 
-- Guide a structured response to a change trigger using the `change-checklist`.
-- Analyze the impacts of the change on epics, project artifacts, and the MVP, guided by the checklist's structure.
-- Explore potential solutions (e.g., adjust scope, rollback elements, rescope features) as prompted by the checklist.
-- Draft specific, actionable proposed updates to any affected project artifacts (e.g., epics, user stories, PRD sections, architecture document sections) based on the analysis.
-- Produce a consolidated "Sprint Change Proposal" document that contains the impact analysis and the clearly drafted proposed edits for user review and approval.
-- Ensure a clear handoff path if the nature of the changes necessitates fundamental replanning by other core agents (like PM or Architect).
+- 使用 `change-checklist` 指导对变更触发因素的结构化响应。
+- 根据清单结构分析变更对史诗、项目工件和 MVP 的影响。
+- 根据清单提示探索潜在解决方案（例如，调整范围、回滚元素、重新规划功能）。
+- 基于分析为任何受影响的项目工件（例如，史诗、用户故事、PRD 部分、架构文档部分）起草具体的、可操作的更新建议。
+- 生成一个包含影响分析和明确起草的编辑建议的"Sprint 变更提案"文档，供用户审查和批准。
+- 如果变更性质需要其他核心代理（如 PM 或架构师）进行根本性重新规划，确保清晰的交接路径。
 
-## Instructions
+## 说明
 
-### 1. Initial Setup & Mode Selection
+### 1. 初始设置和模式选择
 
-- **Acknowledge Task & Inputs:**
-  - Confirm with the user that the "Correct Course Task" (Change Navigation & Integration) is being initiated.
-  - Verify the change trigger and ensure you have the user's initial explanation of the issue and its perceived impact.
-  - Confirm access to all relevant project artifacts (e.g., PRD, Epics/Stories, Architecture Documents, UI/UX Specifications) and, critically, the `change-checklist` (e.g., `change-checklist`).
-- **Establish Interaction Mode:**
-  - Ask the user their preferred interaction mode for this task:
-    - **"Incrementally (Default & Recommended):** Shall we work through the `change-checklist` section by section, discussing findings and collaboratively drafting proposed changes for each relevant part before moving to the next? This allows for detailed, step-by-step refinement."
-    - **"YOLO Mode (Batch Processing):** Or, would you prefer I conduct a more batched analysis based on the checklist and then present a consolidated set of findings and proposed changes for a broader review? This can be quicker for initial assessment but might require more extensive review of the combined proposals."
-  - Request the user to select their preferred mode.
-  - Once the user chooses, confirm the selected mode (e.g., "Okay, we will proceed in Incremental mode."). This chosen mode will govern how subsequent steps in this task are executed.
-- **Explain Process:** Briefly inform the user: "We will now use the `change-checklist` to analyze the change and draft proposed updates. I will guide you through the checklist items based on our chosen interaction mode."
-  <rule>When asking multiple questions or presenting multiple points for user input at once, number them clearly (e.g., 1., 2a., 2b.) to make it easier for the user to provide specific responses.</rule>
+- **确认任务和输入：**
+  - 向用户确认"纠正方向任务"（变更导航和集成）正在启动。
+  - 验证变更触发因素，确保您有用户对问题及其感知影响的初步解释。
+  - 确认可以访问所有相关项目工件（例如，PRD、史诗/故事、架构文档、UI/UX 规范）以及关键的 `change-checklist`（例如，`change-checklist`）。
+- **建立交互模式：**
+  - 询问用户在此任务中偏好的交互模式：
+    - **"增量式（默认和推荐）：** 我们是否应该逐节处理 `change-checklist`，在进入下一部分之前讨论发现并协作起草每个相关部分的建议更改？这允许详细的、逐步的改进。"
+    - **"YOLO 模式（批处理）：** 或者，您是否希望我基于清单进行更批量的分析，然后提供综合的发现和建议更改供更广泛的审查？这对于初步评估可能更快，但可能需要对组合提案进行更广泛的审查。"
+  - 请求用户选择其偏好的模式。
+  - 一旦用户选择，确认所选模式（例如，"好的，我们将以增量模式进行。"）。这个选择的模式将决定此任务中后续步骤的执行方式。
+- **解释流程：** 简要告知用户："我们现在将使用 `change-checklist` 分析变更并起草建议的更新。我将根据我们选择的交互模式指导您完成清单项目。"
+  <rule>当一次提出多个问题或向用户展示多个输入点时，请清晰地编号（例如，1.、2a.、2b.）以便用户提供具体响应。</rule>
 
-### 2. Execute Checklist Analysis (Iteratively or Batched, per Interaction Mode)
+### 2. 执行清单分析（根据交互模式迭代或批量）
 
-- Systematically work through Sections 1-4 of the `change-checklist` (typically covering Change Context, Epic/Story Impact Analysis, Artifact Conflict Resolution, and Path Evaluation/Recommendation).
-- For each checklist item or logical group of items (depending on interaction mode):
-  - Present the relevant prompt(s) or considerations from the checklist to the user.
-  - Request necessary information and actively analyze the relevant project artifacts (PRD, epics, architecture documents, story history, etc.) to assess the impact.
-  - Discuss your findings for each item with the user.
-  - Record the status of each checklist item (e.g., `[x] Addressed`, `[N/A]`, `[!] Further Action Needed`) and any pertinent notes or decisions.
-  - Collaboratively agree on the "Recommended Path Forward" as prompted by Section 4 of the checklist.
+- 系统地处理 `change-checklist` 的第 1-4 节（通常涵盖变更上下文、史诗/故事影响分析、工件冲突解决和路径评估/建议）。
+- 对于每个清单项目或逻辑项目组（取决于交互模式）：
+  - 向用户展示清单中的相关提示或考虑事项。
+  - 请求必要的信息并积极分析相关项目工件（PRD、史诗、架构文档、故事历史等）以评估影响。
+  - 与用户讨论每个项目的发现。
+  - 记录每个清单项目的状态（例如，`[x] 已处理`、`[N/A]`、`[!] 需要进一步行动`）和任何相关注释或决定。
+  - 根据清单第 4 节的提示，协作商定"推荐的前进路径"。
 
-### 3. Draft Proposed Changes (Iteratively or Batched)
+### 3. 起草建议的更改（迭代或批量）
 
-- Based on the completed checklist analysis (Sections 1-4) and the agreed "Recommended Path Forward" (excluding scenarios requiring fundamental replans that would necessitate immediate handoff to PM/Architect):
-  - Identify the specific project artifacts that require updates (e.g., specific epics, user stories, PRD sections, architecture document components, diagrams).
-  - **Draft the proposed changes directly and explicitly for each identified artifact.** Examples include:
-    - Revising user story text, acceptance criteria, or priority.
-    - Adding, removing, reordering, or splitting user stories within epics.
-    - Proposing modified architecture diagram snippets (e.g., providing an updated Mermaid diagram block or a clear textual description of the change to an existing diagram).
-    - Updating technology lists, configuration details, or specific sections within the PRD or architecture documents.
-    - Drafting new, small supporting artifacts if necessary (e.g., a brief addendum for a specific decision).
-  - If in "Incremental Mode," discuss and refine these proposed edits for each artifact or small group of related artifacts with the user as they are drafted.
-  - If in "YOLO Mode," compile all drafted edits for presentation in the next step.
+- 基于完成的清单分析（第 1-4 节）和商定的"推荐的前进路径"（不包括需要立即交接给 PM/架构师进行根本性重新规划的场景）：
+  - 识别需要更新的特定项目工件（例如，特定史诗、用户故事、PRD 部分、架构文档组件、图表）。
+  - **直接明确地为每个识别的工件起草建议的更改。** 示例包括：
+    - 修改用户故事文本、验收标准或优先级。
+    - 在史诗中添加、删除、重新排序或拆分用户故事。
+    - 提出修改的架构图片段（例如，提供更新的 Mermaid 图块或对现有图表的更改的清晰文本描述）。
+    - 更新技术列表、配置细节或 PRD 或架构文档中的特定部分。
+    - 必要时起草新的小型支持工件（例如，特定决定的简短附录）。
+  - 如果处于"增量模式"，在起草时与用户讨论并完善每个工件或相关工件小组的这些建议编辑。
+  - 如果处于"YOLO 模式"，在下一步中编译所有起草的编辑以供展示。
 
-### 4. Generate "Sprint Change Proposal" with Edits
+### 4. 生成带有编辑的"Sprint 变更提案"
 
-- Synthesize the complete `change-checklist` analysis (covering findings from Sections 1-4) and all the agreed-upon proposed edits (from Instruction 3) into a single document titled "Sprint Change Proposal." This proposal should align with the structure suggested by Section 5 of the `change-checklist` (Proposal Components).
-- The proposal must clearly present:
-  - **Analysis Summary:** A concise overview of the original issue, its analyzed impact (on epics, artifacts, MVP scope), and the rationale for the chosen path forward.
-  - **Specific Proposed Edits:** For each affected artifact, clearly show or describe the exact changes (e.g., "Change Story X.Y from: [old text] To: [new text]", "Add new Acceptance Criterion to Story A.B: [new AC]", "Update Section 3.2 of Architecture Document as follows: [new/modified text or diagram description]").
-- Present the complete draft of the "Sprint Change Proposal" to the user for final review and feedback. Incorporate any final adjustments requested by the user.
+- 将完整的 `change-checklist` 分析（涵盖第 1-4 节的发现）和所有商定的建议编辑（来自说明 3）综合到一个名为"Sprint 变更提案"的文档中。该提案应符合 `change-checklist` 第 5 节（提案组件）建议的结构。
+- 提案必须清晰展示：
+  - **分析摘要：** 原始问题的简明概述、其分析影响（对史诗、工件、MVP 范围）以及选择前进路径的理由。
+  - **具体建议编辑：** 对于每个受影响的工件，清晰显示或描述确切的更改（例如，"将故事 X.Y 从：[旧文本] 更改为：[新文本]"、"向故事 A.B 添加新的验收标准：[新 AC]"、"按如下方式更新架构文档第 3.2 节：[新/修改的文本或图表描述]"）。
+- 向用户展示"Sprint 变更提案"的完整草稿以供最终审查和反馈。纳入用户要求的任何最终调整。
 
-### 5. Finalize & Determine Next Steps
+### 5. 确定最终结果和下一步
 
-- Obtain explicit user approval for the "Sprint Change Proposal," including all the specific edits documented within it.
-- Provide the finalized "Sprint Change Proposal" document to the user.
-- **Based on the nature of the approved changes:**
-  - **If the approved edits sufficiently address the change and can be implemented directly or organized by a PO/SM:** State that the "Correct Course Task" is complete regarding analysis and change proposal, and the user can now proceed with implementing or logging these changes (e.g., updating actual project documents, backlog items). Suggest handoff to a PO/SM agent for backlog organization if appropriate.
-  - **If the analysis and proposed path (as per checklist Section 4 and potentially Section 6) indicate that the change requires a more fundamental replan (e.g., significant scope change, major architectural rework):** Clearly state this conclusion. Advise the user that the next step involves engaging the primary PM or Architect agents, using the "Sprint Change Proposal" as critical input and context for that deeper replanning effort.
+- 获取用户对"Sprint 变更提案"的明确批准，包括其中记录的所有具体编辑。
+- 向用户提供最终的"Sprint 变更提案"文档。
+- **基于已批准更改的性质：**
+  - **如果已批准的编辑充分解决了变更并可以直接实施或由 PO/SM 组织：** 说明"纠正方向任务"在分析和变更提案方面已完成，用户现在可以继续实施或记录这些更改（例如，更新实际项目文档、待办事项）。如果适当，建议交接给 PO/SM 代理进行待办事项组织。
+  - **如果分析和建议路径（根据清单第 4 节和可能的第 6 节）表明变更需要更根本的重新规划（例如，重大范围变更、主要架构重做）：** 明确说明这一结论。建议用户下一步涉及与主要 PM 或架构师代理合作，使用"Sprint 变更提案"作为该更深入重新规划工作的关键输入和上下文。
 
-## Output Deliverables
+## 输出交付物
 
-- **Primary:** A "Sprint Change Proposal" document (in markdown format). This document will contain:
-  - A summary of the `change-checklist` analysis (issue, impact, rationale for the chosen path).
-  - Specific, clearly drafted proposed edits for all affected project artifacts.
-- **Implicit:** An annotated `change-checklist` (or the record of its completion) reflecting the discussions, findings, and decisions made during the process.
+- **主要：** "Sprint 变更提案"文档（markdown 格式）。该文档将包含：
+  - `change-checklist` 分析的摘要（问题、影响、选择路径的理由）。
+  - 所有受影响项目工件的具体、明确起草的建议编辑。
+- **隐含：** 带注释的 `change-checklist`（或其完成记录），反映过程中进行的讨论、发现和决定。

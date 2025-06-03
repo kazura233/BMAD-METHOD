@@ -1,100 +1,100 @@
-# Create Next Story Task
+# 创建下一个故事任务
 
-## Purpose
+## 目的
 
-To identify the next logical story based on project progress and epic definitions, and then to prepare a comprehensive, self-contained, and actionable story file using the `Story Template`. This task ensures the story is enriched with all necessary technical context, requirements, and acceptance criteria, making it ready for efficient implementation by a Developer Agent with minimal need for additional research.
+基于项目进度和史诗定义识别下一个逻辑故事，然后使用 `Story Template` 准备一个全面的、自包含的、可操作的故事文件。此任务确保故事包含所有必要的技术上下文、需求和验收标准，使开发代理能够高效实施，无需进行额外的研究。
 
-## Inputs for this Task
+## 此任务的输入
 
-- Access to the project's documentation repository, specifically:
-  - `docs/index.md` (hereafter "Index Doc")
-  - All Epic files (e.g., `docs/epic-{n}.md` - hereafter "Epic Files")
-  - Existing story files in `docs/stories/`
-  - Main PRD (hereafter "PRD Doc")
-  - Main Architecture Document (hereafter "Main Arch Doc")
-  - Frontend Architecture Document (hereafter "Frontend Arch Doc," if relevant)
-  - Project Structure Guide (`docs/project-structure.md`)
-  - Operational Guidelines Document (`docs/operational-guidelines.md`)
-  - Technology Stack Document (`docs/tech-stack.md`)
-  - Data Models Document (as referenced in Index Doc)
-  - API Reference Document (as referenced in Index Doc)
-  - UI/UX Specifications, Style Guides, Component Guides (if relevant, as referenced in Index Doc)
-- The `bmad-agent/templates/story-tmpl.md` (hereafter "Story Template")
-- The `bmad-agent/checklists/story-draft-checklist.md` (hereafter "Story Draft Checklist")
-- User confirmation to proceed with story identification and, if needed, to override warnings about incomplete prerequisite stories.
+- 访问项目的文档仓库，特别是：
+  - `docs/index.md`（以下简称"索引文档"）
+  - 所有史诗文件（例如 `docs/epic-{n}.md` - 以下简称"史诗文件"）
+  - `docs/stories/` 中的现有故事文件
+  - 主 PRD（以下简称"PRD 文档"）
+  - 主架构文档（以下简称"主架构文档"）
+  - 前端架构文档（以下简称"前端架构文档"，如果相关）
+  - 项目结构指南（`docs/project-structure.md`）
+  - 操作指南文档（`docs/operational-guidelines.md`）
+  - 技术栈文档（`docs/tech-stack.md`）
+  - 数据模型文档（如索引文档中引用）
+  - API 参考文档（如索引文档中引用）
+  - UI/UX 规范、样式指南、组件指南（如果相关，如索引文档中引用）
+- `bmad-agent/templates/story-tmpl.md`（以下简称"故事模板"）
+- `bmad-agent/checklists/story-draft-checklist.md`（以下简称"故事草稿清单"）
+- 用户确认继续进行故事识别，如果需要，可以覆盖关于不完整前置故事的警告。
 
-## Task Execution Instructions
+## 任务执行说明
 
-### 1. Identify Next Story for Preparation
+### 1. 识别下一个要准备的故事
 
-- Review `docs/stories/` to find the highest-numbered story file.
-- **If a highest story file exists (`{lastEpicNum}.{lastStoryNum}.story.md`):**
+- 审查 `docs/stories/` 以找到编号最高的故事文件。
+- **如果存在最高编号的故事文件（`{lastEpicNum}.{lastStoryNum}.story.md`）：**
 
-  - Verify its `Status` is 'Done' (or equivalent).
-  - If not 'Done', present an alert to the user:
+  - 验证其 `Status` 是否为 'Done'（或等效状态）。
+  - 如果不是 'Done'，向用户显示警告：
 
     ```
-    ALERT: Found incomplete story:
-    File: {lastEpicNum}.{lastStoryNum}.story.md
-    Status: [current status]
+    警告：发现未完成的故事：
+    文件：{lastEpicNum}.{lastStoryNum}.story.md
+    状态：[当前状态]
 
-    Would you like to:
-    1. View the incomplete story details (instructs user to do so, agent does not display)
-    2. Cancel new story creation at this time
-    3. Accept risk & Override to create the next story in draft
+    您希望：
+    1. 查看未完成故事的详情（指示用户查看，代理不显示）
+    2. 此时取消新故事创建
+    3. 接受风险并覆盖以创建下一个草稿故事
 
-    Please choose an option (1/2/3):
+    请选择选项（1/2/3）：
     ```
 
-  - Proceed only if user selects option 3 (Override) or if the last story was 'Done'.
-  - If proceeding: Check the Epic File for `{lastEpicNum}` for a story numbered `{lastStoryNum + 1}`. If it exists and its prerequisites (per Epic File) are met, this is the next story.
-  - Else (story not found or prerequisites not met): The next story is the first story in the next Epic File (e.g., `docs/epic-{lastEpicNum + 1}.md`, then `{lastEpicNum + 2}.md`, etc.) whose prerequisites are met.
+  - 仅当用户选择选项 3（覆盖）或最后一个故事为 'Done' 时继续。
+  - 如果继续：检查 `{lastEpicNum}` 的史诗文件中是否有编号为 `{lastStoryNum + 1}` 的故事。如果存在且其前置条件（根据史诗文件）已满足，这就是下一个故事。
+  - 否则（未找到故事或前置条件未满足）：下一个故事是下一个史诗文件（例如 `docs/epic-{lastEpicNum + 1}.md`，然后是 `{lastEpicNum + 2}.md` 等）中第一个满足前置条件的故事。
 
-- **If no story files exist in `docs/stories/`:**
-  - The next story is the first story in `docs/epic-1.md` (then `docs/epic-2.md`, etc.) whose prerequisites are met.
-- If no suitable story with met prerequisites is found, report to the user that story creation is blocked, specifying what prerequisites are pending. HALT task.
-- Announce the identified story to the user: "Identified next story for preparation: {epicNum}.{storyNum} - {Story Title}".
+- **如果 `docs/stories/` 中不存在故事文件：**
+  - 下一个故事是 `docs/epic-1.md`（然后是 `docs/epic-2.md` 等）中第一个满足前置条件的故事。
+- 如果未找到满足前置条件的合适故事，向用户报告故事创建被阻止，并说明哪些前置条件待处理。暂停任务。
+- 向用户宣布已识别的故事："已识别下一个要准备的故事：{epicNum}.{storyNum} - {故事标题}"。
 
-### 2. Gather Core Story Requirements (from Epic File)
+### 2. 收集核心故事需求（来自史诗文件）
 
-- For the identified story, open its parent Epic File.
-- Extract: Exact Title, full Goal/User Story statement, initial list of Requirements, all Acceptance Criteria (ACs), and any predefined high-level Tasks.
-- Keep a record of this original epic-defined scope for later deviation analysis.
+- 对于已识别的故事，打开其父史诗文件。
+- 提取：确切标题、完整目标/用户故事陈述、初始需求列表、所有验收标准（ACs）以及任何预定义的高级任务。
+- 记录这个原始史诗定义的范围，以便后续进行偏差分析。
 
-### 3. Gather & Synthesize In-Depth Technical Context for Dev Agent
+### 3. 收集和综合开发代理的深入技术上下文
 
-- <critical_rule>Systematically use the Index Doc (`docs/index.md`) as your primary guide to discover paths to ALL detailed documentation relevant to the current story's implementation needs.</critical_rule>
-- Thoroughly review the PRD Doc, Main Arch Doc, and Frontend Arch Doc (if a UI story).
-- Guided by the Index Doc and the story's needs, locate, analyze, and synthesize specific, relevant information from sources such as:
-  - Data Models Doc (structure, validation rules).
-  - API Reference Doc (endpoints, request/response schemas, auth).
-  - Applicable architectural patterns or component designs from Arch Docs.
-  - UI/UX Specs, Style Guides, Component Guides (for UI stories).
-  - Specifics from Tech Stack Doc if versions or configurations are key for this story.
-  - Relevant sections of the Operational Guidelines Doc (e.g., story-specific error handling nuances, security considerations for data handled in this story).
-- The goal is to collect all necessary details the Dev Agent would need, to avoid them having to search extensively. Note any discrepancies between the epic and these details for "Deviation Analysis."
+- <critical_rule>系统地使用索引文档（`docs/index.md`）作为主要指南，发现与当前故事实施需求相关的所有详细文档的路径。</critical_rule>
+- 彻底审查 PRD 文档、主架构文档和前端架构文档（如果是 UI 故事）。
+- 在索引文档和故事需求的指导下，从以下来源定位、分析和综合具体相关信息：
+  - 数据模型文档（结构、验证规则）。
+  - API 参考文档（端点、请求/响应模式、认证）。
+  - 来自架构文档的适用架构模式或组件设计。
+  - UI/UX 规范、样式指南、组件指南（用于 UI 故事）。
+  - 如果版本或配置对故事至关重要，则从技术栈文档中提取具体内容。
+  - 操作指南文档的相关部分（例如，故事特定的错误处理细节、此故事处理数据的安全考虑）。
+- 目标是收集开发代理所需的所有必要细节，避免他们进行广泛搜索。注意史诗与这些细节之间的任何差异，用于"偏差分析"。
 
-### 4. Verify Project Structure Alignment
+### 4. 验证项目结构对齐
 
-- Cross-reference the story's requirements and anticipated file manipulations with the Project Structure Guide (and frontend structure if applicable).
-- Ensure any file paths, component locations, or module names implied by the story align with defined structures.
-- Document any structural conflicts, necessary clarifications, or undefined components/paths in a "Project Structure Notes" section within the story draft.
+- 将故事的需求和预期的文件操作与项目结构指南（如果适用，还包括前端结构）进行交叉引用。
+- 确保故事隐含的任何文件路径、组件位置或模块名称与定义的结构一致。
+- 在故事草稿中的"项目结构说明"部分记录任何结构冲突、必要的澄清或未定义的组件/路径。
 
-### 5. Populate Story Template with Full Context
+### 5. 使用完整上下文填充故事模板
 
-- Create a new story file: `docs/stories/{epicNum}.{storyNum}.story.md`.
-- Use the Story Template to structure the file.
-- Fill in:
-  - Story `{EpicNum}.{StoryNum}: {Short Title Copied from Epic File}`
+- 创建新的故事文件：`docs/stories/{epicNum}.{storyNum}.story.md`。
+- 使用故事模板构建文件。
+- 填写：
+  - 故事 `{EpicNum}.{StoryNum}: {从史诗文件复制的简短标题}`
   - `Status: Draft`
-  - `Story` (User Story statement from Epic)
-  - `Acceptance Criteria (ACs)` (from Epic, to be refined if needed based on context)
-- **`Dev Technical Guidance` section (CRITICAL):**
-  - Based on all context gathered (Step 3 & 4), embed concise but critical snippets of information, specific data structures, API endpoint details, precise references to _specific sections_ in other documents (e.g., "See `Data Models Doc#User-Schema-ValidationRules` for details"), or brief explanations of how architectural patterns apply to _this story_.
-  - If UI story, provide specific references to Component/Style Guides relevant to _this story's elements_.
-  - The aim is to make this section the Dev Agent's primary source for _story-specific_ technical context.
-- **`Tasks / Subtasks` section:**
-  - Generate a detailed, sequential list of technical tasks and subtasks the Dev Agent must perform to complete the story, informed by the gathered context.
-  - Link tasks to ACs where applicable (e.g., `Task 1 (AC: 1, 3)`).
-- Add notes on project structure alignment or discrepancies found in Step 4.
-- Prepare content for the "Deviation Analysis" based on discrepancies noted in Step 3.
+  - `Story`（来自史诗的用户故事陈述）
+  - `Acceptance Criteria (ACs)`（来自史诗，如果需要，根据上下文进行完善）
+- **`Dev Technical Guidance` 部分（关键）：**
+  - 基于所有收集的上下文（步骤 3 和 4），嵌入简洁但关键的信息片段、特定数据结构、API 端点详情、对其他文档中特定部分的精确引用（例如，"有关详细信息，请参见 `Data Models Doc#User-Schema-ValidationRules`"），或简要说明架构模式如何应用于此故事。
+  - 如果是 UI 故事，提供与此故事元素相关的组件/样式指南的具体引用。
+  - 目标是使此部分成为开发代理获取故事特定技术上下文的主要来源。
+- **`Tasks / Subtasks` 部分：**
+  - 生成开发代理必须执行的详细、顺序的技术任务和子任务列表，以完成故事，基于收集的上下文。
+  - 在适用的情况下将任务链接到 ACs（例如，`Task 1 (AC: 1, 3)`）。
+- 添加步骤 4 中发现的项目结构对齐或差异的说明。
+- 基于步骤 3 中注意到的差异，准备"偏差分析"的内容。

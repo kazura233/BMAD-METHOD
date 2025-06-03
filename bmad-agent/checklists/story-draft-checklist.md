@@ -1,57 +1,57 @@
-# Story Draft Checklist
+# 故事草稿检查清单
 
-The Scrum Master should use this checklist to validate that each story contains sufficient context for a developer agent to implement it successfully, while assuming the dev agent has reasonable capabilities to figure things out.
+Scrum Master 应使用此检查清单来验证每个故事是否包含足够的上下文，以便开发代理能够成功实现它，同时假设开发代理具有合理的能力来解决问题。
 
-## 1. GOAL & CONTEXT CLARITY
+## 1. 目标和上下文清晰度
 
-- [ ] Story goal/purpose is clearly stated
-- [ ] Relationship to epic goals is evident
-- [ ] How the story fits into overall system flow is explained
-- [ ] Dependencies on previous stories are identified (if applicable)
-- [ ] Business context and value are clear
+- [ ] 故事目标/目的明确说明
+- [ ] 与史诗目标的关系显而易见
+- [ ] 解释故事如何融入整体系统流程
+- [ ] 识别对先前故事的依赖（如适用）
+- [ ] 业务背景和价值清晰
 
-## 2. TECHNICAL IMPLEMENTATION GUIDANCE
+## 2. 技术实现指导
 
-- [ ] Key files to create/modify are identified (not necessarily exhaustive)
-- [ ] Technologies specifically needed for this story are mentioned
-- [ ] Critical APIs or interfaces are sufficiently described
-- [ ] Necessary data models or structures are referenced
-- [ ] Required environment variables are listed (if applicable)
-- [ ] Any exceptions to standard coding patterns are noted
+- [ ] 识别要创建/修改的关键文件（不一定是详尽的）
+- [ ] 提及此故事特别需要的技术
+- [ ] 充分描述关键 API 或接口
+- [ ] 引用必要的数据模型或结构
+- [ ] 列出所需的环境变量（如适用）
+- [ ] 注明任何与标准编码模式的例外情况
 
-## 3. REFERENCE EFFECTIVENESS
+## 3. 参考有效性
 
-- [ ] References to external documents point to specific relevant sections
-- [ ] Critical information from previous stories is summarized (not just referenced)
-- [ ] Context is provided for why references are relevant
-- [ ] References use consistent format (e.g., `docs/filename.md#section`)
+- [ ] 外部文档的引用指向特定的相关部分
+- [ ] 总结来自先前故事的关键信息（不仅仅是引用）
+- [ ] 提供引用相关性的上下文
+- [ ] 引用使用一致的格式（例如，`docs/filename.md#section`）
 
-## 4. SELF-CONTAINMENT ASSESSMENT
+## 4. 自包含性评估
 
-- [ ] Core information needed is included (not overly reliant on external docs)
-- [ ] Implicit assumptions are made explicit
-- [ ] Domain-specific terms or concepts are explained
-- [ ] Edge cases or error scenarios are addressed
+- [ ] 包含所需的核心信息（不过度依赖外部文档）
+- [ ] 明确说明隐含的假设
+- [ ] 解释特定领域的术语或概念
+- [ ] 处理边缘情况或错误场景
 
-## 5. TESTING GUIDANCE
+## 5. 测试指导
 
-- [ ] Required testing approach is outlined
-- [ ] Key test scenarios are identified
-- [ ] Success criteria are defined
-- [ ] Special testing considerations are noted (if applicable)
+- [ ] 概述所需的测试方法
+- [ ] 识别关键测试场景
+- [ ] 定义成功标准
+- [ ] 注明特殊测试考虑事项（如适用）
 
-## VALIDATION RESULT
+## 验证结果
 
-| Category                             | Status            | Issues |
-| ------------------------------------ | ----------------- | ------ |
-| 1. Goal & Context Clarity            | PASS/FAIL/PARTIAL |        |
-| 2. Technical Implementation Guidance | PASS/FAIL/PARTIAL |        |
-| 3. Reference Effectiveness           | PASS/FAIL/PARTIAL |        |
-| 4. Self-Containment Assessment       | PASS/FAIL/PARTIAL |        |
-| 5. Testing Guidance                  | PASS/FAIL/PARTIAL |        |
+| 类别                  | 状态           | 问题 |
+| --------------------- | -------------- | ---- |
+| 1. 目标和上下文清晰度 | 通过/失败/部分 |      |
+| 2. 技术实现指导       | 通过/失败/部分 |      |
+| 3. 参考有效性         | 通过/失败/部分 |      |
+| 4. 自包含性评估       | 通过/失败/部分 |      |
+| 5. 测试指导           | 通过/失败/部分 |      |
 
-**Final Assessment:**
+**最终评估：**
 
-- READY: The story provides sufficient context for implementation
-- NEEDS REVISION: The story requires updates (see issues)
-- BLOCKED: External information required (specify what information)
+- 就绪：故事提供了足够的实现上下文
+- 需要修订：故事需要更新（见问题）
+- 受阻：需要外部信息（说明需要什么信息）

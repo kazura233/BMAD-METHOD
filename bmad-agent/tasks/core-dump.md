@@ -1,74 +1,74 @@
-# Core Dump Task
+# 核心转储任务
 
-## Purpose
+## 目的
 
-To create a concise memory recording file (`.ai/core-dump-n.md`) that captures the essential context of the current agent session, enabling seamless continuation of work in future agent sessions. This task ensures persistent context across agent conversations while maintaining minimal token usage for efficient context loading.
+创建一个简洁的内存记录文件（`.ai/core-dump-n.md`），捕获当前代理会话的基本上下文，使未来的代理会话能够无缝继续工作。此任务确保代理对话之间的持久上下文，同时保持最小的令牌使用以实现高效的上下文加载。
 
-## Inputs for this Task
+## 本任务的输入
 
-- Current session conversation history and accomplishments
-- Files created, modified, or deleted during the session
-- Key decisions made and procedures followed
-- Current project state and next logical steps
-- User requests and agent responses that shaped the session
+- 当前会话的对话历史和成就
+- 会话期间创建、修改或删除的文件
+- 做出的关键决定和遵循的程序
+- 当前项目状态和下一个逻辑步骤
+- 塑造会话的用户请求和代理响应
 
-## Task Execution Instructions
+## 任务执行说明
 
-### 0. Check Existing Core Dump
+### 0. 检查现有核心转储
 
-Before proceeding, check if `.ai/core-dump.md` already exists:
+在继续之前，检查 `.ai/core-dump.md` 是否已存在：
 
-- If file exists, ask user: "Core dump file exists. Should I: 1. Overwrite, 2. Update, 3. Append or 4. Create new?"
-- **Overwrite**: Replace entire file with new content
-- **Update**: Merge new session info with existing content, updating relevant sections
-- **Append**: Add new session as a separate entry while preserving existing content
-- **Create New**: Create a new file, appending the next possible -# to the file, such as core-dump-3.md if 1 and 2 already exist.
-- If file doesn't exist, proceed with creation of `core-dump-1.md`
+- 如果文件存在，询问用户："核心转储文件已存在。我应该：1. 覆盖，2. 更新，3. 追加或 4. 创建新的？"
+- **覆盖**：用新内容替换整个文件
+- **更新**：将新会话信息与现有内容合并，更新相关部分
+- **追加**：将新会话作为单独条目添加，同时保留现有内容
+- **创建新**：创建新文件，如果 1 和 2 已存在，则在文件名后附加下一个可能的 -#，例如 core-dump-3.md
+- 如果文件不存在，继续创建 `core-dump-1.md`
 
-### 1. Analyze Session Context
+### 1. 分析会话上下文
 
-- Review the entire conversation to identify key accomplishments
-- Note any specific tasks, procedures, or workflows that were executed
-- Identify important decisions made or problems solved
-- Capture the user's working style and preferences observed during the session
+- 审查整个对话以识别关键成就
+- 注意执行的任何特定任务、程序或工作流程
+- 识别做出的重要决定或解决的问题
+- 捕获会话期间观察到的用户工作风格和偏好
 
-### 2. Document What Was Accomplished
+### 2. 记录已完成的工作
 
-- **Primary Actions**: List the main tasks completed concisely
-- **Story Progress**: For story work, use format "Tasks Complete: 1-6, 8. Next Task Pending: 7, 9"
-- **Problem Solving**: Document any challenges encountered and how they were resolved
-- **User Communications**: Summarize key user requests, preferences, and discussion points
+- **主要行动**：简洁地列出完成的主要任务
+- **故事进展**：对于故事工作，使用格式"已完成任务：1-6，8。待处理任务：7，9"
+- **问题解决**：记录遇到的任何挑战及其解决方式
+- **用户沟通**：总结关键用户请求、偏好和讨论要点
 
-### 3. Record File System Changes (Concise Format)
+### 3. 记录文件系统更改（简洁格式）
 
-- **Files Created**: `filename.ext` (brief purpose/size)
-- **Files Modified**: `filename.ext` (what changed)
-- **Files Deleted**: `filename.ext` (why removed)
-- Focus on essential details, avoid verbose descriptions
+- **创建的文件**：`filename.ext`（简要目的/大小）
+- **修改的文件**：`filename.ext`（更改内容）
+- **删除的文件**：`filename.ext`（删除原因）
+- 关注基本细节，避免冗长描述
 
-### 4. Capture Current Project State
+### 4. 捕获当前项目状态
 
-- **Project Progress**: Where the project stands after this session
-- **Current Issues**: Any blockers or problems that need resolution
-- **Next Logical Steps**: What would be the natural next actions to take
+- **项目进展**：此会话后项目的状态
+- **当前问题**：需要解决的任何阻碍或问题
+- **下一个逻辑步骤**：自然要采取的下一步行动
 
-### 5. Create/Update Core Dump File
+### 5. 创建/更新核心转储文件
 
-Based on user's choice from step 0, handle the file accordingly:
+根据用户在步骤 0 中的选择，相应处理文件：
 
-### 6. Optimize for Minimal Context
+### 6. 优化最小上下文
 
-- Keep descriptions concise but informative
-- Use abbreviated formats where possible (file sizes, task numbers)
-- Focus on actionable information rather than detailed explanations
-- Avoid redundant information that can be found in project documentation
-- Prioritize information that would be lost without this recording
-- Ensure the file can be quickly scanned and understood
+- 保持描述简洁但信息丰富
+- 尽可能使用缩写格式（文件大小、任务编号）
+- 关注可操作信息而非详细解释
+- 避免可在项目文档中找到的冗余信息
+- 优先考虑没有此记录就会丢失的信息
+- 确保文件可以快速扫描和理解
 
-### 7. Validate Completeness
+### 7. 验证完整性
 
-- Verify all significant session activities are captured
-- Ensure a future agent could understand the current state
-- Check that file changes are accurately recorded
-- Confirm next steps are clear and actionable
-- Verify user communication style and preferences are noted
+- 验证所有重要会话活动都已捕获
+- 确保未来的代理能够理解当前状态
+- 检查文件更改是否准确记录
+- 确认下一步清晰且可操作
+- 验证用户沟通风格和偏好已记录

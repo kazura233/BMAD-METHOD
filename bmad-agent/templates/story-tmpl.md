@@ -1,34 +1,34 @@
-# Story {EpicNum}.{StoryNum}: {Short Title Copied from Epic File}
+# 故事 {EpicNum}.{StoryNum}：{从史诗文件复制的简短标题}
 
-## Status: { Draft | Approved | InProgress | Review | Done }
+## 状态：{ 草稿 | 已批准 | 进行中 | 审查中 | 已完成 }
 
-## Story
+## 故事
 
-- As a [role]
-- I want [action]
-- so that [benefit]
+- 作为 [角色]
+- 我想要 [动作]
+- 以便 [收益]
 
-## Acceptance Criteria (ACs)
+## 验收标准 (ACs)
 
-{ Copy the Acceptance Criteria numbered list }
+{ 复制编号的验收标准列表 }
 
-## Tasks / Subtasks
+## 任务 / 子任务
 
-- [ ] Task 1 (AC: # if applicable)
-  - [ ] Subtask1.1...
-- [ ] Task 2 (AC: # if applicable)
-  - [ ] Subtask 2.1...
-- [ ] Task 3 (AC: # if applicable)
-  - [ ] Subtask 3.1...
+- [ ] 任务 1 (AC: # 如果适用)
+  - [ ] 子任务 1.1...
+- [ ] 任务 2 (AC: # 如果适用)
+  - [ ] 子任务 2.1...
+- [ ] 任务 3 (AC: # 如果适用)
+  - [ ] 子任务 3.1...
 
-## Dev Technical Guidance {detail not covered in tasks/subtasks}
+## 开发技术指导 {任务/子任务中未涵盖的细节}
 
-## Story Progress Notes
+## 故事进度记录
 
-### Agent Model Used: `<Agent Model Name/Version>`
+### 使用的代理模型：`<代理模型名称/版本>`
 
-### Completion Notes List
+### 完成记录列表
 
-{Any notes about implementation choices, difficulties, or follow-up needed}
+{关于实现选择、困难或后续需要的任何记录}
 
-### Change Log
+### 变更日志

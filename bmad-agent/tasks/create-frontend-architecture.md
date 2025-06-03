@@ -1,146 +1,146 @@
-# Create Frontend Architecture Task
+# 创建前端架构任务
 
-## Purpose
+## 目的
 
-To define the technical architecture for the frontend application. This includes selecting appropriate patterns, structuring the codebase, defining component strategy, planning state management, outlining API interactions, and setting up testing and deployment approaches, all while adhering to the guidelines in `front-end-architecture-tmpl` template.
+定义前端应用程序的技术架构。这包括选择适当的模式、构建代码库、定义组件策略、规划状态管理、概述 API 交互，以及设置测试和部署方法，同时遵循 `front-end-architecture-tmpl` 模板中的指南。
 
-## Inputs
+## 输入
 
-- Product Requirements Document (PRD) (`prd-tmpl` or equivalent)
-- Completed UI/UX Specification (`front-end-spec-tmpl` or equivalent)
-- Main System Architecture Document (`architecture` or equivalent) - The agent executing this task should particularly note the overall system structure (Monorepo/Polyrepo, backend service architecture) detailed here, as it influences frontend patterns.
-- Primary Design Files (Figma, Sketch, etc., linked from UI/UX Spec)
+- 产品需求文档（PRD）（`prd-tmpl` 或等效文件）
+- 完整的 UI/UX 规范（`front-end-spec-tmpl` 或等效文件）
+- 主系统架构文档（`architecture` 或等效文件）- 执行此任务的代理应特别注意此处详述的整体系统结构（Monorepo/Polyrepo、后端服务架构），因为它会影响前端模式。
+- 主要设计文件（Figma、Sketch 等，从 UI/UX 规范链接）
 
-## Key Activities & Instructions
+## 关键活动和说明
 
-### 1. Confirm Interaction Mode
+### 1. 确认交互模式
 
-- Ask the user: "How would you like to proceed with creating the frontend architecture? We can work:
-  A. **Incrementally (Default & Recommended):** We'll go through each architectural decision and document section step-by-step. I'll present drafts, and we'll seek your feedback and confirmation before moving to the next part. This is best for complex decisions and detailed refinement.
-  B. **"YOLO" Mode:** I can produce a more comprehensive initial draft of the frontend architecture for you to review more broadly first. We can then iterate on specific sections based on your feedback. This can be quicker for generating initial ideas but is generally not recommended if detailed collaboration at each step is preferred."
-- Request the user to select their preferred mode (e.g., "Please let me know if you'd prefer A or B.").
-- Once the user chooses, confirm the selected mode (e.g., "Okay, we will proceed in Incremental mode."). This chosen mode will govern how subsequent steps are executed.
+- 询问用户："您希望如何继续创建前端架构？我们可以：
+  A. **增量式（默认和推荐）：** 我们将逐步处理每个架构决策和文档部分。我将展示草稿，在进入下一部分之前寻求您的反馈和确认。这最适合复杂决策和详细改进。
+  B. **"YOLO"模式：** 我可以为您生成更全面的前端架构初始草稿供您首先进行更广泛的审查。然后我们可以根据您的反馈对特定部分进行迭代。这对于生成初始想法可能更快，但如果希望在每一步都进行详细协作，通常不推荐。"
+- 请求用户选择其偏好的模式（例如，"请告诉我您是否偏好 A 或 B。"）。
+- 一旦用户选择，确认所选模式（例如，"好的，我们将以增量模式进行。"）。这个选择的模式将决定此任务中后续步骤的执行方式。
 
-### 2. Review Inputs & Establish Context
+### 2. 审查输入和建立上下文
 
-- Thoroughly review the inputs, including the UI/UX Specification and the main Architecture Document (especially "Definitive Tech Stack Selections", API contracts, and the documented overall system structure like monorepo/polyrepo choices).
-- Ask clarifying questions to bridge any gaps between the UI/UX vision and the overall system architecture.
+- 彻底审查输入，包括 UI/UX 规范和主架构文档（特别是"明确的技术栈选择"、API 合同和记录的整体系统结构，如 monorepo/polyrepo 选择）。
+- 提出澄清性问题以弥合 UI/UX 愿景和整体系统架构之间的差距。
 
-### 3. Define Overall Frontend Philosophy & Patterns (for `front-end-architecture`)
+### 3. 定义整体前端理念和模式（用于 `front-end-architecture`）
 
-- Based on the main architecture's tech stack and overall system structure (monorepo/polyrepo, backend service details), confirm and detail:
-  - Framework & Core Libraries choices.
-  - High-level Component Architecture strategy.
-  - High-level State Management Strategy.
-  - Data Flow principles.
-  - Styling Approach.
-  - Key Design Patterns to be employed.
+- 基于主架构的技术栈和整体系统结构（monorepo/polyrepo、后端服务详情），确认并详细说明：
+  - 框架和核心库选择。
+  - 高级组件架构策略。
+  - 高级状态管理策略。
+  - 数据流原则。
+  - 样式方法。
+  - 要采用的关键设计模式。
 
-### 4. Specify Detailed Frontend Directory Structure (for `front-end-architecture`)
+### 4. 指定详细的前端目录结构（用于 `front-end-architecture`）
 
-- Collaboratively define or refine the frontend-specific directory structure, ensuring it aligns with the chosen framework and promotes modularity and scalability.
+- 协作定义或完善前端特定的目录结构，确保其与所选框架保持一致，并促进模块化和可扩展性。
 
-### 5. Outline Component Strategy & Conventions (for `front-end-architecture`)
+### 5. 概述组件策略和约定（用于 `front-end-architecture`）
 
-- Define Component Naming & Organization conventions.
-- Establish the "Template for Component Specification" (as per `front-end-architecture`), emphasizing that most components will be detailed emergently but must follow this template.
-- Optionally, specify a few absolutely foundational/shared UI components (e.g., a generic Button or Modal wrapper if the chosen UI library needs one, or if no UI library is used).
+- 定义组件命名和组织约定。
+- 建立"组件规范模板"（根据 `front-end-architecture`），强调大多数组件将紧急详细说明，但必须遵循此模板。
+- 可选地，指定一些绝对基础/共享的 UI 组件（例如，如果所选 UI 库需要一个通用按钮或模态框包装器，或者如果不使用 UI 库）。
 
-### 6. Detail State Management Setup & Conventions (for `front-end-architecture`)
+### 6. 详细说明状态管理设置和约定（用于 `front-end-architecture`）
 
-- Based on the high-level strategy, detail:
-  - Chosen Solution and core setup.
-  - Conventions for Store Structure / Slices (e.g., "feature-based slices"). Define any genuinely global/core slices (e.g., session/auth).
-  - Conventions for Selectors and Actions/Reducers/Thunks. Provide templates or examples.
+- 基于高级策略，详细说明：
+  - 选择的解决方案和核心设置。
+  - 存储结构/切片约定（例如，"基于功能的切片"）。定义任何真正的全局/核心切片（例如，会话/认证）。
+  - 选择器和操作/Reducer/Thunk 约定。提供模板或示例。
 
-### 7. Plan API Interaction Layer (for `front-end-architecture`)
+### 7. 规划 API 交互层（用于 `front-end-architecture`）
 
-- Define the HTTP Client Setup.
-- Establish patterns for Service Definitions (how API calls will be encapsulated).
-- Outline frontend Error Handling & Retry strategies for API calls.
+- 定义 HTTP 客户端设置。
+- 建立服务定义模式（如何封装 API 调用）。
+- 概述前端 API 调用的错误处理和重试策略。
 
-### 8. Define Routing Strategy (for `front-end-architecture`)
+### 8. 定义路由策略（用于 `front-end-architecture`）
 
-- Confirm the Routing Library.
-- Collaboratively define the main Route Definitions and any Route Guards.
+- 确认路由库。
+- 协作定义主要路由定义和任何路由守卫。
 
-### 9. Specify Build, Bundling, and Deployment Details (for `front-end-architecture`)
+### 9. 指定构建、打包和部署详情（用于 `front-end-architecture`）
 
-- Outline the frontend-specific Build Process & Scripts.
-- Discuss and document Key Bundling Optimizations.
-- Confirm Deployment to CDN/Hosting details relevant to the frontend.
+- 概述前端特定的构建过程和脚本。
+- 讨论并记录关键打包优化。
+- 确认与前端相关的 CDN/托管部署详情。
 
-### 10. Refine Frontend Testing Strategy (for `front-end-architecture`)
+### 10. 完善前端测试策略（用于 `front-end-architecture`）
 
-- Elaborate on the main testing strategy with specifics for: Component Testing, UI Integration/Flow Testing, and E2E UI Testing scope and tools.
+- 详细说明主要测试策略，包括：组件测试、UI 集成/流程测试和 E2E UI 测试范围和工具的具体内容。
 
-### 11. Outline Performance Considerations (for `front-end-architecture`)
+### 11. 概述性能考虑（用于 `front-end-architecture`）
 
-- List key frontend-specific performance strategies to be employed.
+- 列出要采用的关键前端特定性能策略。
 
-### 12. Document Drafting & Confirmation (Guided by `front-end-architecture-tmpl`)
+### 12. 文档起草和确认（由 `front-end-architecture-tmpl` 指导）
 
-- **If "Incremental Mode" was selected:**
+- **如果选择了"增量模式"：**
 
-  - For each relevant section of the `front-end-architecture` (as outlined in steps 3-11 above, covering topics from Overall Philosophy to Performance Considerations):
+  - 对于 `front-end-architecture` 的每个相关部分（如上述步骤 3-11 所述，涵盖从整体理念到性能考虑的主题）：
 
-    - **a. Explain Purpose & Draft Section:** Explain the purpose of the section and present a draft for that section.
-    - **b. Initial Discussion & Feedback:** Discuss the draft with the user, incorporate their feedback, and iterate as needed for initial revisions.
-    - **c. [Offer Advanced Self-Refinement & Elicitation Options](#offer-advanced-self-refinement--elicitation-options)**
+    - **a. 解释目的和起草部分：** 解释该部分的目的并展示该部分的草稿。
+    - **b. 初步讨论和反馈：** 与用户讨论草稿，纳入其反馈，并根据需要进行初步修订。
+    - **c. [提供高级自我改进和启发选项](#提供高级自我改进和启发选项)**
 
-    - **d. Final Approval & Documentation:** Obtain explicit user approval for the section. Ensure all placeholder links and references are correctly noted within each section. Then proceed to the next section.
+    - **d. 最终批准和文档：** 获取用户对该部分的明确批准。确保每个部分中的所有占位符链接和引用都正确记录。然后继续下一部分。
 
-  - Once all sections are individually approved through this process, confirm with the user that the overall `front-end-architecture` document is populated and ready for Step 13 (Epic/Story Impacts) and then the checklist review (Step 14).
+  - 一旦所有部分都通过此过程单独批准，与用户确认整体 `front-end-architecture` 文档已填充并准备好进行步骤 13（史诗/故事影响），然后是清单审查（步骤 14）。
 
-- **If "YOLO Mode" was selected:**
-  - Collaboratively populate all relevant sections of the `front-end-architecture-tmpl` (as outlined in steps 3-11 above) to create a comprehensive first draft.
-  - Present the complete draft of `front-end-architecture` to the user for a holistic review.
-  - <important_note>After presenting the full draft in YOLO mode, you MAY still offer a condensed version of the 'Advanced Reflective & Elicitation Options' menu, perhaps focused on a few key overarching review actions (e.g., overall requirements alignment, major risk assessment) if the user wishes to perform a structured deep dive before detailed section-by-section feedback.</important_note>
-  - Obtain explicit user approval for the entire `front-end-architecture` document before proceeding to Step 13 (Epic/Story Impacts) and then the checklist review (Step 14).
+- **如果选择了"YOLO 模式"：**
+  - 协作填充 `front-end-architecture-tmpl` 的所有相关部分（如上述步骤 3-11 所述），以创建全面的第一稿。
+  - 向用户展示 `front-end-architecture` 的完整草稿以供整体审查。
+  - <important_note>在 YOLO 模式中展示完整草稿后，如果用户希望在详细的部分反馈之前进行结构化的深入审查，您仍然可以提供"高级反思和启发选项"菜单的浓缩版本，可能专注于一些关键的总体审查操作（例如，整体需求对齐、主要风险评估）。</important_note>
+  - 在继续步骤 13（史诗/故事影响）和清单审查（步骤 14）之前，获取用户对整个 `front-end-architecture` 文档的明确批准。
 
-### 13. Identify & Summarize Epic/Story Impacts (Frontend Focus)
+### 13. 识别和总结史诗/故事影响（前端重点）
 
-- After the `front-end-architecture` is confirmed, review it in context of existing epics and user stories (if provided or known).
-- Identify any frontend-specific technical tasks that might need to be added as new stories or sub-tasks (e.g., "Implement responsive layout for product details page based on defined breakpoints," "Set up X state management slice for user profile," "Develop reusable Y component as per specification").
-- Identify if any existing user stories require refinement of their acceptance criteria due to frontend architectural decisions (e.g., specifying interaction details, component usage, or performance considerations for UI elements).
-- Collaborate with the user to define these additions or refinements.
-- Prepare a concise summary detailing all proposed additions, updates, or modifications to epics and user stories related to the frontend. If no changes are identified, explicitly state this (e.g., "No direct impacts on existing epics/stories were identified from the frontend architecture").
+- 在确认 `front-end-architecture` 后，在现有史诗和用户故事的上下文中审查它（如果提供或已知）。
+- 识别可能需要添加为新故事或子任务的前端特定技术任务（例如，"根据定义的断点实现产品详情页面的响应式布局"，"为用户配置文件设置 X 状态管理切片"，"按照规范开发可重用的 Y 组件"）。
+- 识别由于前端架构决策是否需要完善任何现有用户故事的验收标准（例如，指定 UI 元素的交互详情、组件使用或性能考虑）。
+- 与用户协作定义这些添加或完善。
+- 准备一个简明摘要，详细说明所有建议的添加、更新或修改与前端相关的史诗和用户故事。如果未识别出更改，明确说明这一点（例如，"从前端架构中未识别出对现有史诗/故事的直接影响"）。
 
-### 14. Checklist Review and Finalization
+### 14. 清单审查和最终确定
 
-- Once the `front-end-architecture` has been populated and reviewed with the user, and epic/story impacts have been summarized, use the `frontend-architecture-checklist`.
-- Go through each item in the checklist to ensure the `front-end-architecture` is comprehensive and all sections are adequately addressed - for each checklist item you MUST consider if it is really complete or deficient.
-- For each checklist section, confirm its status (e.g., \[x] Completed, \[ ] N/A, \[!] Needs Attention).
-- If deficiencies or areas needing more detail are identified with a section:
-  - Discuss these with the user.
-  - Collaboratively make necessary updates or additions to the `front-end-architecture`.
-- After addressing all points and ensuring the document is robust, present a summary of the checklist review to the user. This summary should highlight:
-  - Confirmation that all relevant sections of the checklist have been satisfied.
-  - Any items marked N/A and a brief reason.
-  - A brief note on any significant discussions or changes made as a result of the checklist review.
-- The goal is to ensure the `front-end-architecture` is a complete and actionable document.
+- 一旦 `front-end-architecture` 已填充并与用户审查，并且史诗/故事影响已总结，使用 `frontend-architecture-checklist`。
+- 检查清单中的每个项目，确保 `front-end-architecture` 全面且所有部分都得到充分解决 - 对于每个清单项目，您必须考虑它是否真的完整或存在缺陷。
+- 对于每个清单部分，确认其状态（例如，\[x] 已完成，\[ ] 不适用，\[!] 需要注意）。
+- 如果识别出某个部分存在缺陷或需要更多细节：
+  - 与用户讨论这些内容。
+  - 协作对 `front-end-architecture` 进行必要的更新或添加。
+- 在解决所有点并确保文档健壮后，向用户展示清单审查的摘要。此摘要应突出：
+  - 确认清单的所有相关部分都已满足。
+  - 任何标记为不适用的项目及其简要理由。
+  - 关于清单审查导致的任何重要讨论或更改的简要说明。
+- 目标是确保 `front-end-architecture` 是一个完整且可操作的文档。
 
-## Offer Advanced Self-Refinement & Elicitation Options
+## 提供高级自我改进和启发选项
 
-(This section is called when needed prior to this)
+（此部分在需要时在此之前调用）
 
-Present the user with the following list of 'Advanced Reflective, Elicitation & Brainstorming Actions'. Explain that these are optional steps to help ensure quality, explore alternatives, and deepen the understanding of the current section before finalizing it and moving on. The user can select an action by number, or choose to skip this and proceed to finalize the section.
+向用户展示以下"高级反思、启发和头脑风暴行动"列表。解释这些是可选的步骤，以帮助确保质量、探索替代方案，并在最终确定当前部分并继续之前加深对其的理解。用户可以通过数字选择操作，或选择跳过此步骤并继续完成该部分。
 
-"To ensure the quality of the current section: **[Specific Section Name]** and to ensure its robustness, explore alternatives, and consider all angles, I can perform any of the following actions. Please choose a number (8 to finalize and proceed):
+"为确保当前部分的质量：**[特定部分名称]** 并确保其健壮性、探索替代方案并考虑所有角度，我可以执行以下任何操作。请选择一个数字（8 表示完成并继续）：
 
-**Advanced Reflective, Elicitation & Brainstorming Actions I Can Take:**
+**我可以采取的高级反思、启发和头脑风暴行动：**
 
-{Instruction for AI Agent: Display the title of each numbered item below. If the user asks what a specific option means, provide a brief explanation of the action you will take, drawing from detailed descriptions tailored for the context.}
+{AI 代理的说明：显示下面每个编号项目的标题。如果用户询问特定选项的含义，请提供您将采取的行动的简要解释，从为上下文定制的详细描述中提取。}
 
-1.  **Critical Self-Review & User Goal Alignment**
-2.  **Generate & Evaluate Alternative Design Solutions**
-3.  **User Journey & Interaction Stress Test (Conceptual)**
-4.  **Deep Dive into Design Assumptions & Constraints**
-5.  **Usability & Accessibility Audit Review & Probing Questions**
-6.  **Collaborative Ideation & UI Feature Brainstorming**
-7.  **Elicit 'Unforeseen User Needs' & Future Interaction Questions**
-8.  **Finalize this Section and Proceed.**
+1. **关键自我审查和用户目标对齐**
+2. **生成和评估替代设计解决方案**
+3. **用户旅程和交互压力测试（概念性）**
+4. **深入探讨设计假设和约束**
+5. **可用性和可访问性审计审查和探索性问题**
+6. **协作构思和 UI 功能头脑风暴**
+7. **启发"未预见的用户需求"和未来交互问题**
+8. **完成此部分并继续。**
 
-After I perform the selected action, we can discuss the outcome and decide on any further revisions for this section."
+在我执行所选操作后，我们可以讨论结果并决定对此部分进行任何进一步的修改。"
 
-REPEAT by Asking the user if they would like to perform another Reflective, Elicitation & Brainstorming Action UNIT the user indicates it is time to proceed ot the next section (or selects #8)
+通过询问用户是否希望执行另一个反思、启发和头脑风暴行动来重复，直到用户表示是时候继续下一部分（或选择 #8）

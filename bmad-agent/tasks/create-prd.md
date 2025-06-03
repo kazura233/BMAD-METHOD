@@ -1,229 +1,229 @@
-# PRD Generate Task
+# PRD 生成任务
 
-## Purpose
+## 目的
 
-- Transform inputs into core product definition documents conforming to the `prd-tmpl` template.
-- Define clear MVP scope focused on essential functionality.
-- Provide foundation for Architect and eventually AI dev agents.
+- 将输入转换为符合 `prd-tmpl` 模板的核心产品定义文档。
+- 定义明确的最小可行产品（MVP）范围，专注于基本功能。
+- 为架构师和最终的 AI 开发代理提供基础。
 
-Remember as you follow the upcoming instructions:
+在执行后续说明时请记住：
 
-- Your documents form the foundation for the entire development process.
-- Output will be directly used by the Architect to create an architecture document and solution designs to make definitive technical decisions.
-- Your epics/stories will ultimately be transformed into development tasks.
-- While you focus on the "what" not "how", be precise enough to support a logical sequential order of operations that once later further details can logically be followed where a story will complete what is needed.
+- 您的文档构成整个开发过程的基础。
+- 输出将直接由架构师用于创建架构文档和解决方案设计，以做出明确的技术决策。
+- 您的史诗/故事最终将转化为开发任务。
+- 虽然您专注于"做什么"而不是"怎么做"，但要足够精确以支持逻辑顺序的操作，以便后续可以逻辑地遵循详细内容，使故事能够完成所需内容。
 
-## Instructions
+## 说明
 
-### 1. Define Project Workflow Context
+### 1. 定义项目工作流程上下文
 
-- Before PRD generation, ask the user to choose their intended workflow:
+- 在 PRD 生成之前，请用户选择其预期的工作流程：
 
-  A. **Outcome Focused (Default):** (Agent defines outcome-focused User Stories, leaving detailed technical "how" for Architect/Scrum Master. Capture nuances as "Notes for Architect/Scrum Master in the Prompt for Architect.")
+  A. **以结果为导向（默认）：**（代理定义以结果为导向的用户故事，将详细的技术"如何做"留给架构师/Scrum Master。在架构师提示中捕获细微差别作为"架构师/Scrum Master 的注意事项"）
 
-  B. **Very Technical (Not Recommended):** (Agent adopts a "solution-aware" stance, providing more detailed, implementation-aware Acceptance Criteria to bridge to development, potentially with no architect involved at all, instead filling in all of the technical details. \<important_note\>When this workflow is selected, you are also responsible for collaboratively defining and documenting key technical foundations—such as technology stack choices and proposed application structure—directly within a new, dedicated section of the PRD template titled '[OPTIONAL: For Simplified PM-to-Development Workflow Only] Core Technical Decisions & Application Structure'.\</important_note\>)
+  B. **非常技术性（不推荐）：**（代理采用"解决方案感知"的立场，提供更详细的、实现感知的验收标准以过渡到开发，可能完全不需要架构师参与，而是直接填写所有技术细节。\<important_note\>选择此工作流程时，您还负责在 PRD 模板中协作定义和记录关键的技术基础——如技术栈选择和提议的应用程序结构——直接在一个新的、专门的部分中，标题为"[可选：仅用于简化的 PM 到开发工作流程] 核心技术决策和应用程序结构"。\</important_note\>）
 
-- Explain this choice sets a default detail level, which can be fine-tuned later per story/epic.
+- 解释此选择设置了默认的详细级别，之后可以按故事/史诗进行微调。
 
-### 2. Determine Interaction Mode (for PRD Structure & Detail)
+### 2. 确定交互模式（用于 PRD 结构和细节）
 
-- Confirm with the user their preferred interaction style for creating the PRD if unknown - INCREMENTAL or YOLO?:
-  - **Incrementally (Default):** Address PRD sections sequentially, seeking feedback on each. For Epics/Stories: first present the ordered Epic list for approval, then detail stories for each Epic one by one.
-  - **"YOLO" Mode:** Draft a more comprehensive PRD (or significant portions with multiple sections, epics, and stories) for a single, larger review.
+- 如果未知，请确认用户创建 PRD 的首选交互风格 - 增量式还是 YOLO？：
+  - **增量式（默认）：** 按顺序处理 PRD 部分，寻求每个部分的反馈。对于史诗/故事：首先展示有序的史诗列表供批准，然后逐个详细说明每个史诗的故事。
+  - **"YOLO"模式：** 草拟更全面的 PRD（或包含多个部分、史诗和故事的重要部分）以供单一、更大的审查。
 
-### 3. Review inputs provided
+### 3. 审查已提供的输入
 
-Review the inputs provided so far, such as a project brief, any research, and user input and ideas.
+审查迄今为止提供的输入，如项目简介、任何研究和用户输入及想法。
 
-### 4. Process PRD Sections
+### 4. 处理 PRD 部分
 
-Inform the user we will work through the PRD sections in order 1 at a time (if not YOLO) - the template contains your instructions for each section. After presenting the section to the user, also [Offer Advanced Self-Refinement & Elicitation Options](#offer-advanced-self-refinement--elicitation-options)
+告知用户我们将按顺序一次处理一个 PRD 部分（如果不是 YOLO 模式）- 模板包含每个部分的说明。在向用户展示该部分后，还可以[提供高级自我改进和启发选项](#提供高级自我改进和启发选项)
 
-<important_note>When working on the "Technical Assumptions" section of the PRD, explicitly guide the user through discussing and deciding on the repository structure (Monorepo vs. Polyrepo) and the high-level service architecture (e.g., Monolith, Microservices, Serverless functions within a Monorepo). Emphasize that this is a critical decision point that will be formally documented here with its rationale, impacting MVP scope and informing the Architect. Ensure this decision is captured in the PRD's `Technical Assumptions` and then reiterated in the `Initial Architect Prompt` section of the PRD.</important_note>
+<important_note>在处理 PRD 的"技术假设"部分时，明确指导用户讨论并决定仓库结构（Monorepo 与 Polyrepo）和高级服务架构（例如，单体、微服务、Monorepo 内的无服务器函数）。强调这是一个关键决策点，将在此处正式记录其理由，影响 MVP 范围并为架构师提供信息。确保此决定记录在 PRD 的`技术假设`中，然后在 PRD 的`初始架构师提示`部分中重申。</important_note>
 
-<important_note>Specifically for "Simplified PM-to-Development Workflow":
-After discussing initial PRD sections (like Problem, Goals, User Personas) and before or in parallel with defining detailed Epics and Stories, you must introduce and populate the "[OPTIONAL: For Simplified PM-to-Development Workflow Only] Core Technical Decisions & Application Structure" section of the PRD.
+<important_note>特别针对"简化的 PM 到开发工作流程"：
+在讨论初始 PRD 部分（如问题、目标、用户角色）之后，在定义详细史诗和故事之前或同时，您必须引入并填充 PRD 模板中的"[可选：仅用于简化的 PM 到开发工作流程] 核心技术决策和应用程序结构"部分。
 
-    When doing so, first check if a `docs/technical-preferences.md` file exists or has been provided. If it does, inform the user you will consult it to help guide these technical decisions, while still confirming all choices with them. Ask targeted questions such as:
+    这样做时，首先检查是否存在 `docs/technical-preferences.md` 文件或是否已提供。如果存在，告知用户您将查阅它以帮助指导这些技术决策，同时仍与用户确认所有选择。提出有针对性的问题，例如：
 
-1.  "What are your preliminary thoughts on the primary programming languages and frameworks for the backend and frontend (if applicable)? (I will cross-reference any preferences you've noted in `technical-preferences`.)"
-2.  "Which database system are you considering? (Checking preferences...)"
-3.  "Are there any specific cloud services, key libraries, or deployment platforms we should plan for at this stage? (Checking preferences...)"
-4.  "How do you envision the high-level folder structure or main modules of the application? Could you describe the key components and their responsibilities? (I'll consider any structural preferences noted.)"
-5.  "Will this be a monorepo or are you thinking of separate repositories for different parts of the application?"
-    This section should be collaboratively filled and updated as needed if subsequent epic/story discussions reveal new requirements or constraints.
-
-</important_note\>
-
-<important_note>
-
-For the Epic and Story Section (if in Incremental mode for these), prepare in memory what you think the initial epic and story list so we can work through this incrementally, use all of the information you have learned that has been provided thus far to follow the guidelines in the section below [Guiding Principles for Epic and User Story Generation](https://www.google.com/search?q=%23guiding-principles-for-epic-and-user-story-generation).
+1. "您对后端和前端（如果适用）的主要编程语言和框架有什么初步想法？（我将参考您在 `technical-preferences` 中注明的任何偏好。）"
+2. "您考虑使用哪个数据库系统？（检查偏好...）"
+3. "在此阶段，我们应该计划使用任何特定的云服务、关键库或部署平台吗？（检查偏好...）"
+4. "您如何看待应用程序的高级文件夹结构或主要模块？能否描述关键组件及其职责？（我将考虑任何注明的结构偏好。）"
+5. "这将是一个 monorepo 还是您考虑为应用程序的不同部分使用单独的仓库？"
+   如果后续的史诗/故事讨论揭示新的需求或约束，应根据需要协作填充和更新此部分。
 
 </important_note>
 
-#### 4A. Epic Presentation and Drafting Strategy
+<important_note>
 
-You will first present the user with the epic titles and descriptions, so that the user can determine if it is correct and what is expected, or if there is a major epic missing.
+对于史诗和故事部分（如果这些部分采用增量模式），在内存中准备您认为的初始史诗和故事列表，以便我们可以逐步处理，使用您迄今为止学到的所有信息，按照下面[史诗和用户故事生成的指导原则](https://www.google.com/search?q=%23guiding-principles-for-epic-and-user-story-generation)中的指南进行。
 
-#### 4B. Story Generation and Review within Epics (Incremental Mode)
+</important_note>
 
-**Once the Epic List is approved, THEN for each Epic, you will proceed as follows:**
+#### 4A. 史诗展示和草拟策略
 
-i. **Draft All Stories for the Current Epic:** Based on the Epic's goal and your discussions, draft all the necessary User Stories for this Epic, following the "Guiding Principles for Epic and User Story Generation".
-ii. **Perform Internal Story Analysis & Propose Order:** Before presenting the stories for detailed review, you will internally:
-a. **Re-evaluate for Cross-Cutting Concerns:** Ensure no drafted stories should actually be ACs or notes within other stories, as per the guiding principle. Make necessary adjustments.
-b. **Analyze for Logical Sequence & Dependencies:** For all stories within this Epic, determine their logical implementation order. Identify any direct prerequisite stories (e.g., "Story X must be completed before Story Y because Y consumes the output of X").
-c. **Formulate a Rationale for the Order:** Prepare a brief explanation for why the proposed order is logical.
-iii. **Present Proposed Story Set & Order for the Epic:** Present to the user:
-a. The complete list of (potentially revised) User Stories for the Epic.
-b. The proposed sequence for these stories.
-c. Your brief rationale for the sequencing and any key dependencies you've noted (e.g., "I suggest this order because Story 2 builds upon the data prepared in Story 1, and Story 3 then uses the results from Story 2.").
-iv. **Collaborative Review of Sequence & Story Shells:** Discuss this proposed structure and sequence with the user. Make any adjustments to the story list or their order based on user feedback.
-v. Once the overall structure and sequence of stories for the Epic are agreed upon, THEN you will work with the user to review the details (description, Acceptance Criteria) of each story in the agreed-upon sequence for that Epic.
-vi. [Offer Advanced Self-Refinement & Elicitation Options](#offer-advanced-self-refinement--elicitation-options)
+您将首先向用户展示史诗标题和描述，以便用户确定是否正确和符合预期，或者是否缺少主要史诗。
 
-#### 4C. Present Complete Draft
+#### 4B. 史诗内的故事生成和审查（增量模式）
 
-Present the user with the complete full draft once all sections are completed (or as per YOLO mode interaction).
+**一旦史诗列表获得批准，然后对于每个史诗，您将按以下步骤进行：**
 
-#### 4D. UI Component Handoff Note
+i. **为当前史诗草拟所有故事：** 基于史诗的目标和您的讨论，按照"史诗和用户故事生成的指导原则"草拟此史诗所需的所有用户故事。
+ii. **执行内部故事分析和提出顺序：** 在向用户展示故事进行详细审查之前，您将在内部：
+a. **重新评估横切关注点：** 确保没有草拟的故事实际上应该是其他故事中的 ACs 或注释，按照指导原则。进行必要的调整。
+b. **分析逻辑顺序和依赖关系：** 对于此史诗中的所有故事，确定它们的逻辑实施顺序。识别任何直接前置故事（例如，"故事 X 必须在故事 Y 之前完成，因为 Y 使用 X 的输出"）。
+c. **为顺序制定理由：** 准备一个简短的解释，说明为什么提议的顺序是合理的。
+iii. **向用户展示提议的故事集和顺序：** 向用户展示：
+a. 史诗的完整（可能已修订的）用户故事列表。
+b. 这些故事的提议顺序。
+c. 您对排序的简短理由和您注意到的任何关键依赖关系（例如，"我建议这个顺序是因为故事 2 建立在故事 1 中准备的数据之上，然后故事 3 使用故事 2 的结果。"）。
+iv. **协作审查顺序和故事框架：** 与用户讨论这个提议的结构和顺序。根据用户反馈对故事列表或其顺序进行任何调整。
+v. 一旦史诗的整体结构和故事顺序达成一致，然后您将与用户一起按商定的顺序审查该史诗中每个故事的细节（描述、验收标准）。
+vi. [提供高级自我改进和启发选项](#提供高级自我改进和启发选项)
 
-If there is a UI component to this PRD, you can inform the user that the Design Architect should take this final output.
+#### 4C. 展示完整草稿
 
-### 5\. Checklist Assessment
+一旦所有部分完成（或按照 YOLO 模式交互），向用户展示完整的草稿。
 
-- Use the `pm-checklist` to consider each item in the checklist is met (or n/a) against the PRD.
-- Document completion status for each item.
-- Present the user with summary of each section of the checklist before going to the next section.
-- Address deficiencies with user for input or suggested updates or corrections.
-- Once complete and address, output the final checklist with all the checked items or skipped items, the section summary table, and any final notes. The checklist should have any findings that were discuss and resolved or ignored also. This will be a nice artifact for the user to keep.
+#### 4D. UI 组件交接说明
 
-### 6\. Produce the PRD
+如果 PRD 包含 UI 组件，您可以告知用户设计架构师应该接收此最终输出。
 
-Produce the PRD with PM Prompt per the `prd-tmpl` utilizing the following guidance:
+### 5. 清单评估
 
-**General Presentation & Content:**
+- 使用 `pm-checklist` 考虑清单中的每个项目是否满足（或不适用）PRD。
+- 记录每个项目的完成状态。
+- 在进入下一部分之前，向用户展示清单每个部分的摘要。
+- 与用户讨论缺陷，获取输入或建议的更新或更正。
+- 一旦完成并解决，输出最终清单，包括所有已检查的项目或跳过的项目、部分摘要表以及任何最终说明。清单应包含已讨论和解决或忽略的任何发现。这将是用户保留的良好工件。
 
-- Present Project Briefs (drafts or final) in a clean, full format.
-- Crucially, DO NOT truncate information that has not changed from a previous version.
-- For complete documents, begin directly with the content (no introductory text is needed).
+### 6. 生成 PRD
+
+使用 `prd-tmpl` 生成带有 PM 提示的 PRD，遵循以下指南：
+
+**一般展示和内容：**
+
+- 以清晰、完整的格式展示项目简介（草稿或最终版）。
+- 关键的是，不要截断与前一版本相比未更改的信息。
+- 对于完整文档，直接以内容开始（不需要介绍性文本）。
 
 <important_note>
-**Next Steps for UI/UX Specification (If Applicable):**
+**UI/UX 规范的后续步骤（如果适用）：**
 
-- If the product described in this PRD includes a user interface:
+- 如果此 PRD 中描述的产品包含用户界面：
 
-  1.  **Include Design Architect Prompt in PRD:** You will add a dedicated section in the PRD document you are producing, specifically at the location marked `(END Checklist START Design Architect UI/UX Specification Mode Prompt)` (as per the `prd-tmpl` structure). This section will contain a prompt for the **Design Architect** agent.
+  1. **在 PRD 中包含设计架构师提示：** 您将在生成的 PRD 文档中添加一个专门的部分，具体位于标记为 `(END Checklist START Design Architect UI/UX Specification Mode Prompt)` 的位置（按照 `prd-tmpl` 结构）。此部分将包含**设计架构师**代理的提示。
 
-      - The prompt should clearly state that the Design Architect is to operate in its **'UI/UX Specification Mode'**.
+     - 提示应明确说明设计架构师应在其**'UI/UX 规范模式'**中运行。
 
-      - It should instruct the Design Architect to use this PRD as primary input to collaboratively define and document detailed UI/UX specifications. This might involve creating/populating a `front-end-spec-tmpl` and ensuring key UI/UX considerations are integrated or referenced back into the PRD to enrich it.
+     - 它应指示设计架构师使用此 PRD 作为主要输入，协作定义和记录详细的 UI/UX 规范。这可能涉及创建/填充 `front-end-spec-tmpl` 并确保关键的 UI/UX 考虑因素被整合或引用回 PRD 以丰富它。
 
-      - Example prompt text to insert:
+     - 要插入的示例提示文本：
 
-        ```markdown
-        ## Prompt for Design Architect (UI/UX Specification Mode)
+       ```markdown
+       ## 设计架构师提示（UI/UX 规范模式）
 
-        **Objective:** Elaborate on the UI/UX aspects of the product defined in this PRD.
-        **Mode:** UI/UX Specification Mode
-        **Input:** This completed PRD document.
-        **Key Tasks:**
+       **目标：** 详细说明此 PRD 中定义的产品的 UI/UX 方面。
+       **模式：** UI/UX 规范模式
+       **输入：** 此完整的 PRD 文档。
+       **关键任务：**
 
-        1. Review the product goals, user stories, and any UI-related notes herein.
-        2. Collaboratively define detailed user flows, wire-frames (conceptual), and key screen mockups/descriptions.
-        3. Specify usability requirements and accessibility considerations.
-        4. Populate or create the `front-end-spec-tmpl` document.
-        5. Ensure that this PRD is updated or clearly references the detailed UI/UX specifications derived from your work, so that it provides a comprehensive foundation for subsequent architecture and development phases.
+       1. 审查产品目标、用户故事和任何 UI 相关说明。
+       2. 协作定义详细的用户流程、线框图（概念性）和关键屏幕原型/描述。
+       3. 指定可用性要求和可访问性考虑因素。
+       4. 填充或创建 `front-end-spec-tmpl` 文档。
+       5. 确保此 PRD 更新或明确引用从您的工作中得出的详细 UI/UX 规范，以便为后续架构和开发阶段提供全面的基础。
 
-        Please guide the user through this process to enrich the PRD with detailed UI/UX specifications.
-        ```
+       请指导用户完成此过程，以丰富 PRD 的详细 UI/UX 规范。
+       ```
 
-  2.  **Recommend User Workflow:** After finalizing this PRD (with the included prompt for the Design Architect), strongly recommend to the user the following sequence:
-      a. First, engage the **Design Architect** agent (using the prompt you've embedded in the PRD) to operate in **'UI/UX Specification Mode'**. Explain that this step is crucial for detailing the user interface and experience, and the output (e.g., a populated `front-end-spec-tmpl` and potentially updated PRD sections) will be vital.
-      b. Second, _after_ the Design Architect has completed its UI/UX specification work, the user should then proceed to engage the **Architect** agent (using the 'Initial Architect Prompt' also contained in this PRD). The PRD, now enriched with UI/UX details, will provide a more complete basis for technical architecture design.
+  2. **推荐用户工作流程：** 在完成此 PRD（包含设计架构师的提示）后，强烈建议用户按以下顺序进行：
+     a. 首先，让**设计架构师**代理（使用您在 PRD 中嵌入的提示）在**'UI/UX 规范模式'**中运行。解释此步骤对于详细说明用户界面和体验至关重要，输出（例如，填充的 `front-end-spec-tmpl` 和可能更新的 PRD 部分）将是至关重要的。
+     b. 其次，在设计架构师完成其 UI/UX 规范工作后，用户应继续让**架构师**代理（使用此 PRD 中也包含的'初始架构师提示'）运行。现在富含 UI/UX 细节的 PRD 将为技术架构设计提供更完整的基础。
 
-- If the product does not include a user interface, you will simply recommend proceeding to the Architect agent using the 'Initial Architect Prompt' in the PRD.
+- 如果产品不包含用户界面，您将简单地建议使用 PRD 中的'初始架构师提示'继续使用架构师代理。
   </important_note>
 
-## Guiding Principles for Epic and User Story Generation
+## 史诗和用户故事生成的指导原则
 
-### I. Strategic Foundation: Define Core Value & MVP Scope Rigorously
+### I. 战略基础：严格定义核心价值和 MVP 范围
 
-Understand & Clarify Core Needs: Start by deeply understanding and clarifying the core problem this product solves, the essential needs of the defined User Personas (or system actors), and the key business objectives for the Minimum Viable Product (MVP).
-Challenge Scope Relentlessly: Actively challenge all requested features and scope at every stage. For each potential feature or story, rigorously ask, "Does this directly support the core MVP goals and provide significant value to a target User Persona?" Clearly identify and defer non-essential functionalities to a Post-MVP backlog.
+理解和澄清核心需求：首先深入理解和澄清此产品解决的核心问题、定义的用户角色（或系统参与者）的基本需求，以及最小可行产品（MVP）的关键业务目标。
+持续挑战范围：在每个阶段积极挑战所有请求的功能和范围。对于每个潜在功能或故事，严格询问"这直接支持核心 MVP 目标并为目标用户角色提供重要价值吗？"明确识别并将非必要功能推迟到 MVP 后的待办事项中。
 
-### II. Structuring the Work: Value-Driven Epics & Logical Sequencing
+### II. 工作结构：价值驱动的史诗和逻辑排序
 
-Organize into Deployable, Value-Driven Epics: Structure the MVP scope into Epics. Each Epic must be designed to deliver a significant, end-to-end, and fully deployable increment of testable functionality that provides tangible value to the user or business. Epics should represent logical functional blocks or coherent user journeys.
+组织成可部署的、价值驱动的史诗：将 MVP 范围组织成史诗。每个史诗必须设计为提供重要的、端到端的、完全可部署的可测试功能增量，为用户或业务提供切实的价值。史诗应代表逻辑功能块或连贯的用户旅程。
 
-Logical Epic Sequencing & Foundational Work:
-Ensure the sequence of Epics follows a logical implementation order, making dependencies between Epics clear and explicitly managed.
-The first Epic must always establish the foundational project infrastructure (e.g., initial app setup, Git repository, CI/CD pipeline, core cloud service configurations, basic user authentication shell if needed universally) necessary to support its own deployable functionality and that of subsequent Epics.
-Ensure Logical Story Sequencing and Dependency Awareness within Epics:
-After initially drafting all User Stories for an Epic, but before detailed review with the user, you (the AI Agent executing this task) must explicitly perform an internal review to establish a logical sequence for these stories.
-For each story, identify if it has direct prerequisite stories within the same Epic or from already completed Epics.
-Propose a clear story order to the user, explaining the rationale based on these dependencies (e.g., "Story X needs to be done before Story Y because..."). Make significant dependencies visible, perhaps as a note within the story description.
+逻辑史诗排序和基础工作：
+确保史诗的顺序遵循逻辑实施顺序，使史诗之间的依赖关系清晰并明确管理。
+第一个史诗必须始终建立基础项目基础设施（例如，初始应用程序设置、Git 仓库、CI/CD 管道、核心云服务配置、如果需要普遍使用的基本用户认证外壳），以支持其自身可部署功能以及后续史诗的功能。
+确保史诗内的逻辑故事排序和依赖关系意识：
+在最初为史诗草拟所有用户故事之后，但在与用户进行详细审查之前，您（执行此任务的 AI 代理）必须明确执行内部审查，为这些故事建立逻辑顺序。
+对于每个故事，识别它是否在同一史诗内或来自已完成的史诗中有直接前置故事。
+向用户提出明确的故事顺序，基于这些依赖关系解释理由（例如，"故事 X 必须在故事 Y 之前完成，因为..."）。使重要依赖关系可见，可能作为故事描述中的注释。
 
-### III. Crafting Effective User Stories: Vertical Slices Focused on Value & Clarity
+### III. 制作有效的用户故事：专注于价值和清晰度的垂直切片
 
-Define Stories as "Vertical Slices": Within each Epic, define User Stories as "vertical slices". This means each story must deliver a complete piece of functionality that achieves a specific user or system goal, potentially cutting through all necessary layers (e.g., UI, API, business logic, database).
-Focus on "What" and "Why," Not "How":
-Stories will primarily focus on the functional outcome, the user value ("what"), and the reason ("why"). Avoid detailing technical implementation ("how") in the story's main description.
-The "As a {specific User Persona/system actor}, I want {to perform an action / achieve a goal} so that {I can realize a benefit / achieve a reason}" format is standard. Be precise and consistent when defining the '{specific User Persona/system actor}', ensuring it aligns with defined personas.
-Ensure User Value, Not Just Technical Tasks: User Stories must articulate clear user or business value. Avoid creating stories that are purely technical tasks (e.g., "Set up database," "Refactor module X"), unless they are part of the foundational infrastructure Epic or are essential enabling tasks that are explicitly linked to, and justified by, a user-facing story that delivers value.
-Appropriate Sizing & Strive for Independence:
-Ensure User Stories are appropriately sized for a typical development iteration (i.e., can be completed by the team in one sprint/iteration).
-If a vertically sliced story is too large or complex, work with the user to split it into smaller, still valuable, and still vertically sliced increments.
-Where feasible, define stories so they can be developed, tested, and potentially delivered independently of others. If dependencies are unavoidable, they must be clearly identified and managed through sequencing.
+将故事定义为"垂直切片"：在每个史诗内，将用户故事定义为"垂直切片"。这意味着每个故事必须提供实现特定用户或系统目标的完整功能片段，可能贯穿所有必要的层（例如，UI、API、业务逻辑、数据库）。
+专注于"做什么"和"为什么"，而不是"怎么做"：
+故事将主要关注功能结果、用户价值（"做什么"）和原因（"为什么"）。避免在故事的主要描述中详细说明技术实施（"怎么做"）。
+"作为{特定用户角色/系统参与者}，我想要{执行操作/实现目标}，以便{我可以实现利益/实现原因}"的格式是标准的。在定义"{特定用户角色/系统参与者}"时要精确和一致，确保它与定义的角色一致。
+确保用户价值，而不仅仅是技术任务：用户故事必须阐明清晰的用户或业务价值。避免创建纯粹的技术任务故事（例如，"设置数据库"，"重构模块 X"），除非它们是基础基础设施史诗的一部分，或者是明确链接到并证明为用户提供价值的故事的必要启用任务。
+适当的大小和追求独立性：
+确保用户故事的大小适合典型的开发迭代（即团队可以在一个冲刺/迭代中完成）。
+如果垂直切片的故事太大或太复杂，与用户合作将其拆分为更小、仍然有价值、仍然是垂直切片的增量。
+在可行的情况下，定义故事使其可以独立于其他故事开发、测试和潜在交付。如果依赖关系不可避免，必须通过排序明确识别和管理。
 
-### IV. Detailing Stories: Comprehensive Acceptance Criteria & Developer Enablement
+### IV. 详细说明故事：全面的验收标准和开发人员赋能
 
-Clear, Comprehensive, and Testable Acceptance Criteria (ACs):
-Every User Story will have detailed, unambiguous, and testable Acceptance Criteria.
-ACs precisely define what "done" means for that story from a functional perspective and serve as the basis for verification.
-Where a specific Non-Functional Requirement (NFR) from the PRD (e.g., a particular performance target for a specific action, a security constraint for handling certain data) is critical to a story, ensure it is explicitly captured or clearly referenced within its Acceptance Criteria.
-Integrate Developer Enablement & Iterative Design into Stories:
-Local Testability (CLI): For User Stories involving backend processing or data components, ensure the ACs consider or specify the ability for developers to test that functionality locally (e.g., via CLI commands, local service instances).
-Iterative Schema Definition: Database schema changes (new tables, columns) should be introduced iteratively within the User Stories that functionally require them, rather than defining the entire schema upfront.
-Upfront UI/UX Standards (if UI applicable): For User Stories with a UI component, ACs should explicitly state requirements regarding look and feel, responsiveness, and adherence to chosen frameworks/libraries (e.g., Tailwind CSS, shadcn/ui) from the start.
+清晰、全面和可测试的验收标准（ACs）：
+每个用户故事都将有详细、明确和可测试的验收标准。
+ACs 从功能角度精确定义该故事的"完成"意味着什么，并作为验证的基础。
+如果 PRD 中的特定非功能需求（NFR）（例如，特定操作的特定性能目标、处理某些数据的安全约束）对故事至关重要，确保在其验收标准中明确捕获或明确引用。
+将开发人员赋能和迭代设计整合到故事中：
+本地可测试性（CLI）：对于涉及后端处理或数据组件的用户故事，确保 ACs 考虑或指定开发人员能够本地测试该功能（例如，通过 CLI 命令、本地服务实例）。
+迭代模式定义：数据库模式更改（新表、列）应在功能上需要它们的用户故事中迭代引入，而不是预先定义整个模式。
+前期 UI/UX 标准（如果适用 UI）：对于具有 UI 组件的用户故事，ACs 应从一开始就明确说明关于外观和感觉、响应性和遵守所选框架/库（例如，Tailwind CSS、shadcn/ui）的要求。
 
-### V. Managing Complexity: Addressing Cross-Cutting Concerns Effectively
+### V. 管理复杂性：有效处理横切关注点
 
-Critically Evaluate for Cross-Cutting Concerns:
-Before finalizing a User Story, evaluate if the described functionality is truly a discrete, user-facing piece of value or if it represents a cross-cutting concern (e.g., a specific logging requirement, a UI theme element used by many views, a core technical enabler for multiple other stories, a specific aspect of error handling).
-If a piece of functionality is identified as a cross-cutting concern:
-a. Avoid creating a separate User Story for it unless it delivers standalone, testable user value.
-b. Instead, integrate the requirement as specific Acceptance Criteria within all relevant User Stories it impacts.
-c. Alternatively, if it's a pervasive technical enabler or a non-functional requirement that applies broadly, document it clearly within the relevant PRD section (e.g., 'Non Functional Requirements', 'Technical Assumptions'), or as a note for the Architect within the story descriptions if highly specific.
+批判性评估横切关注点：
+在最终确定用户故事之前，评估描述的功能是否真正是离散的、面向用户的价值片段，或者是否代表横切关注点（例如，特定的日志记录要求、许多视图使用的 UI 主题元素、多个其他故事的核心技术启用器、错误处理的特定方面）。
+如果识别出功能是横切关注点：
+a. 避免为其创建单独的用户故事，除非它提供独立的、可测试的用户价值。
+b. 相反，将其作为特定验收标准整合到它影响的所有相关用户故事中。
+c. 或者，如果它是普遍的技术启用器或广泛适用的非功能需求，在相关 PRD 部分（例如，'非功能需求'、'技术假设'）中明确记录，或者如果高度特定，则作为架构师在故事描述中的注释。
 
-Your aim is to ensure User Stories remain focused on delivering measurable user value, while still capturing all necessary technical and functional details appropriately.
+您的目标是确保用户故事保持专注于提供可衡量的用户价值，同时仍然适当地捕获所有必要的技术和功能细节。
 
-### VI. Ensuring Quality & Smooth Handoff
+### VI. 确保质量和顺利交接
 
-Maintain Clarity for Handoff and Architectural Freedom: User Stories, their descriptions, and Acceptance Criteria must be detailed enough to provide the Architect with a clear and comprehensive understanding of "what is required," while allowing for architectural flexibility on the "how."
-Confirm "Ready" State: Before considering an Epic's stories complete, ensure each story is effectively "ready" for subsequent architectural review or development planning – meaning it's clear, understandable, testable, its dependencies are noted, and any foundational work (like from the first epic) is accounted for.
+为交接和架构自由保持清晰：用户故事、其描述和验收标准必须足够详细，以为架构师提供对"需要什么"的清晰和全面的理解，同时允许在"如何做"方面有架构灵活性。
+确认"就绪"状态：在考虑史诗的故事完成之前，确保每个故事有效地"就绪"以供后续架构审查或开发规划——意味着它清晰、可理解、可测试、其依赖关系已注明，并且任何基础工作（如来自第一个史诗）都已考虑在内。
 
-## Offer Advanced Self-Refinement & Elicitation Options
+## 提供高级自我改进和启发选项
 
-(This section is called when needed prior to this)
+（此部分在需要时在此之前调用）
 
-Present the user with the following list of 'Advanced Reflective, Elicitation & Brainstorming Actions'. Explain that these are optional steps to help ensure quality, explore alternatives, and deepen the understanding of the current section before finalizing it and moving on. The user can select an action by number, or choose to skip this and proceed to finalize the section.
+向用户展示以下"高级反思、启发和头脑风暴行动"列表。解释这些是可选的步骤，以帮助确保质量、探索替代方案，并在最终确定当前部分并继续之前加深对其的理解。用户可以通过数字选择操作，或选择跳过此步骤并继续完成该部分。
 
-"To ensure the quality of the current section: **[Specific Section Name]** and to ensure its robustness, explore alternatives, and consider all angles, I can perform any of the following actions. Please choose a number (8 to finalize and proceed):
+"为确保当前部分的质量：**[特定部分名称]** 并确保其健壮性、探索替代方案并考虑所有角度，我可以执行以下任何操作。请选择一个数字（8 表示完成并继续）：
 
-**Advanced Reflective, Elicitation & Brainstorming Actions I Can Take:**
+**我可以采取的高级反思、启发和头脑风暴行动：**
 
-{Instruction for AI Agent: Display the title of each numbered item below. If the user asks what a specific option means, provide a brief explanation of the action you will take, drawing from detailed descriptions tailored for the context.}
+{AI 代理的说明：显示下面每个编号项目的标题。如果用户询问特定选项的含义，请提供您将采取的行动的简要解释，从为上下文定制的详细描述中提取。}
 
-1.  **Critical Self-Review & User Goal Alignment**
-2.  **Generate & Evaluate Alternative Design Solutions**
-3.  **User Journey & Interaction Stress Test (Conceptual)**
-4.  **Deep Dive into Design Assumptions & Constraints**
-5.  **Usability & Accessibility Audit Review & Probing Questions**
-6.  **Collaborative Ideation & UI Feature Brainstorming**
-7.  **Elicit 'Unforeseen User Needs' & Future Interaction Questions**
-8.  **Finalize this Section and Proceed.**
+1. **关键自我审查和用户目标对齐**
+2. **生成和评估替代设计解决方案**
+3. **用户旅程和交互压力测试（概念性）**
+4. **深入探讨设计假设和约束**
+5. **可用性和可访问性审计审查和探索性问题**
+6. **协作构思和 UI 功能头脑风暴**
+7. **启发"未预见的用户需求"和未来交互问题**
+8. **完成此部分并继续。**
 
-After I perform the selected action, we can discuss the outcome and decide on any further revisions for this section."
+在我执行所选操作后，我们可以讨论结果并决定对此部分进行任何进一步的修改。"
 
-REPEAT by Asking the user if they would like to perform another Reflective, Elicitation & Brainstorming Action UNIT the user indicates it is time to proceed ot the next section (or selects #8)
+通过询问用户是否希望执行另一个反思、启发和头脑风暴行动来重复，直到用户表示是时候继续下一部分（或选择 #8）

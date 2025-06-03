@@ -1,135 +1,135 @@
-# Checklist Validation Task
+# 清单验证任务
 
-This task provides instructions for validating documentation against checklists. The agent should follow these instructions to ensure thorough and systematic validation of documents.
+本任务提供了根据清单验证文档的说明。代理应遵循这些说明以确保对文档进行彻底和系统的验证。
 
-## Context
+## 上下文
 
-The BMAD Method uses various checklists to ensure quality and completeness of different artifacts. The mapping between checklists and their required documents is defined in `checklist-mappings`. This allows for easy addition of new checklists without modifying this task.
+BMAD 方法使用各种清单来确保不同工件的质量和完整性。清单与其所需文档之间的映射在 `checklist-mappings` 中定义。这允许轻松添加新清单而无需修改此任务。
 
-## Instructions
+## 说明
 
-1. **Initial Assessment**
+1. **初始评估**
 
-   - Check `checklist-mappings` for available checklists
-   - If user provides a checklist name:
-     - Look for exact match in checklist-mappings.yml
-     - If no exact match, try fuzzy matching (e.g. "architecture checklist" -> "architect-checklist")
-     - If multiple matches found, ask user to clarify
-     - Once matched, use the checklist_file path from the mapping
-   - If no checklist specified:
-     - Ask the user which checklist they want to use
-     - Present available options from checklist-mappings.yml
-   - Confirm if they want to work through the checklist:
-     - Section by section (interactive mode)
-     - All at once (YOLO mode)
+   - 检查 `checklist-mappings` 中可用的清单
+   - 如果用户提供了清单名称：
+     - 在 checklist-mappings.yml 中查找精确匹配
+     - 如果没有精确匹配，尝试模糊匹配（例如，"architecture checklist" -> "architect-checklist"）
+     - 如果找到多个匹配项，请用户澄清
+     - 一旦匹配，使用映射中的 checklist_file 路径
+   - 如果未指定清单：
+     - 询问用户想使用哪个清单
+     - 从 checklist-mappings.yml 中展示可用选项
+   - 确认他们是否想要：
+     - 逐节处理清单（交互模式）
+     - 一次性处理（YOLO 模式）
 
-2. **Document Location**
+2. **文档位置**
 
-   - Look up the required documents and default locations in `checklist-mappings`
-   - For each required document:
-     - Check all default locations specified in the mapping
-     - If not found, ask the user for the document location
-   - Verify all required documents are accessible
+   - 在 `checklist-mappings` 中查找所需文档和默认位置
+   - 对于每个所需文档：
+     - 检查映射中指定的所有默认位置
+     - 如果未找到，请用户提供文档位置
+   - 验证所有所需文档是否可访问
 
-3. **Checklist Processing**
+3. **清单处理**
 
-   If in interactive mode:
+   如果处于交互模式：
 
-   - Work through each section of the checklist one at a time
-   - For each section:
-     - Review all items in the section
-     - Check each item against the relevant documentation
-     - Present findings for that section
-     - Get user confirmation before proceeding to next section
+   - 一次处理清单的每个部分
+   - 对于每个部分：
+     - 审查该部分的所有项目
+     - 根据相关文档检查每个项目
+     - 展示该部分的发现
+     - 在继续下一部分之前获取用户确认
 
-   If in YOLO mode:
+   如果处于 YOLO 模式：
 
-   - Process all sections at once
-   - Create a comprehensive report of all findings
-   - Present the complete analysis to the user
+   - 一次性处理所有部分
+   - 创建所有发现的综合报告
+   - 向用户展示完整分析
 
-4. **Validation Approach**
+4. **验证方法**
 
-   For each checklist item:
+   对于每个清单项目：
 
-   - Read and understand the requirement
-   - Look for evidence in the documentation that satisfies the requirement
-   - Consider both explicit mentions and implicit coverage
-   - Mark items as:
-     - ✅ PASS: Requirement clearly met
-     - ❌ FAIL: Requirement not met or insufficient coverage
-     - ⚠️ PARTIAL: Some aspects covered but needs improvement
-     - N/A: Not applicable to this case
+   - 阅读并理解要求
+   - 在文档中寻找满足要求的证据
+   - 考虑明确提及和隐含覆盖
+   - 将项目标记为：
+     - ✅ 通过：要求明确满足
+     - ❌ 失败：要求未满足或覆盖不足
+     - ⚠️ 部分：某些方面已覆盖但需要改进
+     - N/A：不适用于此情况
 
-5. **Section Analysis**
+5. **部分分析**
 
-   For each section:
+   对于每个部分：
 
-   - Calculate pass rate
-   - Identify common themes in failed items
-   - Provide specific recommendations for improvement
-   - In interactive mode, discuss findings with user
-   - Document any user decisions or explanations
+   - 计算通过率
+   - 识别失败项目中的共同主题
+   - 提供具体的改进建议
+   - 在交互模式下，与用户讨论发现
+   - 记录任何用户决定或解释
 
-6. **Final Report**
+6. **最终报告**
 
-   Prepare a summary that includes:
+   准备包含以下内容的摘要：
 
-   - Overall checklist completion status
-   - Pass rates by section
-   - List of failed items with context
-   - Specific recommendations for improvement
-   - Any sections or items marked as N/A with justification
+   - 整体清单完成状态
+   - 各部分的通过率
+   - 失败项目列表及上下文
+   - 具体的改进建议
+   - 任何标记为 N/A 的部分或项目及其理由
 
-## Special Considerations
+## 特殊考虑
 
-1. **Architecture Checklist**
+1. **架构清单**
 
-   - Focus on technical completeness and clarity
-   - Verify all system components are addressed
-   - Check for security and scalability considerations
-   - Ensure deployment and operational aspects are covered
+   - 关注技术完整性和清晰度
+   - 验证所有系统组件都已处理
+   - 检查安全性和可扩展性考虑
+   - 确保部署和运营方面已覆盖
 
-2. **Frontend Architecture Checklist**
+2. **前端架构清单**
 
-   - Validate UI/UX specifications
-   - Check component structure and organization
-   - Verify state management approach
-   - Ensure responsive design considerations
+   - 验证 UI/UX 规范
+   - 检查组件结构和组织
+   - 验证状态管理方法
+   - 确保响应式设计考虑
 
-3. **PM Checklist**
+3. **产品经理清单**
 
-   - Focus on product requirements clarity
-   - Verify user stories and acceptance criteria
-   - Check market and user research coverage
-   - Ensure technical feasibility is addressed
+   - 关注产品需求清晰度
+   - 验证用户故事和验收标准
+   - 检查市场和用户研究覆盖
+   - 确保技术可行性已处理
 
-4. **Story Checklists**
-   - Verify clear acceptance criteria
-   - Check for technical context and dependencies
-   - Ensure testability is addressed
-   - Validate user value is clearly stated
+4. **故事清单**
+   - 验证清晰的验收标准
+   - 检查技术上下文和依赖关系
+   - 确保可测试性已处理
+   - 验证用户价值明确说明
 
-## Success Criteria
+## 成功标准
 
-The checklist validation is complete when:
+清单验证在以下情况下完成：
 
-1. All applicable items have been assessed
-2. Clear pass/fail status for each item
-3. Specific recommendations provided for failed items
-4. User has reviewed and acknowledged findings
-5. Final report documents all decisions and rationales
+1. 所有适用项目都已评估
+2. 每个项目都有明确的通过/失败状态
+3. 为失败项目提供具体建议
+4. 用户已审查并确认发现
+5. 最终报告记录了所有决定和理由
 
-## Example Interaction
+## 示例交互
 
-Agent: "Let me check the available checklists... According to checklist-mappings.yml, we have several options. Which would you like to use?"
+代理："让我检查可用的清单...根据 checklist-mappings.yml，我们有几个选项。您想使用哪一个？"
 
-User: "The architect checklist"
+用户："架构清单"
 
-Agent: "Would you like to work through it section by section (interactive) or get a complete analysis all at once (YOLO mode)?"
+代理："您想逐节处理（交互式）还是立即获得完整分析（YOLO 模式）？"
 
-User: "Interactive please"
+用户："请用交互式"
 
-Agent: "According to the mappings, I need to check for architecture.md. The default location is docs/architecture.md. Should I look there?"
+代理："根据映射，我需要检查 architecture.md。默认位置是 docs/architecture.md。我应该在那里查找吗？"
 
-[Continue interaction based on user responses...]
+[根据用户响应继续交互...]

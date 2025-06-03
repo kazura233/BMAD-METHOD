@@ -1,95 +1,95 @@
-# Create UI/UX Specification Task
+# 创建 UI/UX 规范任务
 
-## Purpose
+## 目的
 
-To collaboratively work with the user to define and document the User Interface (UI) and User Experience (UX) specifications for the project. This involves understanding user needs, defining information architecture, outlining user flows, and ensuring a solid foundation for visual design and frontend development. The output will populate a new document called `front-end-spec.md` following the `front-end-spec-tmpl` template.
+与用户协作定义和记录项目的用户界面（UI）和用户体验（UX）规范。这包括理解用户需求、定义信息架构、概述用户流程，并确保为视觉设计和前端开发奠定坚实基础。输出将填充一个名为 `front-end-spec.md` 的新文档，遵循 `front-end-spec-tmpl` 模板。
 
-## Inputs
+## 输入
 
-- Project Brief (`project-brief.md` or equivalent)
-- Product Requirements Document (PRD) (`prd.md` or equivalent)
-- User feedback or research (if available)
+- 项目简介（`project-brief.md` 或等效文件）
+- 产品需求文档（PRD）（`prd.md` 或等效文件）
+- 用户反馈或研究（如果有）
 
-## Key Activities & Instructions
+## 关键活动和说明
 
-### 1. Understand Core Requirements
+### 1. 理解核心需求
 
-- Review Project Brief and PRD to grasp project goals, target audience, key features, and any existing constraints.
-- Ask clarifying questions about user needs, pain points, and desired outcomes.
+- 审查项目简介和 PRD，以掌握项目目标、目标受众、关键功能和任何现有约束。
+- 询问关于用户需求、痛点和期望结果的澄清问题。
 
-### 2. Define Overall UX Goals & Principles (for `front-end-spec-tmpl`)
+### 2. 定义整体 UX 目标和原则（用于 `front-end-spec-tmpl`）
 
-- Collaboratively establish and document:
-  - Target User Personas (elicit details or confirm existing ones).
-  - Key Usability Goals.
-  - Core Design Principles for the project.
+- 协作建立和记录：
+  - 目标用户角色（获取详细信息或确认现有角色）。
+  - 关键可用性目标。
+  - 项目的核心设计原则。
 
-### 3. Develop Information Architecture (IA) (for `front-end-spec-tmpl`)
+### 3. 开发信息架构（IA）（用于 `front-end-spec-tmpl`）
 
-- Work with the user to create a Site Map or Screen Inventory.
-- Define the primary and secondary Navigation Structure.
-- Use Mermaid diagrams or lists as appropriate for the template.
+- 与用户合作创建站点地图或屏幕清单。
+- 定义主要和次要导航结构。
+- 根据模板适当使用 Mermaid 图表或列表。
 
-### 4. Outline Key User Flows (for `front-end-spec-tmpl`)
+### 4. 概述关键用户流程（用于 `front-end-spec-tmpl`）
 
-- Identify critical user tasks from the PRD/brief.
-- For each flow:
-  - Define the user's goal.
-  - Collaboratively map out the steps (use Mermaid diagrams or detailed step-by-step descriptions).
-  - Consider edge cases and error states.
+- 从 PRD/简介中识别关键用户任务。
+- 对于每个流程：
+  - 定义用户目标。
+  - 协作绘制步骤（使用 Mermaid 图表或详细的逐步描述）。
+  - 考虑边缘情况和错误状态。
 
-### 5. Discuss Wireframes & Mockups Strategy (for `front-end-spec-tmpl`)
+### 5. 讨论线框图和原型策略（用于 `front-end-spec-tmpl`）
 
-- Clarify where detailed visual designs will be created (e.g., Figma, Sketch) and ensure the `front-end-spec-tmpl` correctly links to these primary design files.
-- If low-fidelity wireframes are needed first, offer to help conceptualize layouts for key screens.
+- 明确将在哪里创建详细的视觉设计（例如，Figma、Sketch），并确保 `front-end-spec-tmpl` 正确链接到这些主要设计文件。
+- 如果需要先进行低保真线框图，提供帮助构思关键屏幕布局。
 
-### 6. Define Component Library / Design System Approach (for `front-end-spec-tmpl`)
+### 6. 定义组件库/设计系统方法（用于 `front-end-spec-tmpl`）
 
-- Discuss if an existing design system will be used or if a new one needs to be developed.
-- If new, identify a few foundational components to start with (e.g., Button, Input, Card) and their key states/behaviors at a high level. Detailed technical specs will be in `front-end-architecture`.
+- 讨论是使用现有设计系统还是需要开发新系统。
+- 如果是新的，确定一些基础组件（例如，按钮、输入框、卡片）及其高级状态/行为。详细的技术规范将在 `front-end-architecture` 中。
 
-### 7. Establish Branding & Style Guide Basics (for `front-end-spec-tmpl`)
+### 7. 建立品牌和样式指南基础（用于 `front-end-spec-tmpl`）
 
-- If a style guide exists, link to it.
-- If not, collaboratively define placeholders for: Color Palette, Typography, Iconography, Spacing.
+- 如果存在样式指南，链接到它。
+- 如果不存在，协作定义以下占位符：调色板、排版、图标、间距。
 
-### 8. Specify Accessibility (AX) Requirements (for `front-end-spec-tmpl`)
+### 8. 指定可访问性（AX）要求（用于 `front-end-spec-tmpl`）
 
-- Determine the target compliance level (e.g., WCAG 2.1 AA).
-- List any known specific AX requirements.
+- 确定目标合规级别（例如，WCAG 2.1 AA）。
+- 列出任何已知的具体 AX 要求。
 
-### 9. Define Responsiveness Strategy (for `front-end-spec-tmpl`)
+### 9. 定义响应式策略（用于 `front-end-spec-tmpl`）
 
-- Discuss and document key Breakpoints.
-- Describe the general Adaptation Strategy.
+- 讨论并记录关键断点。
+- 描述一般适应策略。
 
-### 10. Output Generation & Iterative Refinement (Guided by `front-end-spec-tmpl`)
+### 10. 输出生成和迭代优化（由 `front-end-spec-tmpl` 指导）
 
-- **a. Draft Section:** Incrementally populate one logical section of the `front-end-spec-tmpl` file based on your discussions.
-- **b. Present & Incorporate Initial Feedback:** Present the drafted section to the user for review. Discuss, explain and incorporate their initial feedback and revisions directly.
-- **c. [Offer Advanced Self-Refinement & Elicitation Options](#offer-advanced-self-refinement--elicitation-options)**
+- **a. 草拟部分：** 根据讨论逐步填充 `front-end-spec-tmpl` 文件的一个逻辑部分。
+- **b. 展示并整合初步反馈：** 向用户展示草拟部分以供审查。讨论、解释并直接整合他们的初步反馈和修改。
+- **c. [提供高级自我改进和启发选项](#提供高级自我改进和启发选项)**
 
-## Offer Advanced Self-Refinement & Elicitation Options
+## 提供高级自我改进和启发选项
 
-(This section is called when needed prior to this)
+（此部分在需要时在此之前调用）
 
-Present the user with the following list of 'Advanced Reflective, Elicitation & Brainstorming Actions'. Explain that these are optional steps to help ensure quality, explore alternatives, and deepen the understanding of the current section before finalizing it and moving on. The user can select an action by number, or choose to skip this and proceed to finalize the section.
+向用户展示以下"高级反思、启发和头脑风暴行动"列表。解释这些是可选的步骤，以帮助确保质量、探索替代方案，并在最终确定当前部分并继续之前加深对其的理解。用户可以通过数字选择操作，或选择跳过此步骤并继续完成该部分。
 
-"To ensure the quality of the current section: **[Specific Section Name]** and to ensure its robustness, explore alternatives, and consider all angles, I can perform any of the following actions. Please choose a number (8 to finalize and proceed):
+"为确保当前部分的质量：**[特定部分名称]** 并确保其健壮性、探索替代方案并考虑所有角度，我可以执行以下任何操作。请选择一个数字（8 表示完成并继续）：
 
-**Advanced Reflective, Elicitation & Brainstorming Actions I Can Take:**
+**我可以采取的高级反思、启发和头脑风暴行动：**
 
-{Instruction for AI Agent: Display the title of each numbered item below. If the user asks what a specific option means, provide a brief explanation of the action you will take, drawing from detailed descriptions tailored for the context.}
+{AI 代理的说明：显示下面每个编号项目的标题。如果用户询问特定选项的含义，请提供您将采取的行动的简要解释，从为上下文定制的详细描述中提取。}
 
-1.  **Critical Self-Review & User Goal Alignment**
-2.  **Generate & Evaluate Alternative Design Solutions**
-3.  **User Journey & Interaction Stress Test (Conceptual)**
-4.  **Deep Dive into Design Assumptions & Constraints**
-5.  **Usability & Accessibility Audit Review & Probing Questions**
-6.  **Collaborative Ideation & UI Feature Brainstorming**
-7.  **Elicit 'Unforeseen User Needs' & Future Interaction Questions**
-8.  **Finalize this Section and Proceed.**
+1. **关键自我审查和用户目标对齐**
+2. **生成和评估替代设计解决方案**
+3. **用户旅程和交互压力测试（概念性）**
+4. **深入探讨设计假设和约束**
+5. **可用性和可访问性审计审查和探索性问题**
+6. **协作构思和 UI 功能头脑风暴**
+7. **启发"未预见的用户需求"和未来交互问题**
+8. **完成此部分并继续。**
 
-After I perform the selected action, we can discuss the outcome and decide on any further revisions for this section."
+在我执行所选操作后，我们可以讨论结果并决定对此部分进行任何进一步的修改。"
 
-REPEAT by Asking the user if they would like to perform another Reflective, Elicitation & Brainstorming Action UNIT the user indicates it is time to proceed ot the next section (or selects #8)
+通过询问用户是否希望执行另一个反思、启发和头脑风暴行动来重复，直到用户表示是时候继续下一部分（或选择 #8）

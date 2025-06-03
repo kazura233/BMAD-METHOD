@@ -1,55 +1,55 @@
-## Deep Research Phase
+## 深入研究阶段
 
-Leveraging advanced analytical capabilities, the Deep Research Phase with the PM is designed to provide targeted, strategic insights crucial for product definition. Unlike the broader exploratory research an Analyst might undertake, the PM utilizes deep research to:
+利用先进的分析能力，与产品经理（PM）一起的深入研究阶段旨在为产品定义提供有针对性的、战略性的见解。与分析师的广泛探索性研究不同，产品经理利用深入研究来：
 
-- **Validate Product Hypotheses:** Rigorously test assumptions about market need, user problems, and the viability of specific product concepts.
-- **Refine Target Audience & Value Proposition:** Gain a nuanced understanding of specific user segments, their precise pain points, and how the proposed product delivers unique value to them.
-- **Focused Competitive Analysis:** Analyze competitors through the lens of a specific product idea to identify differentiation opportunities, feature gaps to exploit, and potential market positioning challenges.
-- **De-risk PRD Commitments:** Ensure that the problem, proposed solution, and core features are well-understood and validated _before_ detailed planning and resource allocation in the PRD Generation Mode.
+- **验证产品假设：** 严格测试关于市场需求、用户问题和特定产品概念可行性的假设。
+- **完善目标受众和价值主张：** 深入了解特定用户群体、他们的具体痛点，以及拟议产品如何为他们提供独特价值。
+- **聚焦竞争分析：** 通过特定产品想法的视角分析竞争对手，以识别差异化机会、可利用的功能差距和潜在的市场定位挑战。
+- **降低 PRD 承诺风险：** 确保在 PRD 生成模式中进行详细规划和资源分配之前，问题、拟议解决方案和核心功能都得到充分理解和验证。
 
-Choose this phase with the PM when you need to strategically validate a product direction, fill specific knowledge gaps critical for defining _what_ to build, or ensure a strong, evidence-backed foundation for your PRD, especially if initial Analyst research was not performed or requires deeper, product-focused investigation.
+当您需要战略性地验证产品方向、填补定义构建内容所需的关键知识空白，或确保 PRD 有强大、基于证据的基础时，请选择与产品经理一起进行此阶段，特别是如果未进行初步分析师研究或需要更深入、以产品为重点的调查。
 
-### Purpose
+### 目的
 
-- To gather foundational information, validate concepts, understand market needs, or analyze competitors when a comprehensive Project Brief from an Analyst is unavailable or insufficient.
-- To ensure the PM has a solid, data-informed basis for defining a valuable and viable product before committing to PRD specifics.
-- To de-risk product decisions by grounding them in targeted research, especially if the user is engaging the PM directly without prior Analyst work or if the initial brief lacks necessary depth.
+- 当无法获得或分析师提供的项目简报不足时，收集基础信息、验证概念、了解市场需求或分析竞争对手。
+- 确保产品经理在承诺 PRD 具体内容之前，有坚实、数据支持的基础来定义有价值且可行的产品。
+- 通过基于针对性研究的产品决策来降低风险，特别是如果用户直接与产品经理合作而没有事先的分析师工作，或者如果初始简报缺乏必要的深度。
 
-### Instructions
+### 说明
 
-<critical_rule>Note on Deep Research Execution:</critical_rule>
-To perform deep research effectively, please be aware:
+<critical_rule>关于深入研究执行的说明：</critical_rule>
+要有效执行深入研究，请注意：
 
-- You may need to use this current conversational agent to help you formulate a comprehensive research prompt, which can then be executed by a dedicated deep research model or function.
-- Alternatively, ensure you have activated or switched to a model/environment that has integrated deep research capabilities.
-  This agent can guide you in preparing for deep research, but the execution may require one of these steps.
+- 您可能需要使用当前的对话代理来帮助您制定全面的研究提示，然后可以由专门的研究模型或功能执行。
+- 或者，确保您已激活或切换到具有集成研究功能的模型/环境。
+  此代理可以指导您准备深入研究，但执行可能需要以下步骤之一。
 
-1.  **Assess Inputs & Identify Gaps:**
-    - Review any existing inputs (user's initial idea, high-level requirements, partial brief from Analyst, etc.).
-    - Clearly identify critical knowledge gaps concerning:
-      - Target audience (needs, pain points, behaviors, key segments).
-      - Market landscape (size, trends, opportunities, potential saturation).
-      - Competitive analysis (key direct/indirect competitors, their offerings, strengths, weaknesses, market positioning, potential differentiators for this product).
-      - Problem/Solution validation (evidence supporting the proposed solution's value and fit for the identified problem).
-      - High-level technical or resource considerations (potential major roadblocks or dependencies).
-2.  **Formulate Research Plan:**
-    - Define specific, actionable research questions to address the identified gaps.
-    - Propose targeted research activities (e.g., focused web searches for market reports, competitor websites, industry analyses, user reviews of similar products, technology trends).
-    - <important_note>Confirm this research plan, scope, and key questions with the user before proceeding with research execution.</important_note>
-3.  **Execute Research:**
-    - Conduct the planned research activities systematically.
-    - Prioritize gathering credible, relevant, and actionable insights that directly inform product definition and strategy.
-4.  **Synthesize & Present Findings:**
-    - Organize and summarize key research findings in a clear, concise, and easily digestible manner (e.g., bullet points, brief summaries per research question).
-    - Highlight the most critical implications for the product's vision, strategy, target audience, core features, and potential risks.
-    - Present these synthesized findings and their implications to the user.
-5.  **Discussing and Utilizing Research Output:**
-    - The comprehensive findings/report from this Deep Research phase can be substantial. I am available to discuss these with you, explain any part in detail, and help you understand their implications.
-    - **Options for Utilizing These Findings for PRD Generation:**
-      1.  **Full Handoff to New PM Session:** The complete research output can serve as a foundational document if you initiate a _new_ session with a Product Manager (PM) agent who will then execute the 'PRD Generate Task'.
-      2.  **Key Insights Summary for This Session:** I can prepare a concise summary of the most critical findings, tailored to be directly actionable as we (in this current session) transition to potentially invoking the 'PRD Generate Task'.
-    - <critical_rule>Regardless of how you proceed, it is highly recommended that these research findings (either the full output or the key insights summary) are provided as direct input when invoking the 'PRD Generate Task'. This ensures the PRD is built upon a solid, evidence-based foundation.</critical_rule>
-6.  **Confirm Readiness for PRD Generation:**
-    - Discuss with the user whether the gathered information provides a sufficient and confident foundation to proceed to the 'PRD Generate Task'.
-    - If significant gaps or uncertainties remain, discuss and decide with the user on further targeted research or if assumptions need to be documented and carried forward.
-    - Once confirmed, clearly state that the next step could be to invoke the 'PRD Generate Task' or, if applicable, revisit other phase options.
+1. **评估输入和识别差距：**
+   - 审查任何现有输入（用户的初始想法、高级需求、分析师的部分简报等）。
+   - 明确识别关于以下方面的关键知识差距：
+     - 目标受众（需求、痛点、行为、关键细分）。
+     - 市场格局（规模、趋势、机会、潜在饱和度）。
+     - 竞争分析（主要直接/间接竞争对手、他们的产品、优势、劣势、市场定位、此产品的潜在差异化因素）。
+     - 问题/解决方案验证（支持拟议解决方案对已识别问题的价值和适合性的证据）。
+     - 高级技术或资源考虑（潜在的主要障碍或依赖关系）。
+2. **制定研究计划：**
+   - 定义具体的、可操作的研究问题以解决已识别的差距。
+   - 提出有针对性的研究活动（例如，针对市场报告、竞争对手网站、行业分析、类似产品的用户评论、技术趋势的集中网络搜索）。
+   - <important_note>在进行研究执行之前，与用户确认此研究计划、范围和关键问题。</important_note>
+3. **执行研究：**
+   - 系统地执行计划的研究活动。
+   - 优先收集可信、相关且可操作的见解，这些见解直接为产品定义和战略提供信息。
+4. **综合和展示发现：**
+   - 以清晰、简洁和易于理解的方式组织和总结关键研究发现（例如，每个研究问题的要点、简短摘要）。
+   - 突出对产品愿景、战略、目标受众、核心功能和潜在风险的最关键影响。
+   - 向用户展示这些综合发现及其影响。
+5. **讨论和利用研究输出：**
+   - 此深入研究阶段的综合发现/报告可能很庞大。我可以与您讨论这些内容，详细解释任何部分，并帮助您理解其影响。
+   - **利用这些发现进行 PRD 生成的选项：**
+     1. **完整交接给新的产品经理会话：** 如果您启动与产品经理（PM）代理的新会话，完整的研究输出可以作为基础文档，该代理随后将执行"PRD 生成任务"。
+     2. **当前会话的关键见解摘要：** 我可以准备最关键发现的简明摘要，针对我们（在当前会话中）可能调用"PRD 生成任务"的过渡进行定制。
+   - <critical_rule>无论您如何继续，强烈建议在调用"PRD 生成任务"时将这些研究发现（完整输出或关键见解摘要）作为直接输入提供。这确保 PRD 建立在坚实、基于证据的基础上。</critical_rule>
+6. **确认 PRD 生成的准备情况：**
+   - 与用户讨论收集的信息是否提供了足够和自信的基础来继续"PRD 生成任务"。
+   - 如果仍然存在重大差距或不确定性，与用户讨论并决定是否需要进行进一步的针对性研究，或者是否需要记录和推进假设。
+   - 一旦确认，明确说明下一步可能是调用"PRD 生成任务"，或者如果适用，重新访问其他阶段选项。

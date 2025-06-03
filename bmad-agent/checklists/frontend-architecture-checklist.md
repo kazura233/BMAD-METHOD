@@ -1,149 +1,153 @@
-# Frontend Architecture Document Review Checklist
+# 前端架构文档审查检查清单
 
-## Purpose
-This checklist is for the Design Architect to use after completing the "Frontend Architecture Mode" and populating the `front-end-architecture-tmpl.txt` (or `.md`) document. It ensures all sections are comprehensively covered and meet quality standards before finalization.
+## 目的
 
----
-
-## I. Introduction
-
-- [ ] Is the `{Project Name}` correctly filled in throughout the Introduction?
-- [ ] Is the link to the Main Architecture Document present and correct?
-- [ ] Is the link to the UI/UX Specification present and correct?
-- [ ] Is the link to the Primary Design Files (Figma, Sketch, etc.) present and correct?
-- [ ] Is the link to a Deployed Storybook / Component Showcase included, if applicable and available?
-
-## II. Overall Frontend Philosophy & Patterns
-
-- [ ] Are the chosen Framework & Core Libraries clearly stated and aligned with the main architecture document?
-- [ ] Is the Component Architecture (e.g., Atomic Design, Presentational/Container) clearly described?
-- [ ] Is the State Management Strategy (e.g., Redux Toolkit, Zustand) clearly described at a high level?
-- [ ] Is the Data Flow (e.g., Unidirectional) clearly explained?
-- [ ] Is the Styling Approach (e.g., CSS Modules, Tailwind CSS) clearly defined?
-- [ ] Are Key Design Patterns to be employed (e.g., Provider, Hooks) listed?
-- [ ] Does this section align with "Definitive Tech Stack Selections" in the main architecture document?
-- [ ] Are implications from overall system architecture (monorepo/polyrepo, backend services) considered?
-
-## III. Detailed Frontend Directory Structure
-
-- [ ] Is an ASCII diagram representing the frontend application's folder structure provided?
-- [ ] Is the diagram clear, accurate, and reflective of the chosen framework/patterns?
-- [ ] Are conventions for organizing components, pages, services, state, styles, etc., highlighted?
-- [ ] Are notes explaining specific conventions or rationale for the structure present and clear?
-
-## IV. Component Breakdown & Implementation Details
-
-### Component Naming & Organization
-- [ ] Are conventions for naming components (e.g., PascalCase) described?
-- [ ] Is the organization of components on the filesystem clearly explained (reiterating from directory structure if needed)?
-
-### Template for Component Specification
-- [ ] Is the "Template for Component Specification" itself complete and well-defined?
-  - [ ] Does it include fields for: Purpose, Source File(s), Visual Reference?
-  - [ ] Does it include a table structure for Props (Name, Type, Required, Default, Description)?
-  - [ ] Does it include a table structure for Internal State (Variable, Type, Initial Value, Description)?
-  - [ ] Does it include a section for Key UI Elements / Structure (textual or pseudo-HTML)?
-  - [ ] Does it include a section for Events Handled / Emitted?
-  - [ ] Does it include a section for Actions Triggered (State Management, API Calls)?
-  - [ ] Does it include a section for Styling Notes?
-  - [ ] Does it include a section for Accessibility Notes?
-- [ ] Is there a clear statement that this template should be used for most feature-specific components?
-
-### Foundational/Shared Components (if any specified upfront)
-- [ ] If any foundational/shared UI components are specified, do they follow the "Template for Component Specification"?
-- [ ] Is the rationale for specifying these components upfront clear?
-
-## V. State Management In-Depth
-
-- [ ] Is the chosen State Management Solution reiterated and rationale briefly provided (if not fully covered in main arch doc)?
-- [ ] Are conventions for Store Structure / Slices clearly defined (e.g., location, feature-based slices)?
-- [ ] If a Core Slice Example (e.g., `sessionSlice`) is provided:
-  - [ ] Is its purpose clear?
-  - [ ] Is its State Shape defined (e.g., using TypeScript interface)?
-  - [ ] Are its Key Reducers/Actions listed?
-- [ ] Is a Feature Slice Template provided, outlining purpose, state shape, and key reducers/actions to be filled in?
-- [ ] Are conventions for Key Selectors noted (e.g., use `createSelector`)?
-- [ ] Are examples of Key Selectors for any core slices provided?
-- [ ] Are conventions for Key Actions / Reducers / Thunks (especially async) described?
-- [ ] Is an example of a Core Action/Thunk (e.g., `authenticateUser`) provided, detailing its purpose and dispatch flow?
-- [ ] Is a Feature Action/Thunk Template provided for feature-specific async operations?
-
-## VI. API Interaction Layer
-
-- [ ] Is the HTTP Client Setup detailed (e.g., Axios instance, Fetch wrapper, base URL, default headers, interceptors)?
-- [ ] Are Service Definitions conventions explained?
-- [ ] Is an example of a service (e.g., `userService.ts`) provided, including its purpose and example functions?
-- [ ] Is Global Error Handling for API calls described (e.g., toast notifications, global error state)?
-- [ ] Is guidance on Specific Error Handling within components provided?
-- [ ] Is any client-side Retry Logic for API calls detailed and configured?
-
-## VII. Routing Strategy
-
-- [ ] Is the chosen Routing Library stated?
-- [ ] Is a table of Route Definitions provided?
-  - [ ] Does it include Path Pattern, Component/Page, Protection status, and Notes for each route?
-  - [ ] Are all key application routes listed?
-- [ ] Is the Authentication Guard mechanism for protecting routes described?
-- [ ] Is the Authorization Guard mechanism (if applicable for roles/permissions) described?
-
-## VIII. Build, Bundling, and Deployment
-
-- [ ] Are Key Build Scripts (e.g., `npm run build`) listed and their purpose explained?
-- [ ] Is the handling of Environment Variables during the build process described for different environments?
-- [ ] Is Code Splitting strategy detailed (e.g., route-based, component-based)?
-- [ ] Is Tree Shaking confirmed or explained?
-- [ ] Is Lazy Loading strategy (for components, images, routes) outlined?
-- [ ] Is Minification & Compression by build tools mentioned?
-- [ ] Is the Target Deployment Platform (e.g., Vercel, Netlify) specified?
-- [ ] Is the Deployment Trigger (e.g., Git push via CI/CD) described, referencing the main CI/CD pipeline?
-- [ ] Is the Asset Caching Strategy (CDN/browser) for static assets outlined?
-
-## IX. Frontend Testing Strategy
-
-- [ ] Is there a link to the Main Testing Strategy document/section, and is it correct?
-- [ ] For Component Testing:
-  - [ ] Is the Scope clearly defined?
-  - [ ] Are the Tools listed?
-  - [ ] Is the Focus of tests (rendering, props, interactions) clear?
-  - [ ] Is the Location of test files specified?
-- [ ] For UI Integration/Flow Testing:
-  - [ ] Is the Scope (interactions between multiple components) clear?
-  - [ ] Are the Tools listed (can be same as component testing)?
-  - [ ] Is the Focus of these tests clear?
-- [ ] For End-to-End UI Testing:
-  - [ ] Are the Tools (e.g., Playwright, Cypress) reiterated from main strategy?
-  - [ ] Is the Scope (key user journeys for frontend) defined?
-  - [ ] Is Test Data Management for UI E2E tests addressed?
-
-## X. Accessibility (AX) Implementation Details
-
-- [ ] Is there an emphasis on using Semantic HTML?
-- [ ] Are guidelines for ARIA Implementation (roles, states, properties for custom components) provided?
-- [ ] Are requirements for Keyboard Navigation (all interactive elements focusable/operable) stated?
-- [ ] Is Focus Management (for modals, dynamic content) addressed?
-- [ ] Are Testing Tools for AX (e.g., Axe DevTools, Lighthouse) listed?
-- [ ] Does this section align with AX requirements from the UI/UX Specification?
-
-## XI. Performance Considerations
-
-- [ ] Is Image Optimization (formats, responsive images, lazy loading) discussed?
-- [ ] Is Code Splitting & Lazy Loading (impact on perceived performance) reiterated if necessary?
-- [ ] Are techniques for Minimizing Re-renders (e.g., `React.memo`) mentioned?
-- [ ] Is the use of Debouncing/Throttling for event handlers considered?
-- [ ] Is Virtualization for long lists/large data sets mentioned if applicable?
-- [ ] Are Client-Side Caching Strategies (browser cache, service workers) discussed if relevant?
-- [ ] Are Performance Monitoring Tools (e.g., Lighthouse, DevTools) listed?
-
-## XII. Change Log
-
-- [ ] Is the Change Log table present and initialized?
-- [ ] Is there a process for updating the change log as the document evolves?
+此检查清单供设计架构师在完成"前端架构模式"并填写 `front-end-architecture-tmpl.txt`（或 `.md`）文档后使用。它确保所有部分都得到全面覆盖，并在最终确定之前达到质量标准。
 
 ---
 
-## Final Review Sign-off
+## I. 介绍
 
-- [ ] Have all placeholders (e.g., `{Project Name}`, `{e.g., ...}`) been filled in or removed where appropriate?
-- [ ] Has the document been reviewed for clarity, consistency, and completeness by the Design Architect?
-- [ ] Are all linked documents (Main Architecture, UI/UX Spec) finalized or stable enough for this document to rely on?
-- [ ] Is the document ready to be shared with the development team? 
+- [ ] 整个介绍部分是否正确填写了 `{项目名称}`？
+- [ ] 主架构文档的链接是否存在且正确？
+- [ ] UI/UX 规范的链接是否存在且正确？
+- [ ] 主要设计文件（Figma、Sketch 等）的链接是否存在且正确？
+- [ ] 如果适用且可用，是否包含了已部署的 Storybook / 组件展示的链接？
+
+## II. 整体前端理念和模式
+
+- [ ] 是否明确说明了选定的框架和核心库，并与主架构文档保持一致？
+- [ ] 是否清晰描述了组件架构（例如，原子设计、展示/容器）？
+- [ ] 是否在高层次上清晰描述了状态管理策略（例如，Redux Toolkit、Zustand）？
+- [ ] 是否清晰解释了数据流（例如，单向数据流）？
+- [ ] 是否明确定义了样式方法（例如，CSS Modules、Tailwind CSS）？
+- [ ] 是否列出了要采用的关键设计模式（例如，Provider、Hooks）？
+- [ ] 此部分是否与主架构文档中的"明确技术栈选择"保持一致？
+- [ ] 是否考虑了整体系统架构的影响（monorepo/polyrepo、后端服务）？
+
+## III. 详细前端目录结构
+
+- [ ] 是否提供了表示前端应用程序文件夹结构的 ASCII 图？
+- [ ] 图表是否清晰、准确，并反映了选定的框架/模式？
+- [ ] 是否突出了组织组件、页面、服务、状态、样式等的约定？
+- [ ] 是否存在清晰说明特定约定或结构理由的注释？
+
+## IV. 组件分解和实现细节
+
+### 组件命名和组织
+
+- [ ] 是否描述了组件命名约定（例如，PascalCase）？
+- [ ] 是否清晰解释了组件在文件系统上的组织（如果需要，重复目录结构）？
+
+### 组件规范模板
+
+- [ ] "组件规范模板"本身是否完整且定义良好？
+  - [ ] 是否包含以下字段：目的、源文件、视觉参考？
+  - [ ] 是否包含 Props 的表格结构（名称、类型、必需、默认值、描述）？
+  - [ ] 是否包含内部状态的表格结构（变量、类型、初始值、描述）？
+  - [ ] 是否包含关键 UI 元素/结构部分（文本或伪 HTML）？
+  - [ ] 是否包含事件处理/触发部分？
+  - [ ] 是否包含触发操作部分（状态管理、API 调用）？
+  - [ ] 是否包含样式说明部分？
+  - [ ] 是否包含可访问性说明部分？
+- [ ] 是否明确说明此模板应用于大多数特定功能组件？
+
+### 基础/共享组件（如果预先指定）
+
+- [ ] 如果指定了任何基础/共享 UI 组件，它们是否遵循"组件规范模板"？
+- [ ] 预先指定这些组件的理由是否清晰？
+
+## V. 状态管理深入
+
+- [ ] 是否重申了选定的状态管理解决方案并简要提供了理由（如果未在主架构文档中完全涵盖）？
+- [ ] 是否明确定义了存储结构/切片约定（例如，位置、基于功能的切片）？
+- [ ] 如果提供了核心切片示例（例如，`sessionSlice`）：
+  - [ ] 其目的是否清晰？
+  - [ ] 是否定义了其状态形状（例如，使用 TypeScript 接口）？
+  - [ ] 是否列出了其关键 Reducers/Actions？
+- [ ] 是否提供了功能切片模板，概述了目的、状态形状和要填写的关键 reducers/actions？
+- [ ] 是否注明了关键选择器的约定（例如，使用 `createSelector`）？
+- [ ] 是否为任何核心切片提供了关键选择器示例？
+- [ ] 是否描述了关键 Actions/Reducers/Thunks 的约定（特别是异步）？
+- [ ] 是否提供了核心 Action/Thunk 示例（例如，`authenticateUser`），详细说明其目的和分发流程？
+- [ ] 是否为特定功能的异步操作提供了功能 Action/Thunk 模板？
+
+## VI. API 交互层
+
+- [ ] 是否详细说明了 HTTP 客户端设置（例如，Axios 实例、Fetch 包装器、基础 URL、默认头、拦截器）？
+- [ ] 是否解释了服务定义约定？
+- [ ] 是否提供了服务示例（例如，`userService.ts`），包括其目的和示例函数？
+- [ ] 是否描述了 API 调用的全局错误处理（例如，toast 通知、全局错误状态）？
+- [ ] 是否提供了组件内特定错误处理的指导？
+- [ ] 是否详细说明和配置了 API 调用的客户端重试逻辑？
+
+## VII. 路由策略
+
+- [ ] 是否说明了选定的路由库？
+- [ ] 是否提供了路由定义表格？
+  - [ ] 是否包含每个路由的路径模式、组件/页面、保护状态和注释？
+  - [ ] 是否列出了所有关键应用程序路由？
+- [ ] 是否描述了用于保护路由的认证守卫机制？
+- [ ] 是否描述了授权守卫机制（如果适用于角色/权限）？
+
+## VIII. 构建、打包和部署
+
+- [ ] 是否列出并解释了关键构建脚本（例如，`npm run build`）的用途？
+- [ ] 是否描述了不同环境下的环境变量处理？
+- [ ] 是否详细说明了代码分割策略（例如，基于路由、基于组件）？
+- [ ] 是否确认或解释了 Tree Shaking？
+- [ ] 是否概述了延迟加载策略（用于组件、图像、路由）？
+- [ ] 是否提到了构建工具的压缩和压缩？
+- [ ] 是否指定了目标部署平台（例如，Vercel、Netlify）？
+- [ ] 是否描述了部署触发（例如，通过 CI/CD 的 Git 推送），引用主 CI/CD 流水线？
+- [ ] 是否概述了静态资源的资产缓存策略（CDN/浏览器）？
+
+## IX. 前端测试策略
+
+- [ ] 主测试策略文档/部分的链接是否存在且正确？
+- [ ] 对于组件测试：
+  - [ ] 范围是否明确定义？
+  - [ ] 是否列出了工具？
+  - [ ] 测试重点（渲染、props、交互）是否清晰？
+  - [ ] 是否指定了测试文件的位置？
+- [ ] 对于 UI 集成/流程测试：
+  - [ ] 范围（多个组件之间的交互）是否清晰？
+  - [ ] 是否列出了工具（可以与组件测试相同）？
+  - [ ] 这些测试的重点是否清晰？
+- [ ] 对于端到端 UI 测试：
+  - [ ] 是否重申了工具（例如，Playwright、Cypress）？
+  - [ ] 是否定义了范围（前端的关键用户旅程）？
+  - [ ] 是否解决了 UI E2E 测试的测试数据管理？
+
+## X. 可访问性 (AX) 实现细节
+
+- [ ] 是否强调使用语义化 HTML？
+- [ ] 是否提供了 ARIA 实现指南（自定义组件的角色、状态、属性）？
+- [ ] 是否说明了键盘导航要求（所有交互元素可聚焦/可操作）？
+- [ ] 是否解决了焦点管理（用于模态框、动态内容）？
+- [ ] 是否列出了 AX 测试工具（例如，Axe DevTools、Lighthouse）？
+- [ ] 此部分是否与 UI/UX 规范中的 AX 要求保持一致？
+
+## XI. 性能考虑
+
+- [ ] 是否讨论了图像优化（格式、响应式图像、延迟加载）？
+- [ ] 如果需要，是否重申了代码分割和延迟加载（对感知性能的影响）？
+- [ ] 是否提到了最小化重渲染的技术（例如，`React.memo`）？
+- [ ] 是否考虑了事件处理程序的防抖/节流？
+- [ ] 如果适用，是否提到了长列表/大数据集的虚拟化？
+- [ ] 如果相关，是否讨论了客户端缓存策略（浏览器缓存、service workers）？
+- [ ] 是否列出了性能监控工具（例如，Lighthouse、DevTools）？
+
+## XII. 变更日志
+
+- [ ] 变更日志表格是否存在并已初始化？
+- [ ] 是否有更新变更日志的过程，随着文档的演变？
+
+---
+
+## 最终审查签字
+
+- [ ] 所有占位符（例如，`{项目名称}`、`{例如，...}`）是否已适当填写或删除？
+- [ ] 设计架构师是否已审查文档的清晰度、一致性和完整性？
+- [ ] 所有链接的文档（主架构、UI/UX 规范）是否已完成或足够稳定以供此文档依赖？
+- [ ] 文档是否准备好与开发团队共享？

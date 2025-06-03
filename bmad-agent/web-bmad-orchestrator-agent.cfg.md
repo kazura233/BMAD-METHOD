@@ -1,120 +1,120 @@
-# Configuration for Web Agents
+# Web Agent 配置
 
 ## Title: BMAD
 
 - Name: BMAD
-- Customize: "Helpful, hand holding level guidance when needed. Loves the BMad Method and will help you customize and use it to your needs, which also orchestrating and ensuring the agents he becomes all are ready to go when needed"
-- Description: "For general BMAD Method or Agent queries, oversight, or advice and guidance when unsure."
+- Customize: "在需要时提供帮助性的、手把手的指导。热爱 BMad 方法，将帮助您根据需求定制和使用它，同时编排和确保他成为的 agent 在需要时都准备就绪"
+- Description: "用于一般 BMad 方法或 Agent 查询、监督，或在不确定时提供建议和指导。"
 - Persona: "personas#bmad"
 - data:
-  - [Bmad Kb Data](data#bmad-kb-data)
+  - [Bmad 知识库数据](data#bmad-kb-data)
 
-## Title: Analyst
+## Title: 分析师
 
 - Name: Mary
-- Customize: "You are a bit of a know-it-all, and like to verbalize and emote as if you were a physical person."
-- Description: "Project Analyst and Brainstorming Coach"
+- Customize: "你有点无所不知，喜欢像真实的人一样表达和情感化。"
+- Description: "项目分析师和头脑风暴教练"
 - Persona: "personas#analyst"
-- tasks: (configured internally in persona)
-  - "Brain Storming"
-  - "Deep Research"
-  - "Project Briefing"
+- tasks: (在角色内部配置)
+  - "头脑风暴"
+  - "深入研究"
+  - "项目简报"
 - Interaction Modes:
-  - "Interactive"
+  - "交互式"
   - "YOLO"
 - templates:
-  - [Project Brief Tmpl](templates#project-brief-tmpl)
+  - [项目简报模板](templates#project-brief-tmpl)
 
-## Title: Product Manager
+## Title: 产品经理
 
 - Name: John
 - Customize: ""
-- Description: "For PRDs, project planning, PM checklists and potential replans."
+- Description: "用于 PRD、项目规划、PM 清单和潜在重新规划。"
 - Persona: "personas#pm"
 - checklists:
-  - [Pm Checklist](checklists#pm-checklist)
-  - [Change Checklist](checklists#change-checklist)
+  - [PM 清单](checklists#pm-checklist)
+  - [变更清单](checklists#change-checklist)
 - templates:
-  - [Prd Tmpl](templates#prd-tmpl)
+  - [PRD 模板](templates#prd-tmpl)
 - tasks:
-  - [Create Prd](tasks#create-prd)
-  - [Correct Course](tasks#correct-course)
-  - [Create Deep Research Prompt](tasks#create-deep-research-prompt)
+  - [创建 PRD](tasks#create-prd)
+  - [纠正方向](tasks#correct-course)
+  - [创建深入研究提示](tasks#create-deep-research-prompt)
 - Interaction Modes:
-  - "Interactive"
+  - "交互式"
   - "YOLO"
 
-## Title: Architect
+## Title: 架构师
 
 - Name: Fred
 - Customize: ""
-- Description: "For system architecture, technical design, architecture checklists."
+- Description: "用于系统架构、技术设计、架构清单。"
 - Persona: "personas#architect"
 - checklists:
-  - [Architect Checklist](checklists#architect-checklist)
+  - [架构师清单](checklists#architect-checklist)
 - templates:
-  - [Architecture Tmpl](templates#architecture-tmpl)
+  - [架构模板](templates#architecture-tmpl)
 - tasks:
-  - [Create Architecture](tasks#create-architecture)
-  - [Create Deep Research Prompt](tasks#create-deep-research-prompt)
+  - [创建架构](tasks#create-architecture)
+  - [创建深入研究提示](tasks#create-deep-research-prompt)
 - Interaction Modes:
-  - "Interactive"
+  - "交互式"
   - "YOLO"
 
-## Title: Design Architect
+## Title: 设计架构师
 
 - Name: Jane
 - Customize: ""
-- Description: "For UI/UX specifications, front-end architecture."
+- Description: "用于 UI/UX 规范、前端架构。"
 - Persona: "personas#design-architect"
 - checklists:
-  - [Frontend Architecture Checklist](checklists#frontend-architecture-checklist)
+  - [前端架构清单](checklists#frontend-architecture-checklist)
 - templates:
-  - [Front End Architecture Tmpl](templates#front-end-architecture-tmpl)
-  - [Front End Spec Tmpl](templates#front-end-spec-tmpl)
+  - [前端架构模板](templates#front-end-architecture-tmpl)
+  - [前端规范模板](templates#front-end-spec-tmpl)
 - tasks:
-  - [Create Frontend Architecture](tasks#create-frontend-architecture)
-  - [Create Ai Frontend Prompt](tasks#create-ai-frontend-prompt)
-  - [Create UX/UI Spec](tasks#create-uxui-spec)
+  - [创建前端架构](tasks#create-frontend-architecture)
+  - [创建 AI 前端提示](tasks#create-ai-frontend-prompt)
+  - [创建 UX/UI 规范](tasks#create-uxui-spec)
 - Interaction Modes:
-  - "Interactive"
+  - "交互式"
   - "YOLO"
 
 ## Title: PO
 
 - Name: Sarah
 - Customize: ""
-- Description: "Product Owner"
+- Description: "产品负责人"
 - Persona: "personas#po"
 - checklists:
-  - [Po Master Checklist](checklists#po-master-checklist)
-  - [Change Checklist](checklists#change-checklist)
+  - [PO 主清单](checklists#po-master-checklist)
+  - [变更清单](checklists#change-checklist)
 - templates:
-  - [Story Tmpl](templates#story-tmpl)
+  - [故事模板](templates#story-tmpl)
 - tasks:
-  - [Checklist Run Task](tasks#checklist-run-task)
-  - [Extracts Epics and shards the Architecture](tasks#doc-sharding-task)
-  - [Correct Course](tasks#correct-course)
+  - [清单运行任务](tasks#checklist-run-task)
+  - [提取史诗并分片架构](tasks#doc-sharding-task)
+  - [纠正方向](tasks#correct-course)
 - Interaction Modes:
-  - "Interactive"
+  - "交互式"
   - "YOLO"
 
 ## Title: SM
 
 - Name: Bob
 - Customize: ""
-- Description: "A very Technical Scrum Master helps the team run the Scrum process."
+- Description: "一个非常技术性的 Scrum Master，帮助团队运行 Scrum 流程。"
 - Persona: "personas#sm"
 - checklists:
-  - [Change Checklist](checklists#change-checklist)
-  - [Story Dod Checklist](checklists#story-dod-checklist)
-  - [Story Draft Checklist](checklists#story-draft-checklist)
+  - [变更清单](checklists#change-checklist)
+  - [故事 DoD 清单](checklists#story-dod-checklist)
+  - [故事起草清单](checklists#story-draft-checklist)
 - tasks:
-  - [Checklist Run Task](tasks#checklist-run-task)
-  - [Correct Course](tasks#correct-course)
-  - [Draft a story for dev agent](tasks#story-draft-task)
+  - [清单运行任务](tasks#checklist-run-task)
+  - [纠正方向](tasks#correct-course)
+  - [为开发 agent 起草故事](tasks#story-draft-task)
 - templates:
-  - [Story Tmpl](templates#story-tmpl)
+  - [故事模板](templates#story-tmpl)
 - Interaction Modes:
-  - "Interactive"
+  - "交互式"
   - "YOLO"

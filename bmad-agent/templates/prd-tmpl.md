@@ -1,166 +1,166 @@
-# {Project Name} Product Requirements Document (PRD)
+# {项目名称} 产品需求文档 (PRD)
 
-## Goal, Objective and Context
+## 目标、目的和背景
 
-This should come mostly from the user or the provided brief, but ask for clarifications as needed.
+这部分主要来自用户或提供的简介，但需要根据需要进行澄清。
 
-## Functional Requirements (MVP)
+## 功能需求 (MVP)
 
-You should have a good idea at this point, but clarify suggest question and explain to ensure these are correct.
+此时您应该已经有了一个很好的想法，但需要澄清建议的问题并解释以确保这些是正确的。
 
-## Non Functional Requirements (MVP)
+## 非功能需求 (MVP)
 
-You should have a good idea at this point, but clarify suggest question and explain to ensure these are correct.
+此时您应该已经有了一个很好的想法，但需要澄清建议的问题并解释以确保这些是正确的。
 
-## User Interaction and Design Goals
+## 用户交互和设计目标
 
 {
-If the product includes a User Interface (UI), this section captures the Product Manager's high-level vision and goals for the User Experience (UX). This information will serve as a crucial starting point and brief for the Design Architect.
+如果产品包含用户界面(UI)，本节将捕捉产品经理对用户体验(UX)的高层愿景和目标。这些信息将作为设计架构师的重要起点和简介。
 
-Consider and elicit information from the user regarding:
+考虑并向用户询问以下信息：
 
-- **Overall Vision & Experience:** What is the desired look and feel (e.g., "modern and minimalist," "friendly and approachable," "data-intensive and professional")? What kind of experience should users have?
-- **Key Interaction Paradigms:** Are there specific ways users will interact with core features (e.g., "drag-and-drop interface for X," "wizard-style setup for Y," "real-time dashboard for Z")?
-- **Core Screens/Views (Conceptual):** From a product perspective, what are the most critical screens or views necessary to deliver the MVP's value? (e.g., "Login Screen," "Main Dashboard," "Item Detail Page," "Settings Page").
-- **Accessibility Aspirations:** Any known high-level accessibility goals (e.g., "must be usable by screen reader users").
-- **Branding Considerations (High-Level):** Any known branding elements or style guides that must be incorporated?
-- **Target Devices/Platforms:** (e.g., "primarily web desktop," "mobile-first responsive web app").
+- **整体愿景和体验：** 期望的外观和感觉是什么（例如，"现代简约"、"友好平易近人"、"数据密集型专业"）？用户应该有什么样的体验？
+- **关键交互范式：** 用户与核心功能交互的特定方式（例如，"X 的拖放界面"、"Y 的向导式设置"、"Z 的实时仪表板"）？
+- **核心屏幕/视图（概念性）：** 从产品角度来看，交付 MVP 价值所需的最关键屏幕或视图是什么？（例如，"登录屏幕"、"主仪表板"、"项目详情页"、"设置页面"）。
+- **可访问性目标：** 任何已知的高层可访问性目标（例如，"必须可供屏幕阅读器用户使用"）。
+- **品牌考虑（高层）：** 任何必须纳入的已知品牌元素或风格指南？
+- **目标设备/平台：** （例如，"主要是网页桌面"、"移动优先响应式网页应用"）。
 
-This section is not intended to be a detailed UI specification but rather a product-focused brief to guide the subsequent detailed work by the Design Architect, who will create the comprehensive UI/UX Specification document.
+本节不是详细的 UI 规范，而是以产品为重点的简介，用于指导设计架构师后续的详细工作，设计架构师将创建全面的 UI/UX 规范文档。
 }
 
-## Technical Assumptions
+## 技术假设
 
-This is where we can list information mostly to be used by the architect to produce the technical details. This could be anything we already know or found out from the user at a technical high level. Inquire about this from the user to get a basic idea of languages, frameworks, knowledge of starter templates, libraries, external apis, potential library choices etc...
+这里我们可以列出主要供架构师用来生成技术细节的信息。这可以是任何我们已经知道或从用户那里了解到的技术高层信息。向用户询问这些信息以获取关于语言、框架、启动模板知识、库、外部 API、潜在库选择等的基本想法...
 
-- **Repository & Service Architecture:** {CRITICAL DECISION: Document the chosen repository structure (e.g., Monorepo, Polyrepo) and the high-level service architecture (e.g., Monolith, Microservices, Serverless functions within a Monorepo). Explain the rationale based on project goals, MVP scope, team structure, and scalability needs. This decision directly impacts the technical approach and informs the Architect Agent.}
+- **仓库和服务架构：** {关键决策：记录所选的仓库结构（例如，Monorepo、Polyrepo）和高层服务架构（例如，单体架构、微服务、Monorepo 内的无服务器函数）。根据项目目标、MVP 范围、团队结构和可扩展性需求解释理由。这个决策直接影响技术方法并告知架构师代理。}
 
-### Testing requirements
+### 测试需求
 
-How will we validate functionality beyond unit testing? Will we want manual scripts or testing, e2e, integration etc... figure this out from the user to populate this section
+除了单元测试之外，我们将如何验证功能？我们是否需要手动脚本或测试、端到端测试、集成测试等...从用户那里了解这些信息以填充本节
 
-## Epic Overview
+## 史诗概述
 
-- **Epic {#}: {Title}**
-  - Goal: {A concise 1-2 sentence statement describing the primary objective and value of this Epic.}
-  - Story {#}: As a {type of user/system}, I want {to perform an action / achieve a goal} so that {I can realize a benefit / achieve a reason}.
-    - {Acceptance Criteria List}
-  - Story {#}: As a {type of user/system}, I want {to perform an action / achieve a goal} so that {I can realize a benefit / achieve a reason}.
-    - {Acceptance Criteria List}
-- **Epic {#}: {Title}**
-  - Goal: {A concise 1-2 sentence statement describing the primary objective and value of this Epic.}
-  - Story {#}: As a {type of user/system}, I want {to perform an action / achieve a goal} so that {I can realize a benefit / achieve a reason}.
-    - {Acceptance Criteria List}
-  - Story {#}: As a {type of user/system}, I want {to perform an action / achieve a goal} so that {I can realize a benefit / achieve a reason}.
-    - {Acceptance Criteria List}
+- **史诗 {#}：{标题}**
+  - 目标：{描述此史诗主要目标和价值的 1-2 句话陈述。}
+  - 故事 {#}：作为{用户/系统类型}，我想要{执行一个动作/实现一个目标}，以便{我可以实现一个好处/达到一个原因}。
+    - {验收标准列表}
+  - 故事 {#}：作为{用户/系统类型}，我想要{执行一个动作/实现一个目标}，以便{我可以实现一个好处/达到一个原因}。
+    - {验收标准列表}
+- **史诗 {#}：{标题}**
+  - 目标：{描述此史诗主要目标和价值的 1-2 句话陈述。}
+  - 故事 {#}：作为{用户/系统类型}，我想要{执行一个动作/实现一个目标}，以便{我可以实现一个好处/达到一个原因}。
+    - {验收标准列表}
+  - 故事 {#}：作为{用户/系统类型}，我想要{执行一个动作/实现一个目标}，以便{我可以实现一个好处/达到一个原因}。
+    - {验收标准列表}
 
-## Key Reference Documents
+## 关键参考文档
 
-{ This section will be created later, from the sections prior to this being carved up into smaller documents }
+{ 本节将在稍后创建，从前面的章节中分割成较小的文档 }
 
-## Out of Scope Ideas Post MVP
+## MVP 后的范围外想法
 
-Anything you and the user agreed it out of scope or can be removed from scope to keep MVP lean. Consider the goals of the PRD and what might be extra gold plating or additional features that could wait until the MVP is completed and delivered to assess functionality and market fit or usage.
+您和用户同意超出范围或可以从范围中移除以保持 MVP 精简的任何内容。考虑 PRD 的目标，以及哪些可能是额外的镀金或可以等到 MVP 完成并交付以评估功能和市场适应性或使用情况的功能。
 
-## [OPTIONAL: For Simplified PM-to-Development Workflow Only] Core Technical Decisions & Application Structure
+## [可选：仅用于简化的 PM 到开发工作流] 核心技术决策和应用结构
 
-{This section is to be populated ONLY if the PM is operating in the 'Simplified PM-to-Development Workflow'. It captures essential technical foundations that would typically be defined by an Architect, allowing for a more direct path to development. This information should be gathered after initial PRD sections (Goals, Users, etc.) are drafted, and ideally before or in parallel with detailed Epic/Story definition, and updated as needed.}
+{本节仅在 PM 在"简化的 PM 到开发工作流"中操作时填充。它捕捉通常由架构师定义的基本技术基础，允许更直接的开发路径。这些信息应该在初始 PRD 章节（目标、用户等）起草后收集，理想情况下在详细史诗/故事定义之前或同时，并根据需要更新。}
 
-### Technology Stack Selections
+### 技术栈选择
 
-{Collaboratively define the core technologies. Be specific about choices and versions where appropriate.}
+{协作定义核心技术。在适当的地方具体说明选择和版本。}
 
-- **Primary Backend Language/Framework:** {e.g., Python/FastAPI, Node.js/Express, Java/Spring Boot}
-- **Primary Frontend Language/Framework (if applicable):** {e.g., TypeScript/React (Next.js), JavaScript/Vue.js}
-- **Database:** {e.g., PostgreSQL, MongoDB, AWS DynamoDB}
-- **Key Libraries/Services (Backend):** {e.g., Authentication (JWT, OAuth provider), ORM (SQLAlchemy), Caching (Redis)}
-- **Key Libraries/Services (Frontend, if applicable):** {e.g., UI Component Library (Material-UI, Tailwind CSS + Headless UI), State Management (Redux, Zustand)}
-- **Deployment Platform/Environment:** {e.g., Docker on AWS ECS, Vercel, Netlify, Kubernetes}
-- **Version Control System:** {e.g., Git with GitHub/GitLab}
+- **主要后端语言/框架：** {例如，Python/FastAPI、Node.js/Express、Java/Spring Boot}
+- **主要前端语言/框架（如果适用）：** {例如，TypeScript/React (Next.js)、JavaScript/Vue.js}
+- **数据库：** {例如，PostgreSQL、MongoDB、AWS DynamoDB}
+- **关键库/服务（后端）：** {例如，认证（JWT、OAuth 提供商）、ORM（SQLAlchemy）、缓存（Redis）}
+- **关键库/服务（前端，如果适用）：** {例如，UI 组件库（Material-UI、Tailwind CSS + Headless UI）、状态管理（Redux、Zustand）}
+- **部署平台/环境：** {例如，AWS ECS 上的 Docker、Vercel、Netlify、Kubernetes}
+- **版本控制系统：** {例如，使用 GitHub/GitLab 的 Git}
 
-### Proposed Application Structure
+### 建议的应用结构
 
-{Describe the high-level organization of the codebase. This might include a simple text-based directory layout, a list of main modules/components, and a brief explanation of how they interact. The goal is to provide a clear starting point for developers.}
+{描述代码库的高层组织。这可能包括简单的基于文本的目录布局、主要模块/组件列表，以及它们如何交互的简要说明。目标是为开发人员提供清晰的起点。}
 
-Example:
+示例：
 
 ```
 /
-├── app/                  # Main application source code
-│   ├── api/              # Backend API routes and logic
+├── app/                  # 主应用程序源代码
+│   ├── api/              # 后端API路由和逻辑
 │   │   ├── v1/
 │   │   └── models.py
-│   ├── web/              # Frontend components and pages (if monolithic)
+│   ├── web/              # 前端组件和页面（如果是单体架构）
 │   │   ├── components/
 │   │   └── pages/
-│   ├── core/             # Shared business logic, utilities
-│   └── main.py           # Application entry point
-├── tests/                # Unit and integration tests
-├── scripts/              # Utility scripts
+│   ├── core/             # 共享业务逻辑，工具
+│   └── main.py           # 应用程序入口点
+├── tests/                # 单元和集成测试
+├── scripts/              # 实用脚本
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
 ```
 
-- **Monorepo/Polyrepo:** {Specify if a monorepo or polyrepo structure is envisioned, and briefly why.}
-- **Key Modules/Components and Responsibilities:**
-  - {Module 1 Name}: {Brief description of its purpose and key responsibilities}
-  - {Module 2 Name}: {Brief description of its purpose and key responsibilities}
+- **Monorepo/Polyrepo：** {指定是否设想使用 monorepo 或 polyrepo 结构，并简要说明原因。}
+- **关键模块/组件和职责：**
+  - {模块 1 名称}：{其目的和关键职责的简要描述}
+  - {模块 2 名称}：{其目的和关键职责的简要描述}
   - ...
-- **Data Flow Overview (Conceptual):** {Briefly describe how data is expected to flow between major components, e.g., Frontend -> API -> Core Logic -> Database.}
+- **数据流概述（概念性）：** {简要描述数据如何在主要组件之间流动，例如，前端 -> API -> 核心逻辑 -> 数据库。}
 
-## Change Log
+## 变更日志
 
-| Change | Date | Version | Description | Author |
-| ------ | ---- | ------- | ----------- | ------ |
+| 变更 | 日期 | 版本 | 描述 | 作者 |
+| ---- | ---- | ---- | ---- | ---- |
 
------ END PRD START CHECKLIST OUTPUT ------
+----- PRD 结束 开始检查清单输出 ------
 
-## Checklist Results Report
+## 检查清单结果报告
 
------ END Checklist START Design Architect `UI/UX Specification Mode` Prompt ------
+----- 检查清单结束 开始设计架构师`UI/UX规范模式`提示 ------
 
------ END Design Architect `UI/UX Specification Mode` Prompt START Architect Prompt ------
+----- 设计架构师`UI/UX规范模式`提示结束 开始架构师提示 ------
 
-## Initial Architect Prompt
+## 初始架构师提示
 
-Based on our discussions and requirements analysis for the {Product Name}, I've compiled the following technical guidance to inform your architecture analysis and decisions to kick off Architecture Creation Mode:
+基于我们对{产品名称}的讨论和需求分析，我整理了以下技术指导，以告知您的架构分析和决策，启动架构创建模式：
 
-### Technical Infrastructure
+### 技术基础设施
 
-- **Repository & Service Architecture Decision:** {Reiterate the decision made in 'Technical Assumptions', e.g., Monorepo with Next.js frontend and Python FastAPI backend services within the same repo; or Polyrepo with separate Frontend (Next.js) and Backend (Spring Boot Microservices) repositories.}
-- **Starter Project/Template:** {Information about any starter projects, templates, or existing codebases that should be used}
-- **Hosting/Cloud Provider:** {Specified cloud platform (AWS, Azure, GCP, etc.) or hosting requirements}
-- **Frontend Platform:** {Framework/library preferences or requirements (React, Angular, Vue, etc.)}
-- **Backend Platform:** {Framework/language preferences or requirements (Node.js, Python/Django, etc.)}
-- **Database Requirements:** {Relational, NoSQL, specific products or services preferred}
+- **仓库和服务架构决策：** {重申在"技术假设"中做出的决定，例如，具有 Next.js 前端和 Python FastAPI 后端服务的 Monorepo；或具有独立前端（Next.js）和后端（Spring Boot 微服务）仓库的 Polyrepo。}
+- **启动项目/模板：** {关于应该使用的任何启动项目、模板或现有代码库的信息}
+- **托管/云提供商：** {指定的云平台（AWS、Azure、GCP 等）或托管要求}
+- **前端平台：** {框架/库偏好或要求（React、Angular、Vue 等）}
+- **后端平台：** {框架/语言偏好或要求（Node.js、Python/Django 等）}
+- **数据库要求：** {关系型、NoSQL、首选特定产品或服务}
 
-### Technical Constraints
+### 技术约束
 
-- {List any technical constraints that impact architecture decisions}
-- {Include any mandatory technologies, services, or platforms}
-- {Note any integration requirements with specific technical implications}
+- {列出影响架构决策的任何技术约束}
+- {包括任何强制技术、服务或平台}
+- {注意与特定技术含义的任何集成要求}
 
-### Deployment Considerations
+### 部署考虑
 
-- {Deployment frequency expectations}
-- {CI/CD requirements}
-- {Environment requirements (local, dev, staging, production)}
+- {部署频率期望}
+- {CI/CD 要求}
+- {环境要求（本地、开发、预发布、生产）}
 
-### Local Development & Testing Requirements
+### 本地开发和测试要求
 
-{Include this section only if the user has indicated these capabilities are important. If not applicable based on user preferences, you may remove this section.}
+{仅当用户表示这些功能很重要时才包含本节。如果根据用户偏好不适用，您可以删除本节。}
 
-- {Requirements for local development environment}
-- {Expectations for command-line testing capabilities}
-- {Needs for testing across different environments}
-- {Utility scripts or tools that should be provided}
-- {Any specific testability requirements for components}
+- {本地开发环境要求}
+- {命令行测试功能期望}
+- {跨不同环境测试的需求}
+- {应该提供的实用脚本或工具}
+- {组件的任何特定可测试性要求}
 
-### Other Technical Considerations
+### 其他技术考虑
 
-- {Security requirements with technical implications}
-- {Scalability needs with architectural impact}
-- {Any other technical context the Architect should consider}
+- {具有技术含义的安全要求}
+- {具有架构影响的可扩展性需求}
+- {架构师应该考虑的任何其他技术上下文}
 
------ END Architect Prompt -----
+----- 架构师提示结束 ------

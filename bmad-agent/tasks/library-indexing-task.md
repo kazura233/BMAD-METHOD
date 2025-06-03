@@ -1,117 +1,117 @@
-# Library Indexing Task
+# 库索引任务
 
-## Purpose
+## 目的
 
-This task maintains the integrity and completeness of the `docs/index.md` file by scanning all documentation files and ensuring they are properly indexed with descriptions.
+此任务通过扫描所有文档文件并确保它们被正确索引和描述，来维护 `docs/index.md` 文件的完整性和完整性。
 
-## Task Instructions
+## 任务说明
 
-You are now operating as a Documentation Indexer. Your goal is to ensure all documentation files are properly cataloged in the central index.
+您现在作为文档索引器运行。您的目标是确保所有文档文件都在中央索引中正确编目。
 
-### Required Steps
+### 必要步骤
 
-1. First, locate and scan:
+1. 首先，定位和扫描：
 
-   - The `docs/` directory and all subdirectories
-   - The existing `docs/index.md` file (create if absent)
-   - All markdown (`.md`) and text (`.txt`) files in the documentation structure
+   - `docs/` 目录和所有子目录
+   - 现有的 `docs/index.md` 文件（如果不存在则创建）
+   - 文档结构中的所有 markdown（`.md`）和文本（`.txt`）文件
 
-2. For the existing `docs/index.md`:
+2. 对于现有的 `docs/index.md`：
 
-   - Parse current entries
-   - Note existing file references and descriptions
-   - Identify any broken links or missing files
-   - Keep track of already-indexed content
+   - 解析当前条目
+   - 注意现有文件引用和描述
+   - 识别任何损坏的链接或缺失的文件
+   - 跟踪已索引的内容
 
-3. For each documentation file found:
+3. 对于每个找到的文档文件：
 
-   - Extract the title (from first heading or filename)
-   - Generate a brief description by analyzing the content
-   - Create a relative markdown link to the file
-   - Check if it's already in the index
-   - If missing or outdated, prepare an update
+   - 提取标题（从第一个标题或文件名）
+   - 通过分析内容生成简短描述
+   - 创建到文件的相对 markdown 链接
+   - 检查是否已在索引中
+   - 如果缺失或过时，准备更新
 
-4. For any missing or non-existent files found in index:
+4. 对于索引中找到的任何缺失或不存在的文件：
 
-   - Present a list of all entries that reference non-existent files
-   - For each entry:
-     - Show the full entry details (title, path, description)
-     - Ask for explicit confirmation before removal
-     - Provide option to update the path if file was moved
-     - Log the decision (remove/update/keep) for final report
+   - 显示引用不存在文件的所有条目列表
+   - 对于每个条目：
+     - 显示完整条目详情（标题、路径、描述）
+     - 在删除前请求明确确认
+     - 如果文件已移动，提供更新路径的选项
+     - 记录决定（删除/更新/保留）用于最终报告
 
-5. Update `docs/index.md`:
-   - Maintain existing structure and organization
-   - Add missing entries with descriptions
-   - Update outdated entries
-   - Remove only entries that were confirmed for removal
-   - Ensure consistent formatting throughout
+5. 更新 `docs/index.md`：
+   - 维护现有结构和组织
+   - 添加缺失的条目和描述
+   - 更新过时的条目
+   - 仅删除已确认删除的条目
+   - 确保整个文件格式一致
 
-### Index Entry Format
+### 索引条目格式
 
-Each entry in `docs/index.md` should follow this format:
+`docs/index.md` 中的每个条目应遵循以下格式：
 
 ```markdown
-### [Document Title](relative/path/to/file.md)
+### [文档标题](relative/path/to/file.md)
 
-Brief description of the document's purpose and contents.
+文档目的和内容的简短描述。
 ```
 
-### Rules of Operation
+### 操作规则
 
-1. NEVER modify the content of indexed files
-2. Preserve existing descriptions in index.md when they are adequate
-3. Maintain any existing categorization or grouping in the index
-4. Use relative paths for all links
-5. Ensure descriptions are concise but informative
-6. NEVER remove entries without explicit confirmation
-7. Report any broken links or inconsistencies found
-8. Allow path updates for moved files before considering removal
+1. 永不修改索引文件的内容
+2. 当描述充分时保留 index.md 中的现有描述
+3. 维护索引中的任何现有分类或分组
+4. 对所有链接使用相对路径
+5. 确保描述简洁但信息丰富
+6. 没有明确确认永不删除条目
+7. 报告发现的任何损坏链接或不一致
+8. 在考虑删除之前允许更新已移动文件的路径
 
-### Process Output
+### 流程输出
 
-The task will provide:
+任务将提供：
 
-1. A summary of changes made to index.md
-2. List of newly indexed files
-3. List of updated entries
-4. List of entries presented for removal and their status:
-   - Confirmed removals
-   - Updated paths
-   - Kept despite missing file
-5. Any other issues or inconsistencies found
+1. 对 index.md 所做更改的摘要
+2. 新索引文件列表
+3. 更新条目列表
+4. 提交删除的条目列表及其状态：
+   - 确认删除
+   - 更新路径
+   - 尽管文件缺失但仍保留
+5. 发现的其他问题或不一致
 
-### Handling Missing Files
+### 处理缺失文件
 
-For each file referenced in the index but not found in the filesystem:
+对于索引中引用但在文件系统中未找到的每个文件：
 
-1. Present the entry:
+1. 显示条目：
 
    ```markdown
-   Missing file detected:
-   Title: [Document Title]
-   Path: relative/path/to/file.md
-   Description: Existing description
+   检测到缺失文件：
+   标题：[文档标题]
+   路径：relative/path/to/file.md
+   描述：现有描述
 
-   Options:
+   选项：
 
-   1. Remove this entry
-   2. Update the file path
-   3. Keep entry (mark as temporarily unavailable)
+   1. 删除此条目
+   2. 更新文件路径
+   3. 保留条目（标记为暂时不可用）
 
-   Please choose an option (1/2/3):
+   请选择选项（1/2/3）：
    ```
 
-2. Wait for user confirmation before taking any action
-3. Log the decision for the final report
+2. 在采取任何操作之前等待用户确认
+3. 记录决定用于最终报告
 
-## Required Input
+## 所需输入
 
-Please provide:
+请提供：
 
-1. Location of the `docs/` directory
-2. Confirmation of write access to `docs/index.md`
-3. Any specific categorization preferences
-4. Any files or directories to exclude from indexing
+1. `docs/` 目录的位置
+2. 对 `docs/index.md` 的写入权限确认
+3. 任何特定的分类偏好
+4. 要从索引中排除的任何文件或目录
 
-Would you like to proceed with library indexing? Please provide the required input above.
+您是否要继续进行库索引？请提供上述所需输入。

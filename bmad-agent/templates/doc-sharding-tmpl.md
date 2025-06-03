@@ -1,102 +1,102 @@
-# Document Sharding Plan Template
+# 文档分片计划模板
 
-This plan directs the agent on how to break down large source documents into smaller, granular files during its Librarian Phase. The agent will refer to this plan to identify source documents, the specific sections to extract, and the target filenames for the sharded content.
-
----
-
-## 1. Source Document: PRD (Project Requirements Document)
-
-- **Note to Agent:** Confirm the exact filename of the PRD with the user (e.g., `PRD.md`, `ProjectRequirements.md`, `prdx.y.z.md`).
-
-### 1.1. Epic Granulation
-
-- **Instruction:** For each Epic identified within the PRD:
-- **Source Section(s) to Copy:** The complete text for the Epic, including its main description, goals, and all associated user stories or detailed requirements under that Epic. Ensure to capture content starting from a heading like "**Epic X:**" up to the next such heading or end of the "Epic Overview" section.
-- **Target File Pattern:** `docs/epic-<id>.md`
-  - _Agent Note: `<id>` should correspond to the Epic number._
+本计划指导代理如何在其图书管理员阶段将大型源文档分解为更小、更细粒度的文件。代理将参考此计划来识别源文档、要提取的特定部分以及分片内容的目标文件名。
 
 ---
 
-## 2. Source Document: Main Architecture Document
+## 1. 源文档：PRD（项目需求文档）
 
-- **Note to Agent:** Confirm the exact filename with the user (e.g., `architecture.md`, `SystemArchitecture.md`).
+- **代理注意：** 向用户确认 PRD 的确切文件名（例如，`PRD.md`、`ProjectRequirements.md`、`prdx.y.z.md`）。
 
-### 2.1. Core Architecture Granules
+### 1.1. 史诗粒度化
 
-- **Source Section(s) to Copy:** Section(s) detailing "API Reference", "API Endpoints", or "Service Interfaces".
-- **Target File:** `docs/api-reference.md`
-
-- **Source Section(s) to Copy:** Section(s) detailing "Data Models", "Database Schema", "Entity Definitions".
-- **Target File:** `docs/data-models.md`
-
-- **Source Section(s) to Copy:** Section(s) titled "Environment Variables Documentation", "Configuration Settings", "Deployment Parameters", or relevant subsections within "Infrastructure and Deployment Overview" if a dedicated section is not found.
-- **Target File:** `docs/environment-vars.md`
-
-  - _Agent Note: Prioritize a dedicated 'Environment Variables' section or linked 'environment-vars.md' source if available. If not, extract relevant configuration details from 'Infrastructure and Deployment Overview'. This shard is for specific variable definitions and usage._
-
-- **Source Section(s) to Copy:** Section(s) detailing "Project Structure".
-- **Target File:** `docs/project-structure.md`
-
-  - _Agent Note: If the project involves multiple repositories (not a monorepo), ensure this file clearly describes the structure of each relevant repository or links to sub-files if necessary._
-
-- **Source Section(s) to Copy:** Section(s) detailing "Technology Stack", "Key Technologies", "Libraries and Frameworks", or "Definitive Tech Stack Selections".
-- **Target File:** `docs/tech-stack.md`
-
-- **Source Section(s) to Copy:** Sections detailing "Coding Standards", "Development Guidelines", "Best Practices", "Testing Strategy", "Testing Decisions", "QA Processes", "Overall Testing Strategy", "Error Handling Strategy", and "Security Best Practices".
-- **Target File:** `docs/operational-guidelines.md`
-
-  - _Agent Note: This file consolidates several key operational aspects. Ensure that the content from each source section ("Coding Standards", "Testing Strategy", "Error Handling Strategy", "Security Best Practices") is clearly delineated under its own H3 (###) or H4 (####) heading within this document._
-
-- **Source Section(s) to Copy:** Section(s) titled "Component View" (including sub-sections like "Architectural / Design Patterns Adopted").
-- **Target File:** `docs/component-view.md`
-
-- **Source Section(s) to Copy:** Section(s) titled "Core Workflow / Sequence Diagrams" (including all sub-diagrams).
-- **Target File:** `docs/sequence-diagrams.md`
-
-- **Source Section(s) to Copy:** Section(s) titled "Infrastructure and Deployment Overview".
-- **Target File:** `docs/infra-deployment.md`
-
-  - _Agent Note: This is for the broader overview, distinct from the specific `docs/environment-vars.md`._
-
-- **Source Section(s) to Copy:** Section(s) titled "Key Reference Documents".
-- **Target File:** `docs/key-references.md`
+- **说明：** 对于 PRD 中识别的每个史诗：
+- **要复制的源部分：** 史诗的完整文本，包括其主要描述、目标和该史诗下的所有相关用户故事或详细需求。确保从类似"**史诗 X：**"的标题开始捕获内容，直到下一个此类标题或"史诗概述"部分结束。
+- **目标文件模式：** `docs/epic-<id>.md`
+  - _代理注意：`<id>`应该对应史诗编号。_
 
 ---
 
-## 3. Source Document(s): Front-End Specific Documentation
+## 2. 源文档：主架构文档
 
-- **Note to Agent:** Confirm filenames with the user (e.g., `front-end-architecture.md`, `front-end-spec.md`, `ui-guidelines.md`). Multiple FE documents might exist.
+- **代理注意：** 向用户确认确切文件名（例如，`architecture.md`、`SystemArchitecture.md`）。
 
-### 3.1. Front-End Granules
+### 2.1. 核心架构粒度
 
-- **Source Section(s) to Copy:** Section(s) detailing "Front-End Project Structure" or "Detailed Frontend Directory Structure".
-- **Target File:** `docs/front-end-project-structure.md`
+- **要复制的源部分：** 详细说明"API 参考"、"API 端点"或"服务接口"的部分。
+- **目标文件：** `docs/api-reference.md`
 
-- **Source Section(s) to Copy:** Section(s) detailing "UI Style Guide", "Brand Guidelines", "Visual Design Specifications", or "Styling Approach".
-- **Target File:** `docs/front-end-style-guide.md`
+- **要复制的源部分：** 详细说明"数据模型"、"数据库模式"、"实体定义"的部分。
+- **目标文件：** `docs/data-models.md`
 
-  - _Agent Note: This section might be a sub-section or refer to other documents (e.g., `ui-ux-spec.txt`). Extract the core styling philosophy and approach defined within the frontend architecture document itself._
+- **要复制的源部分：** 标题为"环境变量文档"、"配置设置"、"部署参数"的部分，或在"基础设施和部署概述"中的相关子部分（如果找不到专用部分）。
+- **目标文件：** `docs/environment-vars.md`
 
-- **Source Section(s) to Copy:** Section(s) detailing "Component Library", "Reusable UI Components Guide", "Atomic Design Elements", or "Component Breakdown & Implementation Details".
-- **Target File:** `docs/front-end-component-guide.md`
+  - _代理注意：优先使用专用的"环境变量"部分或链接的'environment-vars.md'源（如果可用）。如果没有，从"基础设施和部署概述"中提取相关配置细节。此分片用于特定变量定义和使用。_
 
-- **Source Section(s) to Copy:** Section(s) detailing "Front-End Coding Standards" (specifically for UI development, e.g., JavaScript/TypeScript style, CSS naming conventions, accessibility best practices for FE).
-- **Target File:** `docs/front-end-coding-standards.md`
+- **要复制的源部分：** 详细说明"项目结构"的部分。
+- **目标文件：** `docs/project-structure.md`
 
-  - _Agent Note: A dedicated top-level section for this might not exist. If not found, this shard might be empty or require cross-referencing with the main architecture's coding standards. Extract any front-end-specific coding conventions mentioned._
+  - _代理注意：如果项目涉及多个仓库（不是 monorepo），确保此文件清楚地描述每个相关仓库的结构，或在必要时链接到子文件。_
 
-- **Source Section(s) to Copy:** Section(s) titled "State Management In-Depth".
-- **Target File:** `docs/front-end-state-management.md`
+- **要复制的源部分：** 详细说明"技术栈"、"关键技术"、"库和框架"或"确定的技术栈选择"的部分。
+- **目标文件：** `docs/tech-stack.md`
 
-- **Source Section(s) to Copy:** Section(s) titled "API Interaction Layer".
-- **Target File:** `docs/front-end-api-interaction.md`
+- **要复制的源部分：** 详细说明"编码标准"、"开发指南"、"最佳实践"、"测试策略"、"测试决策"、"QA 流程"、"整体测试策略"、"错误处理策略"和"安全最佳实践"的部分。
+- **目标文件：** `docs/operational-guidelines.md`
 
-- **Source Section(s) to Copy:** Section(s) titled "Routing Strategy".
-- **Target File:** `docs/front-end-routing-strategy.md`
+  - _代理注意：此文件整合了几个关键操作方面。确保每个源部分（"编码标准"、"测试策略"、"错误处理策略"、"安全最佳实践"）的内容在此文档中在其自己的 H3（###）或 H4（####）标题下清晰划分。_
 
-- **Source Section(s) to Copy:** Section(s) titled "Frontend Testing Strategy".
-- **Target File:** `docs/front-end-testing-strategy.md`
+- **要复制的源部分：** 标题为"组件视图"的部分（包括子部分如"采用的架构/设计模式"）。
+- **目标文件：** `docs/component-view.md`
+
+- **要复制的源部分：** 标题为"核心工作流/序列图"的部分（包括所有子图）。
+- **目标文件：** `docs/sequence-diagrams.md`
+
+- **要复制的源部分：** 标题为"基础设施和部署概述"的部分。
+- **目标文件：** `docs/infra-deployment.md`
+
+  - _代理注意：这是用于更广泛的概述，与特定的`docs/environment-vars.md`不同。_
+
+- **要复制的源部分：** 标题为"关键参考文档"的部分。
+- **目标文件：** `docs/key-references.md`
 
 ---
 
-CRITICAL: **Index Management:** After creating the files, update `docs/index.md` as needed to reference and describe each doc - do not mention granules or where it was sharded from, just doc purpose - as the index also contains other doc references potentially.
+## 3. 源文档：前端特定文档
+
+- **代理注意：** 向用户确认文件名（例如，`front-end-architecture.md`、`front-end-spec.md`、`ui-guidelines.md`）。可能存在多个前端文档。
+
+### 3.1. 前端粒度
+
+- **要复制的源部分：** 详细说明"前端项目结构"或"详细前端目录结构"的部分。
+- **目标文件：** `docs/front-end-project-structure.md`
+
+- **要复制的源部分：** 详细说明"UI 风格指南"、"品牌指南"、"视觉设计规范"或"样式方法"的部分。
+- **目标文件：** `docs/front-end-style-guide.md`
+
+  - _代理注意：此部分可能是子部分或引用其他文档（例如，`ui-ux-spec.txt`）。提取在前端架构文档本身中定义的核心样式理念和方法。_
+
+- **要复制的源部分：** 详细说明"组件库"、"可重用 UI 组件指南"、"原子设计元素"或"组件分解和实现细节"的部分。
+- **目标文件：** `docs/front-end-component-guide.md`
+
+- **要复制的源部分：** 详细说明"前端编码标准"的部分（专门用于 UI 开发，例如，JavaScript/TypeScript 风格、CSS 命名约定、前端的可访问性最佳实践）。
+- **目标文件：** `docs/front-end-coding-standards.md`
+
+  - _代理注意：可能不存在此专用顶级部分。如果未找到，此分片可能为空或需要与主架构的编码标准交叉引用。提取任何提到的前端特定编码约定。_
+
+- **要复制的源部分：** 标题为"状态管理深入"的部分。
+- **目标文件：** `docs/front-end-state-management.md`
+
+- **要复制的源部分：** 标题为"API 交互层"的部分。
+- **目标文件：** `docs/front-end-api-interaction.md`
+
+- **要复制的源部分：** 标题为"路由策略"的部分。
+- **目标文件：** `docs/front-end-routing-strategy.md`
+
+- **要复制的源部分：** 标题为"前端测试策略"的部分。
+- **目标文件：** `docs/front-end-testing-strategy.md`
+
+---
+
+重要：**索引管理：** 创建文件后，根据需要更新`docs/index.md`以引用和描述每个文档 - 不要提及粒度或分片来源，只提及文档目的 - 因为索引也可能包含其他文档引用。

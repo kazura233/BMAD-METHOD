@@ -1,56 +1,58 @@
-# Story Definition of Done (DoD) Checklist
+# 故事完成定义（DoD）清单
 
-## Instructions for Developer Agent:
+## 开发者代理说明：
 
-Before marking a story as 'Review', please go through each item in this checklist. Report the status of each item (e.g., [x] Done, [ ] Not Done, [N/A] Not Applicable) and provide brief comments if necessary.
+在将故事标记为"审查"之前，请仔细检查此清单中的每个项目。报告每个项目的状态（例如，[x] 已完成，[ ] 未完成，[N/A] 不适用），并在必要时提供简短评论。
 
-## Checklist Items:
+## 清单项目：
 
-1.  **Requirements Met:**
+1. **需求满足：**
 
-    - [ ] All functional requirements specified in the story are implemented.
-    - [ ] All acceptance criteria defined in the story are met.
+   - [ ] 故事中指定的所有功能需求都已实现。
+   - [ ] 故事中定义的所有验收标准都已满足。
 
-2.  **Coding Standards & Project Structure:**
+2. **编码标准和项目结构：**
 
-    - [ ] All new/modified code strictly adheres to `Operational Guidelines`.
-    - [ ] All new/modified code aligns with `Project Structure` (file locations, naming, etc.).
-    - [ ] Adherence to `Tech Stack` for technologies/versions used (if story introduces or modifies tech usage).
-    - [ ] Adherence to `Api Reference` and `Data Models` (if story involves API or data model changes).
-    - [ ] Basic security best practices (e.g., input validation, proper error handling, no hardcoded secrets) applied for new/modified code.
-    - [ ] No new linter errors or warnings introduced.
-    - [ ] Code is well-commented where necessary (clarifying complex logic, not obvious statements).
+   - [ ] 所有新增/修改的代码严格遵循`操作指南`。
+   - [ ] 所有新增/修改的代码符合`项目结构`（文件位置、命名等）。
+   - [ ] 遵循`技术栈`中指定的技术/版本（如果故事引入或修改了技术使用）。
+   - [ ] 遵循`API 参考`和`数据模型`（如果故事涉及 API 或数据模型变更）。
+   - [ ] 对新增/修改的代码应用基本安全最佳实践（例如，输入验证、适当的错误处理、无硬编码密钥）。
+   - [ ] 没有引入新的 linter 错误或警告。
+   - [ ] 代码在必要时有良好的注释（澄清复杂逻辑，非显而易见的语句）。
 
-3.  **Testing:**
+3. **测试：**
 
-    - [ ] All required unit tests as per the story and `Operational Guidelines` Testing Strategy are implemented.
-    - [ ] All required integration tests (if applicable) as per the story and `Operational Guidelines` Testing Strategy are implemented.
-    - [ ] All tests (unit, integration, E2E if applicable) pass successfully.
-    - [ ] Test coverage meets project standards (if defined).
+   - [ ] 已实现故事和`操作指南`测试策略要求的所有单元测试。
+   - [ ] 已实现故事和`操作指南`测试策略要求的所有集成测试（如适用）。
+   - [ ] 所有测试（单元、集成、端到端如适用）都成功通过。
+   - [ ] 测试覆盖率符合项目标准（如已定义）。
 
-4.  **Functionality & Verification:**
+4. **功能和验证：**
 
-    - [ ] Functionality has been manually verified by the developer (e.g., running the app locally, checking UI, testing API endpoints).
-    - [ ] Edge cases and potential error conditions considered and handled gracefully.
+   - [ ] 开发者已手动验证功能（例如，本地运行应用、检查 UI、测试 API 端点）。
+   - [ ] 已考虑并优雅处理边缘情况和潜在错误条件。
 
-5.  **Story Administration:**
-    - [ ] All tasks within the story file are marked as complete.
-    - [ ] Any clarifications or decisions made during development are documented in the story file or linked appropriately.
-    - [ ] The story wrap up section has been completed with notes of changes or information relevant to the next story or overall project, the agent model that was primarily used during development, and the changelog of any changes is properly updated.
-6.  **Dependencies, Build & Configuration:**
+5. **故事管理：**
 
-    - [ ] Project builds successfully without errors.
-    - [ ] Project linting passes
-    - [ ] Any new dependencies added were either pre-approved in the story requirements OR explicitly approved by the user during development (approval documented in story file).
-    - [ ] If new dependencies were added, they are recorded in the appropriate project files (e.g., `package.json`, `requirements.txt`) with justification.
-    - [ ] No known security vulnerabilities introduced by newly added and approved dependencies.
-    - [ ] If new environment variables or configurations were introduced by the story, they are documented and handled securely.
+   - [ ] 故事文件中的所有任务都已标记为完成。
+   - [ ] 开发过程中做出的任何澄清或决定都已记录在故事文件中或适当链接。
+   - [ ] 已完成故事总结部分，包含对下一个故事或整个项目相关的变更或信息说明，开发过程中主要使用的代理模型，以及正确更新的变更日志。
 
-7.  **Documentation (If Applicable):**
-    - [ ] Relevant inline code documentation (e.g., JSDoc, TSDoc, Python docstrings) for new public APIs or complex logic is complete.
-    - [ ] User-facing documentation updated, if changes impact users.
-    - [ ] Technical documentation (e.g., READMEs, system diagrams) updated if significant architectural changes were made.
+6. **依赖、构建和配置：**
 
-## Final Confirmation:
+   - [ ] 项目成功构建，无错误。
+   - [ ] 项目代码检查通过。
+   - [ ] 任何新增的依赖项要么在故事需求中预先批准，要么在开发过程中得到用户的明确批准（批准记录在故事文件中）。
+   - [ ] 如果添加了新依赖项，它们已记录在适当的项目文件中（例如，`package.json`、`requirements.txt`），并附有理由说明。
+   - [ ] 新增和批准的依赖项没有引入已知的安全漏洞。
+   - [ ] 如果故事引入了新的环境变量或配置，它们已得到安全记录和处理。
 
-- [ ] I, the Developer Agent, confirm that all applicable items above have been addressed.
+7. **文档（如适用）：**
+   - [ ] 新公共 API 或复杂逻辑的相关内联代码文档（例如，JSDoc、TSDoc、Python 文档字符串）已完成。
+   - [ ] 如果变更影响用户，已更新面向用户的文档。
+   - [ ] 如果进行了重大架构变更，已更新技术文档（例如，README、系统图）。
+
+## 最终确认：
+
+- [ ] 我，开发者代理，确认已处理上述所有适用项目。

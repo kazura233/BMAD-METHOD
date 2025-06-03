@@ -1,58 +1,58 @@
-# Create AI Frontend Prompt Task
+# 创建 AI 前端提示任务
 
-## Purpose
+## 目的
 
-To generate a masterful, comprehensive, and optimized prompt that can be used with AI-driven frontend development tools (e.g., Lovable, Vercel v0, or similar) to scaffold or generate significant portions of the frontend application.
+生成一个专业的、全面的、优化的提示，可用于 AI 驱动的前端开发工具（例如，Lovable、Vercel v0 或类似工具）来搭建或生成前端应用程序的重要部分。
 
-## Inputs
+## 输入
 
-- Completed UI/UX Specification (`front-end-spec-tmpl`)
-- Completed Frontend Architecture Document (`front-end-architecture`)
-- Main System Architecture Document (`architecture` - for API contracts and tech stack)
-- Primary Design Files (Figma, Sketch, etc. - for visual context if the tool can accept it or if descriptions are needed)
+- 完整的 UI/UX 规范（`front-end-spec-tmpl`）
+- 完整的前端架构文档（`front-end-architecture`）
+- 主系统架构文档（`architecture` - 用于 API 合同和技术栈）
+- 主要设计文件（Figma、Sketch 等 - 如果工具可以接受或需要描述，则用于视觉上下文）
 
-## Key Activities & Instructions
+## 关键活动和说明
 
-1.  **Confirm Target AI Generation Platform:**
+1. **确认目标 AI 生成平台：**
 
-    - Ask the user to specify which AI frontend generation tool/platform they intend to use (e.g., "Lovable.ai", "Vercel v0", "GPT-4 with direct code generation instructions", etc.).
-    - Explain that prompt optimization might differ slightly based on the platform's capabilities and preferred input format.
+   - 询问用户他们打算使用哪个 AI 前端生成工具/平台（例如，"Lovable.ai"、"Vercel v0"、"GPT-4 直接代码生成指令"等）。
+   - 解释提示优化可能会根据平台的功能和首选输入格式略有不同。
 
-2.  **Synthesize Inputs into a Structured Prompt:**
+2. **将输入综合为结构化提示：**
 
-    - **Overall Project Context:**
-      - Briefly state the project's purpose (from brief/PRD).
-      - Specify the chosen frontend framework, core libraries, and UI component library (from `front-end-architecture` and main `architecture`).
-      - Mention the styling approach (e.g., Tailwind CSS, CSS Modules).
-    - **Design System & Visuals:**
-      - Reference the primary design files (e.g., Figma link).
-      - If the tool doesn't directly ingest design files, describe the overall visual style, color palette, typography, and key branding elements (from `front-end-spec-tmpl`).
-      - List any global UI components or design tokens that should be defined or adhered to.
-    - **Application Structure & Routing:**
-      - Describe the main pages/views and their routes (from `front-end-architecture` - Routing Strategy).
-      - Outline the navigation structure (from `front-end-spec-tmpl`).
-    - **Key User Flows & Page-Level Interactions:**
-      - For a few critical user flows (from `front-end-spec-tmpl`):
-        - Describe the sequence of user actions and expected UI changes on each relevant page.
-        - Specify API calls to be made (referencing API endpoints from the main `architecture`) and how data should be displayed or used.
-    - **Component Generation Instructions (Iterative or Key Components):**
-      - Based on the chosen AI tool's capabilities, decide on a strategy:
-        - **Option 1 (Scaffolding):** Prompt for the generation of main page structures, layouts, and placeholders for components.
-        - **Option 2 (Key Component Generation):** Select a few critical or complex components from the `front-end-architecture` (Component Breakdown) and provide detailed specifications for them (props, state, basic behavior, key UI elements).
-        - **Option 3 (Holistic, if tool supports):** Attempt to describe the entire application structure and key components more broadly.
-      - <important_note>Advise the user that generating an entire complex application perfectly in one go is rare. Iterative prompting or focusing on sections/key components is often more effective.</important_note>
-    - **State Management (High-Level Pointers):**
-      - Mention the chosen state management solution (e.g., "Use Redux Toolkit").
-      - For key pieces of data, indicate if they should be managed in global state.
-    - **API Integration Points:**
-      - For pages/components that fetch or submit data, clearly state the relevant API endpoints (from `architecture`) and the expected data shapes (can reference schemas in `data-models` or `api-reference` sections of the architecture doc).
-    - **Critical "Don'ts" or Constraints:**
-      - e.g., "Do not use deprecated libraries." "Ensure all forms have basic client-side validation."
-    - **Platform-Specific Optimizations:**
-      - If the chosen AI tool has known best practices for prompting (e.g., specific keywords, structure, level of detail), incorporate them. (This might require the agent to have some general knowledge or to ask the user if they know any such specific prompt modifiers for their chosen tool).
+   - **整体项目上下文：**
+     - 简要说明项目目的（来自简报/PRD）。
+     - 指定选择的前端框架、核心库和 UI 组件库（来自 `front-end-architecture` 和主 `architecture`）。
+     - 提及样式方法（例如，Tailwind CSS、CSS Modules）。
+   - **设计系统和视觉效果：**
+     - 引用主要设计文件（例如，Figma 链接）。
+     - 如果工具不能直接接收设计文件，描述整体视觉风格、调色板、排版和关键品牌元素（来自 `front-end-spec-tmpl`）。
+     - 列出应该定义或遵循的任何全局 UI 组件或设计令牌。
+   - **应用程序结构和路由：**
+     - 描述主要页面/视图及其路由（来自 `front-end-architecture` - 路由策略）。
+     - 概述导航结构（来自 `front-end-spec-tmpl`）。
+   - **关键用户流程和页面级交互：**
+     - 对于几个关键用户流程（来自 `front-end-spec-tmpl`）：
+       - 描述每个相关页面上用户操作序列和预期的 UI 变化。
+       - 指定要进行的 API 调用（引用主 `architecture` 中的 API 端点）以及数据应如何显示或使用。
+   - **组件生成指令（迭代或关键组件）：**
+     - 基于所选 AI 工具的功能，决定策略：
+       - **选项 1（搭建）：** 提示生成主页面结构、布局和组件占位符。
+       - **选项 2（关键组件生成）：** 从 `front-end-architecture`（组件分解）中选择几个关键或复杂组件，并提供其详细规范（属性、状态、基本行为、关键 UI 元素）。
+       - **选项 3（整体，如果工具支持）：** 尝试更广泛地描述整个应用程序结构和关键组件。
+     - <important_note>建议用户一次性完美生成整个复杂应用程序是罕见的。迭代提示或专注于部分/关键组件通常更有效。</important_note>
+   - **状态管理（高级指针）：**
+     - 提及选择的状态管理解决方案（例如，"使用 Redux Toolkit"）。
+     - 对于关键数据，指示是否应该在全局状态中管理。
+   - **API 集成点：**
+     - 对于获取或提交数据的页面/组件，明确说明相关 API 端点（来自 `architecture`）和预期的数据形状（可以引用架构文档中 `data-models` 或 `api-reference` 部分的模式）。
+   - **关键的"不要"或约束：**
+     - 例如，"不要使用已弃用的库。" "确保所有表单都有基本的客户端验证。"
+   - **平台特定优化：**
+     - 如果所选 AI 工具有已知的提示最佳实践（例如，特定关键词、结构、详细程度），则纳入这些实践。（这可能要求代理具有一些一般知识或询问用户是否知道其所选工具的任何此类特定提示修饰符）。
 
-3.  **Present and Refine the Master Prompt:**
-    - Output the generated prompt in a clear, copy-pasteable format (e.g., a large code block).
-    - Explain the structure of the prompt and why certain information was included.
-    - Work with the user to refine the prompt based on their knowledge of the target AI tool and any specific nuances they want to emphasize.
-    - <important_note>Remind the user that the generated code from the AI tool will likely require review, testing, and further refinement by developers.</important_note>
+3. **展示和完善主提示：**
+   - 以清晰的、可复制粘贴的格式（例如，大型代码块）输出生成的提示。
+   - 解释提示的结构以及为什么包含某些信息。
+   - 与用户合作，根据他们对目标 AI 工具的了解以及他们想要强调的任何特定细微差别来完善提示。
+   - <important_note>提醒用户，来自 AI 工具的生成代码可能需要开发人员审查、测试和进一步完善。</important_note>

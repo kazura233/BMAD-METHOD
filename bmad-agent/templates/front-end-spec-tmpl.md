@@ -1,84 +1,84 @@
-# {Project Name} UI/UX Specification
+# {项目名称} UI/UX 规范
 
-## Introduction
+## 介绍
 
-{State the purpose - to define the user experience goals, information architecture, user flows, and visual design specifications for the project's user interface.}
+{说明目的 - 定义项目的用户体验目标、信息架构、用户流程和视觉设计规范。}
 
-- **Link to Primary Design Files:** {e.g., Figma, Sketch, Adobe XD URL}
-- **Link to Deployed Storybook / Design System:** {URL, if applicable}
+- **主要设计文件链接：** {例如，Figma、Sketch、Adobe XD URL}
+- **已部署的 Storybook / 设计系统链接：** {URL，如果适用}
 
-## Overall UX Goals & Principles
+## 整体 UX 目标与原则
 
-- **Target User Personas:** {Reference personas or briefly describe key user types and their goals.}
-- **Usability Goals:** {e.g., Ease of learning, efficiency of use, error prevention.}
-- **Design Principles:** {List 3-5 core principles guiding the UI/UX design - e.g., "Clarity over cleverness", "Consistency", "Provide feedback".}
+- **目标用户角色：** {引用角色或简要描述关键用户类型及其目标。}
+- **可用性目标：** {例如，易于学习、使用效率、错误预防。}
+- **设计原则：** {列出 3-5 个指导 UI/UX 设计的核心原则 - 例如，"清晰胜于巧妙"、"一致性"、"提供反馈"。}
 
-## Information Architecture (IA)
+## 信息架构 (IA)
 
-- **Site Map / Screen Inventory:**
+- **站点地图 / 屏幕清单：**
   ```mermaid
   graph TD
-      A[Homepage] --> B(Dashboard);
-      A --> C{Settings};
-      B --> D[View Details];
-      C --> E[Profile Settings];
-      C --> F[Notification Settings];
+      A[首页] --> B(仪表板);
+      A --> C{设置};
+      B --> D[查看详情];
+      C --> E[个人资料设置];
+      C --> F[通知设置];
   ```
-  _(Or provide a list of all screens/pages)_
-- **Navigation Structure:** {Describe primary navigation (e.g., top bar, sidebar), secondary navigation, breadcrumbs, etc.}
+  _（或提供所有屏幕/页面的列表）_
+- **导航结构：** {描述主要导航（例如，顶部栏、侧边栏）、次要导航、面包屑等。}
 
-## User Flows
+## 用户流程
 
-{Detail key user tasks. Use diagrams or descriptions.}
+{详细说明关键用户任务。使用图表或描述。}
 
-### {User Flow Name, e.g., User Login}
+### {用户流程名称，例如，用户登录}
 
-- **Goal:** {What the user wants to achieve.}
-- **Steps / Diagram:**
+- **目标：** {用户想要实现的目标。}
+- **步骤 / 图表：**
   ```mermaid
   graph TD
-      Start --> EnterCredentials[Enter Email/Password];
-      EnterCredentials --> ClickLogin[Click Login Button];
-      ClickLogin --> CheckAuth{Auth OK?};
-      CheckAuth -- Yes --> Dashboard;
-      CheckAuth -- No --> ShowError[Show Error Message];
+      Start --> EnterCredentials[输入邮箱/密码];
+      EnterCredentials --> ClickLogin[点击登录按钮];
+      ClickLogin --> CheckAuth{认证通过?};
+      CheckAuth -- 是 --> Dashboard;
+      CheckAuth -- 否 --> ShowError[显示错误信息];
       ShowError --> EnterCredentials;
   ```
-  _(Or: Link to specific flow diagram in Figma/Miro)_
+  _（或：链接到 Figma/Miro 中的特定流程图表）_
 
-### {Another User Flow Name}
+### {另一个用户流程名称}
 
 {...}
 
-## Wireframes & Mockups
+## 线框图与原型
 
-{Reference the main design file link above. Optionally embed key mockups or describe main screen layouts.}
+{参考上面的主要设计文件链接。可选地嵌入关键原型或描述主要屏幕布局。}
 
-- **Screen / View Name 1:** {Description of layout and key elements. Link to specific Figma frame/page.}
-- **Screen / View Name 2:** {...}
+- **屏幕 / 视图名称 1：** {布局和关键元素的描述。链接到特定的 Figma 框架/页面。}
+- **屏幕 / 视图名称 2：** {...}
 
-## Component Library / Design System Reference
+## 组件库 / 设计系统参考
 
-## Branding & Style Guide Reference
+## 品牌与风格指南参考
 
-{Link to the primary source or define key elements here.}
+{链接到主要来源或在此定义关键元素。}
 
-- **Color Palette:** {Primary, Secondary, Accent, Feedback colors (hex codes).}
-- **Typography:** {Font families, sizes, weights for headings, body, etc.}
-- **Iconography:** {Link to icon set, usage notes.}
-- **Spacing & Grid:** {Define margins, padding, grid system rules.}
+- **调色板：** {主要、次要、强调、反馈颜色（十六进制代码）。}
+- **排版：** {标题、正文等的字体系列、大小、粗细。}
+- **图标：** {图标集链接，使用说明。}
+- **间距与网格：** {定义边距、内边距、网格系统规则。}
 
-## Accessibility (AX) Requirements
+## 可访问性 (AX) 要求
 
-- **Target Compliance:** {e.g., WCAG 2.1 AA}
-- **Specific Requirements:** {Keyboard navigation patterns, ARIA landmarks/attributes for complex components, color contrast minimums.}
+- **目标合规性：** {例如，WCAG 2.1 AA}
+- **具体要求：** {复杂组件的键盘导航模式、ARIA 地标/属性、最小颜色对比度。}
 
-## Responsiveness
+## 响应式设计
 
-- **Breakpoints:** {Define pixel values for mobile, tablet, desktop, etc.}
-- **Adaptation Strategy:** {Describe how layout and components adapt across breakpoints. Reference designs.}
+- **断点：** {定义移动端、平板、桌面等的像素值。}
+- **适配策略：** {描述布局和组件如何适应不同断点。参考设计。}
 
-## Change Log
+## 变更日志
 
-| Change        | Date       | Version | Description         | Author         |
-| ------------- | ---------- | ------- | ------------------- | -------------- |
+| 变更 | 日期 | 版本 | 描述 | 作者 |
+| ---- | ---- | ---- | ---- | ---- |

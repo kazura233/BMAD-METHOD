@@ -1,51 +1,51 @@
-# Project Brief: {Project Name}
+# 项目简介：{项目名称}
 
-## Introduction / Problem Statement
+## 介绍 / 问题陈述
 
-{Describe the core idea, the problem being solved, or the opportunity being addressed. Why is this project needed?}
+{描述核心想法、正在解决的问题或正在把握的机会。为什么需要这个项目？}
 
-## Vision & Goals
+## 愿景与目标
 
-- **Vision:** {Describe the high-level desired future state or impact of this project.}
-- **Primary Goals:** {List 2-5 specific, measurable, achievable, relevant, time-bound (SMART) goals for the Minimum Viable Product (MVP).}
-  - Goal 1: ...
-  - Goal 2: ...
-- **Success Metrics (Initial Ideas):** {How will we measure if the project/MVP is successful? List potential KPIs.}
+- **愿景：** {描述项目期望的未来状态或影响。}
+- **主要目标：** {列出 2-5 个具体的、可衡量的、可实现的、相关的、有时限的（SMART）最小可行产品（MVP）目标。}
+  - 目标 1：...
+  - 目标 2：...
+- **成功指标（初步想法）：** {如何衡量项目/MVP 是否成功？列出潜在的 KPI。}
 
-## Target Audience / Users
+## 目标受众 / 用户
 
-{Describe the primary users of this product/system. Who are they? What are their key characteristics or needs relevant to this project?}
+{描述产品/系统的主要用户。他们是谁？与该项目相关的关键特征或需求是什么？}
 
-## Key Features / Scope (High-Level Ideas for MVP)
+## 关键功能 / 范围（MVP 的高级想法）
 
-{List the core functionalities or features envisioned for the MVP. Keep this high-level; details will go in the PRD/Epics.}
+{列出为 MVP 规划的核心功能或特性。保持高级别描述；细节将在 PRD/史诗中体现。}
 
-- Feature Idea 1: ...
-- Feature Idea 2: ...
-- Feature Idea N: ...
+- 功能想法 1：...
+- 功能想法 2：...
+- 功能想法 N：...
 
-## Post MVP Features / Scope and Ideas
+## MVP 后功能 / 范围和想法
 
-{List the core functionalities or features envisioned as potential for POST MVP. Keep this high-level; details will go in the PRD/Epics/Architecture.}
+{列出为 MVP 后规划的核心功能或特性。保持高级别描述；细节将在 PRD/史诗/架构中体现。}
 
-- Feature Idea 1: ...
-- Feature Idea 2: ...
-- Feature Idea N: ...
+- 功能想法 1：...
+- 功能想法 2：...
+- 功能想法 N：...
 
-## Known Technical Constraints or Preferences
+## 已知技术约束或偏好
 
-- **Constraints:** {List any known limitations and technical mandates or preferences - e.g., budget, timeline, specific technology mandates, required integrations, compliance needs.}
-- **Initial Architectural Preferences (if any):** {Capture any early thoughts or strong preferences regarding repository structure (e.g., monorepo, polyrepo) and overall service architecture (e.g., monolith, microservices, serverless components). This is not a final decision point but for initial awareness.}
-- **Risks:** {Identify potential risks - e.g., technical challenges, resource availability, market acceptance, dependencies.}
-- **User Preferences:** {Any specific requests from the user that are not a high level feature that could direct technology or library choices, or anything else that came up in the brainstorming or drafting of the PRD that is not included in prior document sections}
+- **约束：** {列出任何已知的限制和技术要求或偏好 - 例如，预算、时间线、特定技术要求、必要的集成、合规需求。}
+- **初始架构偏好（如果有）：** {记录关于仓库结构（例如，monorepo、polyrepo）和整体服务架构（例如，单体、微服务、无服务器组件）的任何早期想法或强烈偏好。这不是最终决策点，而是为了初步了解。}
+- **风险：** {识别潜在风险 - 例如，技术挑战、资源可用性、市场接受度、依赖关系。}
+- **用户偏好：** {用户提出的任何特定要求，这些要求不是可能影响技术或库选择的高级功能，或在 PRD 的头脑风暴或起草过程中出现的任何其他内容，这些内容未包含在之前的文档部分中}
 
-## Relevant Research (Optional)
+## 相关研究（可选）
 
-{Link to or summarize findings from any initial research conducted (e.g., `deep-research-report-BA.md`).}
+{链接或总结任何初步研究的发现（例如，`deep-research-report-BA.md`）。}
 
-## PM Prompt
+## PM 提示
 
-This Project Brief provides the full context for {Project Name}. Please start in 'PRD Generation Mode', review the brief thoroughly to work with the user to create the PRD section by section 1 at a time, asking for any necessary clarification or suggesting improvements as your mode 1 programming allows.
+此项目简介提供了 {项目名称} 的完整上下文。请以"PRD 生成模式"开始，仔细审查简介，与用户一起逐个部分创建 PRD，根据需要请求澄清或根据您的模式 1 编程能力提出改进建议。
 
 <example_handoff_prompt>
-This Project Brief provides the full context for Mealmate. Please start in 'PRD Generation Mode', review the brief thoroughly to work with the user to create the PRD section by section 1 at a time, asking for any necessary clarification or suggesting improvements as your mode 1 programming allows.</example_handoff_prompt>
+此项目简介提供了 Mealmate 的完整上下文。请以"PRD 生成模式"开始，仔细审查简介，与用户一起逐个部分创建 PRD，根据需要请求澄清或根据您的模式 1 编程能力提出改进建议。</example_handoff_prompt>
